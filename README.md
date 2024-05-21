@@ -9,7 +9,7 @@ ProtCon is sequence files converter. Able to convert both single files and batch
 - EMBL
 
 # Interface
-protcon 
+protcon\n 
 -i input_file/folder 
 -o output_file 
 --outdir output_folder      (to create new folder and save output there) 
