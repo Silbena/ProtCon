@@ -7,4 +7,5 @@ ProtCon is sequence files converter. Able to convert both single files and batch
 - FASTA
 - GenBank
 - EMBL
-- 
+
+# 
