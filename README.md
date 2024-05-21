@@ -13,5 +13,5 @@ protcon\
 -i input_file/folder\
 -o output_file\
 --outdir output_folder      (to create new folder and save output there)\
---format(-f) format\        
+--format(-f) format\
 --exclude file              (only for folder input)\
