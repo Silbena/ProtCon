@@ -1,0 +1,12 @@
+*
+
+!LICENSE
+!README.md
+
+!.gitignore
+!input/
+!converters_app/converters/*.py
+!converters_app/protcon.py
+!converters_app/requirements.txt
+
+!*/
