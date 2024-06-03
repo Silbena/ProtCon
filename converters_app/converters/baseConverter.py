@@ -28,4 +28,7 @@ class ConverterContext:
 
     def log_warning(self, msg : str):
         self.warnings.append(LogEntry(self.current_line, msg))
+
+    def write(self, line : str):
+        self.output.write(line)
     

@@ -1,4 +1,3 @@
-import io
 from converters.baseConverter import ConverterContext
 
 class CsvToTsv:
@@ -14,7 +13,7 @@ class CsvToTsv:
             if 'warn' in line:
                 ctx.log_warning('example warning')
 
-            ctx.output.write(line.replace(',', '\t'))
+            ctx.write(line.replace(',', '\t'))
 
 
 class TsvToCsv:
@@ -30,4 +29,4 @@ class TsvToCsv:
             if 'warn' in line:
                 ctx.log_warning('example warning')
 
-            ctx.output.write(line.replace('\t', ','))
+            ctx.write(line.replace('\t', ','))
