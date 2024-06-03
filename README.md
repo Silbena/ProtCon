@@ -9,7 +9,7 @@ Able to convert both single files and batches of diverse sequence files.
 - EMBL
 
 # Interface
-```python
+```bash
 protcon
 -i input_file/folder
 -o output_file
