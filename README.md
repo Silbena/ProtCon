@@ -10,8 +10,7 @@ ProtCon is a protein sequence files batch converter. Able to convert both single
 ```bash
 protcon
 -i input_file/folder
--o output_file
---outdir output_folder # to create new folder and save output there
---format(-f) format
---exclude file         # only for folder input
+-o output_file/folder     # to create new folder and save output there
+--format .extension       # output extension
+--exclude pattern         # only for folder input
 ```
