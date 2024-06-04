@@ -6,6 +6,7 @@ class GbToEmbl:
 
     def convert(self, ctx : ConverterContext):
         for line in ctx:
+            pass
 
 
 class EmblToGb:
@@ -14,3 +15,5 @@ class EmblToGb:
 
     def convert(self, ctx : ConverterContext):
         for line in ctx:
+            pass
+        
