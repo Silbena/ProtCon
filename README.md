@@ -6,7 +6,7 @@ ProtCon is a protein sequence files batch converter. Able to convert both single
 - GenBank
 - EMBL
 
-# Interface
+# Usage
 ```bash
 protcon
 -i input_file/folder
