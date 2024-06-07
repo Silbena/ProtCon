@@ -5,13 +5,13 @@ class GbToEmbl:
     OUT_EXTENSION = '.embl'
 
     # additional function to convert locus lines 
-    def locus_converter(locus):
+    def locus_converter(locus: str) -> str:
         l = locus.split()
         out = f"ID   {l[0]}; {l[4]}; {l[5]}; {l[1]} BP."
         return f'{out}\nXX\n'
 
     # additional function to convert definition lines 
-    def definition_converter(definition):
+    def definition_converter(definition: str) -> str:
         out = ''
         d = definition.split('\n')
         for el in range(len(d)):
@@ -19,11 +19,11 @@ class GbToEmbl:
         return f'{out}XX\n'
 
     # additional function to convert accesion lines 
-    def accesion_converter(accesion):
+    def accesion_converter(accesion: str) -> str:
         return f'AC   {accesion.strip()};\nXX\n'
 
     # additional function to convert organism lines 
-    def organism_converter(organism):
+    def organism_converter(organism: str) -> str:
         out = ''
         o = organism.split("\n")
         for el in o:
@@ -31,14 +31,14 @@ class GbToEmbl:
         return f'{out}XX\n'
 
     # additional function to convert source lines 
-    def source_converter(source):
+    def source_converter(source: str) -> str:
         out = ''
         r = source.split('REFERENCE')   # split to have list of references
         for ref in r[1:]:       
             reference_list = []
 
             # find information about reference, authors, tittle and journal
-            reference = ref.split("AUTHORS")[0].strip().split()     
+            reference = ref.split("AUTHORS")[0].strip().split()                 # What's the purpose of the last split()?   
             authors = ref.split("AUTHORS")[1].strip().split("TITLE")[0].strip()
             title = ref.split("TITLE")[1].strip().split("JOURNAL")[0].strip()
             journal = ref.split("JOURNAL")[1].strip()
@@ -53,11 +53,11 @@ class GbToEmbl:
                 # compose everything into one string
                 out += f'RN   [{reference[0][0].strip()}]\nRP   {reference[0][2].strip()}-{reference[0][4].strip().split(")")[0]}\n' \
                     f'RA   {reference[1].strip()};\n{rt_string}\n' \
-                    f'{rl_string}\nXX\n'
+                    f'{rl_string}\nXX\n'                                         # Simplify?
         return out
 
     # additional function to convert features lines
-    def features_converter(features):
+    def features_converter(features: str) -> str:
         f = features.split('\n')        # split for every new line
         out = 'FH   Key             Location/Qualifiers\nFH\n'
         for line in f[1:]:
@@ -74,7 +74,7 @@ class GbToEmbl:
         return out +'XX\n'
 
     # additional function to convert origin lines
-    def origin_converter(origin):
+    def origin_converter(origin) -> str:
         bp_dict = {"A": 0, "C": 0, "G": 0, "T": 0}      # creating the bases dictionary
         last_num = 0
         w = ''
@@ -116,16 +116,20 @@ class GbToEmbl:
         # f = ''.join(ctx)
         # output = []
 
-        with open('assistant_file.txt', 'w') as file:
+        with open('assistant_file.txt', 'w') as file:                       # To be discared
             for line in ctx:
                 file.write(line)
         
-        with open('assistant_file.txt', 'r') as file:
+        with open('assistant_file.txt', 'r') as file:                       # To be discared
             f = file.read()
             output = []
 
+        # You can iterate over ctx just like you did above.
+        # There is no need to make any assistant file, but I understand it is just for testing.
+        # Consider using startswith(), which may simplify the code below and make your life much easier.
+
         # splitting the parts
-            locus = f.split("LOCUS")[1].strip().split("DEFINITION")[0].strip()
+            locus = f.split("LOCUS")[1].strip().split("DEFINITION")[0].strip()      
             definition = f.split("DEFINITION")[1].strip().split("ACCESSION")[0].strip()
             accesion = f.split("ACCESSION")[1].strip().split("VERSION")[0].strip()
             organism = f.split("ORGANISM")[1].strip().split("REFERENCE")[0].strip()
@@ -144,7 +148,8 @@ class GbToEmbl:
 
         # writing the content of the list in the output
         for part in output:
-            ConverterContext.write(part)
+            ctx.write(part)   # Not shure, if that's what intended,
+                              # but it will write each element of the "output" list as a line of ctx.
 
 
 
