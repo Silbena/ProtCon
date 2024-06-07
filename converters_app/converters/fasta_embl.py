@@ -10,7 +10,7 @@ class EmblToFasta:
         """
         accession, version, mol_type, description, organism_name, nucleobases = self.extract_data(ctx)
         fasta_output = self.format_fasta(accession, version, mol_type, description, organism_name, nucleobases)
-        ctx.write(fasta_output)
+        return fasta_output
 
     def extract_data(self, ctx: ConverterContext):
         """
@@ -99,7 +99,7 @@ class EmblToFasta:
         sequence_stats = self.calculate_sequence_stats(sequence)
         formatted_sequence = self.format_sequence(sequence)
         embl_output = self.format_embl_output(header, sequence, length, sequence_stats, formatted_sequence)
-        ctx.write(embl_output)
+        return embl_output
 
     def extract_fasta_data(self, ctx: ConverterContext):
         """
