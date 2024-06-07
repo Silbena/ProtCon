@@ -1,5 +1,5 @@
 # ProtCon
-ProtCon is a protein sequence files batch converter. Able to convert both single files and batches of diverse sequence files.
+SeCon is a nucleic acid sequence files batch converter. Able to convert both single files and batches of diverse sequence files.
 
 # Supported formats
 - FASTA
