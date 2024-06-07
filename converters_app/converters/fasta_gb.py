@@ -1,11 +1,14 @@
 from converters.baseConverter import ConverterContext
+import time
 
-### NIE WIEM CZY TO JEST DOBRZE NA RAZIE !!!!!!!!!!!!!!1
 class GbToFasta:
-    IN_EXTENSION = ''
-    OUT_EXTENSION = ''
+    IN_EXTENSION = 'gb'
+    OUT_EXTENSION = 'fasta'
 
-    def extract_protein_sequence(self, entry_lines):
+    def extract_nucleotide_sequence(self, entry_lines):
+        """
+        Extracts nucleotide sequence from GenBank entry lines.
+        """
         sequence = ""
         reading = False
         for line in entry_lines:
@@ -15,12 +18,16 @@ class GbToFasta:
             elif line.startswith('//'):
                 break
             if reading:
-                for part in line:
-                    if len(part) > 0 and part[0].isalpha():
-                        sequence += part
-        return sequence.replace("\n", '').upper()
+                for part in line.split():
+                    if part.isdigit():
+                        continue
+                    sequence += part
+        return sequence.upper()
 
     def find_id(self, entry_lines, identifier_type):
+        """
+        Finds the identifier (accession or locus) in the GenBank entry lines.
+        """
         for line in entry_lines.split("\n"):
             if identifier_type == "accession" and line.startswith("ACCESSION"):
                 return line.split()[1]
@@ -29,35 +36,30 @@ class GbToFasta:
         return None
 
     def find_organism(self, entry_lines):
+        """
+        Finds the organism name in the GenBank entry lines.
+        """
         for line in entry_lines.split("\n"):
             if line.strip().startswith("ORGANISM"):
                 return ' '.join(line.split()[1:])
         return "Unknown"
 
-    def convert(self, ctx: ConverterContext, identifier_type: str):
-        genbank_file = ctx.input.read()
-        entry_lines = genbank_file.split("//\n")
-        for line in entry_lines:
-            if not line.strip():
+    def convert(self, ctx: ConverterContext):
+        """
+        Converts GenBank format to FASTA format.
+        """
+        genbank_file = ctx.input.read()  # Read the entire GenBank file
+        entry_lines = genbank_file.split("//\n")  # Split entries by "//"
+        for entry in entry_lines:
+            if not entry.strip():
                 continue
             try:
-                identifier = self.find_id(line, identifier_type)
-                organism = self.find_organism(line)
-                sequence = self.extract_protein_sequence(line.split('\n'))
-                ctx.write(f">{organism}-{identifier}\n{sequence}\n")
+                identifier = self.find_id(entry, "accession")
+                organism = self.find_organism(entry)
+                sequence = self.extract_nucleotide_sequence(entry.split('\n'))
+                ctx.write(f">{organism}-{identifier}\n{sequence}\n")  # Write to context in FASTA format
             except Exception as e:
                 ctx.log_error(f"Error processing entry: {e}")
-
-def convert_genbank_to_fasta(input_data: str, identifier_type: str, file_format: str) -> str:
-    input_stream = io.StringIO(input_data)
-    output_stream = io.StringIO()
-
-    ctx = ConverterContext(dst=output_stream, src=input_stream)
-    converter = GbToFasta()
-    converter.convert(ctx, identifier_type)
-
-    return output_stream.getvalue()
-
 
 class FastaToGb:
     IN_EXTENSION = 'fasta'
@@ -67,10 +69,13 @@ class FastaToGb:
         self.identifier_type = identifier_type
 
     def parse_fasta(self, ctx: ConverterContext):
+        """
+        Parses FASTA formatted data from the context.
+        """
         sequences = []
         header = None
         sequence = ""
-        for line in ctx:
+        for line in ctx.input:
             line = line.strip()
             if line.startswith(">"):
                 if header:
@@ -84,6 +89,9 @@ class FastaToGb:
         return sequences
 
     def generate_genbank(self, header, sequence):
+        """
+        Generates a GenBank formatted entry from FASTA header and sequence.
+        """
         id_parts = header.split('-')
         if self.identifier_type == "accession":
             identifier = id_parts[-1]
@@ -102,6 +110,7 @@ FEATURES             Location/Qualifiers
                      /mol_type="genomic DNA"
 ORIGIN      
 """
+        # Add the nucleotide sequence in GenBank format with line numbers
         for i in range(0, len(sequence), 60):
             chunk = sequence[i:i+60]
             chunk_str = ' '.join([chunk[j:j+10] for j in range(0, len(chunk), 10)])
@@ -110,20 +119,13 @@ ORIGIN
         return genbank_entry
 
     def convert(self, ctx: ConverterContext):
-        sequences = self.parse_fasta(ctx)
+        """
+        Converts FASTA format to GenBank format.
+        """
+        sequences = self.parse_fasta(ctx)  # Parse sequences from FASTA format
         for header, sequence in sequences:
             try:
                 genbank_entry = self.generate_genbank(header, sequence)
-                ctx.write(genbank_entry)
+                ctx.write(genbank_entry)  # Write to context in GenBank format
             except Exception as e:
                 ctx.log_error(f"Error processing entry: {e}")
-
-def convert_fasta_to_genbank(input_data: str, identifier_type: str, file_format: str) -> str:
-    input_stream = io.StringIO(input_data)
-    output_stream = io.StringIO()
-
-    ctx = ConverterContext(dst=output_stream, src=input_stream)
-    converter = FastaToGb(identifier_type)
-    converter.convert(ctx)
-
-    return output_stream.getvalue()
