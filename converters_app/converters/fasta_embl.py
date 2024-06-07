@@ -1,12 +1,88 @@
 from converters.baseConverter import ConverterContext
 
 class EmblToFasta:
-    IN_EXTENSION = ''
-    OUT_EXTENSION = ''
+    IN_EXTENSION = '.embl'
+    OUT_EXTENSION = '.fasta'
 
-    def convert(self, ctx : ConverterContext):
+    def convert(self, ctx: ConverterContext):
+        """
+        Convert an EMBL file to FASTA format.
+        """
+        accession, version, mol_type, description, organism_name, nucleobases = self.extract_data(ctx)
+        fasta_output = self.format_fasta(accession, version, mol_type, description, organism_name, nucleobases)
+        ctx.write(fasta_output)
+
+    def extract_data(self, ctx: ConverterContext):
+        """
+        Extract relevant data from EMBL file lines.
+        """
+        accession = ""
+        version = ""
+        mol_type = ""
+        description = ""
+        organism_name = ""
+        nucleobases = ""
+        in_sequence = False
+
         for line in ctx:
+            if line.startswith("AC"):
+                accession = self.extract_accession(line)
+            elif line.startswith("ID"):
+                version, mol_type = self.extract_version_and_mol_type(line)
+            elif line.startswith("DE"):
+                description = self.extract_description(line)
+            elif line.startswith("OS"):
+                organism_name = self.extract_organism_name(line)
+            elif line.startswith("SQ"):
+                in_sequence = True
+            elif in_sequence:
+                if line.startswith("//"):
+                    in_sequence = False
+                else:
+                    nucleobases += self.extract_nucleobases(line)
+        
+        return accession, version, mol_type, description, organism_name, nucleobases
 
+    def extract_accession(self, line):
+        """
+        Extract accession number from the line.
+        """
+        return line.strip().split()[1].rstrip(';')
+
+    def extract_version_and_mol_type(self, line):
+        """
+        Extract version and molecule type from the line.
+        """
+        parts = line.strip().split(";")
+        version = parts[1].strip().split()[1]
+        mol_type = parts[3].strip().rstrip(';')
+        return version, mol_type
+
+    def extract_description(self, line):
+        """
+        Extract description from the line and remove trailing dot if present.
+        """
+        return " ".join(line.strip().split()[1:]).rstrip('.')
+
+    def extract_organism_name(self, line):
+        """
+        Extract organism name from the line.
+        """
+        return " ".join(line.strip().split()[1:])
+
+    def extract_nucleobases(self, line):
+        """
+        Extract nucleobases from the sequence lines.
+        """
+        return ''.join([n for n in line if n.isalpha()]).upper()
+
+    def format_fasta(self, accession, version, mol_type, description, organism_name, nucleobases):
+        """
+        Format the extracted data into FASTA format.
+        """
+        header = f">{accession}.{version} | {description} | {organism_name} | {mol_type}\n"
+        sequence = "\n".join(nucleobases[i:i+60] for i in range(0, len(nucleobases), 60))
+        return header + sequence
 
 
 class FastaToEmbl:
