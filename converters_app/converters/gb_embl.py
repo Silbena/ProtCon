@@ -26,8 +26,9 @@ class GbToEmbl:
     def organism_converter(organism: str) -> str:
         out = ''
         o = organism.split("\n")
-        for el in o:
-            out += f"OS   {el.strip()}\n"
+        out += f"OS   {o[0].strip()}\n" # for the first line its 'OS' and for the other 'OC'
+        for el in o[1:]:
+            out += f"OC   {el.strip()}\n"
         return f'{out}XX\n'
 
     # additional function to convert source lines 
@@ -108,11 +109,7 @@ class GbToEmbl:
 
     # main function converting the file
     def convert(self, ctx : ConverterContext):    
-         
-        # dwa moliwe kody zeby miec zawartość pliku w f... na wypadek jeśli źle zrozumiałam działanie funkcji :) 
-        # mozna poprawić
-
-
+       
         # f = ''.join(ctx)
         # output = []
 
@@ -123,10 +120,6 @@ class GbToEmbl:
         with open('assistant_file.txt', 'r') as file:                       # To be discared
             f = file.read()
             output = []
-
-        # You can iterate over ctx just like you did above.
-        # There is no need to make any assistant file, but I understand it is just for testing.
-        # Consider using startswith(), which may simplify the code below and make your life much easier.
 
         # splitting the parts
             locus = f.split("LOCUS")[1].strip().split("DEFINITION")[0].strip()      
@@ -155,12 +148,169 @@ class GbToEmbl:
 
 
 
-
-
 class EmblToGb:
     IN_EXTENSION = '.embl'
     OUT_EXTENSION = '.gb'
 
+    # additional function to convert locus lines 
+    def locus_converter_embl(locus: str) -> str:
+        parts = locus.split(';')
+        return f"LOCUS       {parts[-1].split(' ')[1]}bp   {parts[3]}   {parts[2]}   {parts[5]}\n"
+
+    # additional function to convert definition lines 
+    def definition_converter_embl(definition: str) -> str:
+        lines = definition.split('\n')
+        out = "DEFINITION  "
+        for line in lines:          # for every line remove te 'DE' and connect the output string 
+            e = line.strip().split('DE')
+            out += "".join(el.strip() for el in e)
+        return f"{out}\n"
+
+    # additional function to convert accession line
+    def accession_converter_embl(accession: str) -> str:
+        return f"ACCESSION   {accession.strip().split('AC')[1].strip()}\nVERSION\n" # the version output is empty as we dont have information about the version in embl format
+
+    # additional function to convert keyword lines 
+    def keyword_converter_embl(keyword: str) -> str:
+        return f'KEYWORDS    {keyword.split("KW")[1].strip()}\n'    # keyword may also be empty, depending of the input
+
+    # additional function to convert organism lines 
+    def organism_converter_embl(organism: str) -> str:
+        lines = organism.split('\n')            # splitting the input by lines and converting it differently
+        out = f"SOURCE      {lines[1].split('OS')[1].strip()}\n" \
+            f"  ORGANISM  {lines[1].split('OS')[1].strip()}\n"
+        for line in lines[:]:       # removing the empty lines
+            if not line:
+                lines.remove(line)
+        for line in lines[1:]:      # ignoring the first part because its 'OS'
+            e = line.strip().split('OC')    # splitting by the line (it starts with 'OC')
+            for el in e:            # ignoring empty lines in output
+                if el != '':
+                    out += f"{' '*9}{el}\n"
+        return f"{out}"
+
+    # additional function to convert reference lines 
+    def reference_converter_embl(reference: str) -> str:
+        out = ""
+        is_pubmed = False
+
+        for ref in reference[:]:        # we splitid the lines by XX (which are lines between different references as well so we iterate over each reference)
+
+            # splitting specific lines containing different info (RN - number, RP - base count , RA - autor, RT - tittle, RL - citation)
+            rn_part = ref.split('RN')[1].strip().split('\n')[0] 
+            rp_part = ref.split('RP')[1].strip()
+
+            # the reference lines may contain pubmed information, but not always, so its necessary to check if there's a RX line witch said info
+            if 'RX' in rp_part:     # checking RP part because RX will be in next line
+                is_pubmed = True    
+
+                # if there is a pubmed info its necesary to split the RP part there and divide it into RP and pubmed info
+                rp_part = rp_part.split('RX')[0].strip()
+                p_part = ref.split('RX')[1].strip().split('RA')[0].strip().split(';')[1].split('.')[0].strip()
+
+                # If there's none pubmed info it splits the line on RA - author row (which is the next info)
+            elif 'RA' in rp_part:
+                rp_part = rp_part.split('RA')[0].strip()
+
+            # then it splits RA info
+            ra_part = ref.split('RA')[1].strip().split('RT')[0]
+
+            # title may be written in more than one line so it joins the parts (without 'RT' as long as it finds RL line which is the next info)
+            rt_parts = ref.split('RT')
+            combined_rt = []
+            for part in rt_parts[1:]:       # part 1 is 'RL'
+                if 'RL' not in part:
+                    combined_rt.append(part.strip())
+                else:
+                    combined_rt.append(part.split('RL')[0].strip().split(';')[0].strip())
+            rt_part = ' '.join(combined_rt)
+
+            # converting the RL line
+            rl_part = ref.split('RL')[1].strip().split('XX')[0]
+
+            # combaining the output for each reference
+            out += f"REFERENCE   {rn_part} (bases {rp_part.split('-')[0]} to {rp_part.split('-')[1].strip()})\n" \
+                f"  AUTHORS   {ra_part.split(';')[0]}\n"\
+                f"  TITLE     {rt_part}\n"\
+                f"  JOURNAL   {rl_part}\n"
+            if is_pubmed:       # if there is pubmed line it is added into the output
+                out += f"  PUBMED    {p_part}\n"
+            is_pubmed = False      # its changed to false because next reference may don't have a pubmed info
+        return f'{out}'
+
+    # additional function to convert features lines 
+    def features_converter_embl(features: str) -> str:
+        lines = features.split('\n')        # splitting info about feature by lines
+        out = "FEATURES             Location/Qualifiers\n"
+        for line in lines[:]:       # removing empty lines
+            if not line:
+                lines.remove(line)
+        for line in lines[2:]:      # first two lines are containgin unimportant info
+            if "/" in line:         # if line starts with '/' it means additional info, no need to split it 
+                parts = line
+            else:                   # in different scenario its different type of lines and in case there are some additional spaces in the feature information it need to have maxsplit condition
+                parts = line.split(maxsplit=2)
+            if len(parts) == 3:     # the len of the parts is 3 it means that there it is always a 'FT', feature name and some info 
+                f, key, value = parts
+                out += f'{" "*5}{key.ljust(16)}{value}\n'   # converted info
+            else:                   # in other scenario there are only additional info that starts with '/' or the end on protein sequences, in each case we only want to even the line, no need to convert it further
+                out += f'{" " * 21}{line[3:].strip()}\n'
+        return f"{out}"
+
+    # additional function to convert origin lines 
+    def origin_converter_embl(origin: str) -> str:
+        number = 1
+        out = f"ORIGIN\n"
+        seq_list = origin.split('\n')       # splitting info about origin by lines
+        out_list = []
+        for el in seq_list:                 # removing the empty parts
+            if not el:
+                seq_list.remove(el)
+        for o in seq_list[1:]:              # igniring first part as its 'SQ' and unimportant info
+            # line conversion by adding the number at the beggining, evening the sequence output and removing the number at the end of the line (the split has to be minimum two spaces as there is one space in between each sequence part)
+            out_list.append(f"{str(number).rjust(9)} {o.strip().split('  ')[0].strip()}\n")   # every line (number +sequence) is added to the list
+            number += 60               # every line has 60 bases
+        for seq in out_list[:-1]:      # every line appart from last (its only the number and '//') is added to the output string
+            out += seq
+        return f"{out}//"
+
+
+    # main function
     def convert(self, ctx : ConverterContext):
-        for line in ctx:
-            pass
+        
+        # f = ''.join(ctx)
+        # output = []
+
+        with open('assistant_file.txt', 'w') as file:                       # To be discared
+            for line in ctx:
+                file.write(line)
+        
+        with open('assistant_file.txt', 'r') as file:                       # To be discared
+            f = file.read()
+            output = []
+
+            # splitting the parts
+            elements = f.split('XX')
+
+            locus = elements[0]
+            definition = elements[2]
+            accession = elements[1]
+            keyword = elements[3]
+            organism = elements[4]
+            references = elements[5:-2]
+            features = elements[-2]
+            origin = elements[-1]
+
+            # adding converted parts to the list
+            output.append(self.locus_converter_embl(locus))
+            output.append(self.definition_converter_embl(definition))
+            output.append(self.accession_converter_embl(accession))
+            output.append(self.keyword_converter_embl(keyword))
+            output.append(self.organism_converter_embl(organism))
+            output.append(self.reference_converter_embl(references))
+            output.append(self.features_converter_embl(features))
+            output.append(self.origin_converter_embl(origin))
+
+            # writing the content of the list in the output
+            for part in output:
+                ctx.write(part)
