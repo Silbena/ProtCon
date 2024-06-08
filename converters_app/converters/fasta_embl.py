@@ -8,14 +8,6 @@ class EmblToFasta:
         """
         Convert an EMBL file to FASTA format.
         """
-        accession, version, mol_type, description, organism_name, nucleobases = self.extract_data(ctx)
-        fasta_output = self.format_fasta(accession, version, mol_type, description, organism_name, nucleobases)
-        return fasta_output
-
-    def extract_data(self, ctx: ConverterContext):
-        """
-        Extract relevant data from EMBL file lines.
-        """
         accession = ""
         version = ""
         mol_type = ""
@@ -41,7 +33,10 @@ class EmblToFasta:
                 else:
                     nucleobases += self.extract_nucleobases(line)
         
-        return accession, version, mol_type, description, organism_name, nucleobases
+        header = f">{accession}.{version} | {description} | {organism_name} | {mol_type}\n"
+        sequence = "\n".join(nucleobases[i:i+60] for i in range(0, len(nucleobases), 60))
+        fasta_output = header + sequence
+        ctx.write(fasta_output)
 
     def extract_accession(self, line):
         """
@@ -75,14 +70,6 @@ class EmblToFasta:
         Extract nucleobases from the sequence lines.
         """
         return ''.join([n for n in line if n.isalpha()]).upper()
-
-    def format_fasta(self, accession, version, mol_type, description, organism_name, nucleobases):
-        """
-        Format the extracted data into FASTA format.
-        """
-        header = f">{accession}.{version} | {description} | {organism_name} | {mol_type}\n"
-        sequence = "\n".join(nucleobases[i:i+60] for i in range(0, len(nucleobases), 60))
-        return header + sequence
 
 
   
