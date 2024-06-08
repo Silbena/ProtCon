@@ -48,9 +48,7 @@ class GbToFasta:
         """
         Converts GenBank format to FASTA format.
         """
-        genbank_file = ctx.input.read()  # Read the entire GenBank file
-        entry_lines = genbank_file.split("//\n")  # Split entries by "//"
-        for entry in entry_lines:
+        for entry in ctx:
             if not entry.strip():
                 continue
             try:
@@ -68,14 +66,14 @@ class FastaToGb:
     def __init__(self, identifier_type='locus'):
         self.identifier_type = identifier_type
 
-    def parse_fasta(self, ctx: ConverterContext):
+    def parse_fasta(self, ctx: ConverterContext) -> list:
         """
         Parses FASTA formatted data from the context.
         """
         sequences = []
         header = None
         sequence = ""
-        for line in ctx.input:
+        for line in ctx:
             line = line.strip()
             if line.startswith(">"):
                 if header:
@@ -88,7 +86,7 @@ class FastaToGb:
             sequences.append((header, sequence))
         return sequences
 
-    def generate_genbank(self, header, sequence):
+    def generate_genbank(self, header: str, sequence: str) -> str:
         """
         Generates a GenBank formatted entry from FASTA header and sequence.
         """
