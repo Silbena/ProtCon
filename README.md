@@ -13,4 +13,5 @@ secon
 -o output_file/folder     # to create new folder and save output there
 --format .extension       # output extension
 --exclude pattern         # only for folder input
+--verbose                 # prints all logs
 ```
