@@ -7,6 +7,9 @@ class GbToEmbl:
     # additional function to convert locus lines 
     def locus_converter(self, locus: str) -> str:
         l = locus.split()
+        if len(l) < 6:
+            l.log_error('Error. Invalid format.')
+            return                          # should I add return here?
         out = f"ID   {l[0]}; {l[4]}; {l[5]}; {l[1]} BP."
         return f'{out}\nXX\n'
 
@@ -26,6 +29,9 @@ class GbToEmbl:
     def organism_converter(self, organism: str) -> str:
         out = ''
         o = organism.split("\n")
+        if len(o) < 1:
+            o.log_error('Error. Invalid format.')
+            return
         out += f"OS   {o[0].strip()}\n" # for the first line its 'OS' and for the other 'OC'
         for el in o[1:]:
             out += f"OC   {el.strip()}\n"
@@ -35,6 +41,9 @@ class GbToEmbl:
     def source_converter(self, source: str) -> str:
         out = ''
         r = source.split('REFERENCE')   # split to have list of references
+        if len(r) < 2:
+            r.log_error('Error. Invalid format.')
+            return
         for ref in r[1:]:       
             reference_list = []
 
@@ -46,6 +55,9 @@ class GbToEmbl:
             reference_list.append((reference, authors, title, journal)) # adding information to the list
 
             for reference in reference_list:        # converting specific parts of information to embl format
+                if len(reference) < 4:
+                    reference.log_error('Error. Invalid format.')
+                    return
                 rl_lines = reference[3].strip().split("\n")
                 rl_string = '\n'.join([f'RL   {line.strip()}' for line in rl_lines[:]])
                 rt_lines = reference[2].strip().split("\n")
@@ -80,13 +92,17 @@ class GbToEmbl:
         last_num = 0
         w = ''
 
+        if len(origin.split()) < 1:
+            origin.log_error('Error. Invalid format.')
+            return
         # splitting the sequence and checking if we have number or part of the sequence
         for element in origin.split()[1:]:
             if element.isalpha():       # for sequences adding them to w string
                 w += element + " "
                 for aa in element:
                     if aa.upper() not in bp_dict.keys():    # checking if bases are valid
-                        return 'Error'
+                        element.log_error('Error in sequence. This is not a base.')
+                        continue
                     else:
                         bp_dict[aa.upper()] += 1            # counting the bases in the dictionary
             else:
@@ -143,6 +159,9 @@ class EmblToGb:
     # additional function to convert locus lines 
     def locus_converter_embl(self, locus: str) -> str:
         parts = locus.split(';')
+        if len(parts) < 6:
+            parts.log_error('Error. Invalid format.')
+            return             
         return f"LOCUS       {parts[-1].split(' ')[1]}bp   {parts[3]}   {parts[2]}   {parts[5]}\n"
 
     # additional function to convert definition lines 
@@ -165,6 +184,9 @@ class EmblToGb:
     # additional function to convert organism lines 
     def organism_converter_embl(self, organism: str) -> str:
         lines = organism.split('\n')            # splitting the input by lines and converting it differently
+        if len(lines) < 1:
+            lines.log_error('Error. Invalid format.')
+            return
         out = f"SOURCE      {lines[1].split('OS')[1].strip()}\n" \
             f"  ORGANISM  {lines[1].split('OS')[1].strip()}\n"
         for line in lines[:]:       # removing the empty lines
@@ -184,6 +206,9 @@ class EmblToGb:
 
         for ref in reference[:]:        # we splitid the lines by XX (which are lines between different references as well so we iterate over each reference)
 
+            if len(ref.split('RN')) < 2 or len(ref.split('RP')) < 2 or len(ref.split('RA')) < 2 or len(ref.split('RT')) < 2:
+                    ref.log_error('Error. Invalid format.')
+                    return
             # splitting specific lines containing different info (RN - number, RP - base count , RA - autor, RT - tittle, RL - citation)
             rn_part = ref.split('RN')[1].strip().split('\n')[0] 
             rp_part = ref.split('RP')[1].strip()
@@ -254,6 +279,11 @@ class EmblToGb:
         for el in seq_list:                 # removing the empty parts
             if not el:
                 seq_list.remove(el)
+
+        if len(seq_list) < 2:
+            seq_list.log_error('Error. Invalid format.')
+            return
+        
         for o in seq_list[1:]:              # igniring first part as its 'SQ' and unimportant info
             # line conversion by adding the number at the beggining, evening the sequence output and removing the number at the end of the line (the split has to be minimum two spaces as there is one space in between each sequence part)
             out_list.append(f"{str(number).rjust(9)} {o.strip().split('  ')[0].strip()}\n")   # every line (number +sequence) is added to the list
