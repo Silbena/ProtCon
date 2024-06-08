@@ -31,4 +31,7 @@ class ConverterContext:
 
     def write(self, line : str):
         self.output.write(line)
+
+    def read_lines(self):
+        return [l for l in self]
     
