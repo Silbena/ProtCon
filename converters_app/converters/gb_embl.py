@@ -5,13 +5,13 @@ class GbToEmbl:
     OUT_EXTENSION = '.embl'
 
     # additional function to convert locus lines 
-    def locus_converter(locus: str) -> str:
+    def locus_converter(self, locus: str) -> str:
         l = locus.split()
         out = f"ID   {l[0]}; {l[4]}; {l[5]}; {l[1]} BP."
         return f'{out}\nXX\n'
 
     # additional function to convert definition lines 
-    def definition_converter(definition: str) -> str:
+    def definition_converter(self, definition: str) -> str:
         out = ''
         d = definition.split('\n')
         for el in range(len(d)):
@@ -19,11 +19,11 @@ class GbToEmbl:
         return f'{out}XX\n'
 
     # additional function to convert accesion lines 
-    def accesion_converter(accesion: str) -> str:
+    def accesion_converter(self, accesion: str) -> str:
         return f'AC   {accesion.strip()};\nXX\n'
 
     # additional function to convert organism lines 
-    def organism_converter(organism: str) -> str:
+    def organism_converter(self, organism: str) -> str:
         out = ''
         o = organism.split("\n")
         out += f"OS   {o[0].strip()}\n" # for the first line its 'OS' and for the other 'OC'
@@ -32,7 +32,7 @@ class GbToEmbl:
         return f'{out}XX\n'
 
     # additional function to convert source lines 
-    def source_converter(source: str) -> str:
+    def source_converter(self, source: str) -> str:
         out = ''
         r = source.split('REFERENCE')   # split to have list of references
         for ref in r[1:]:       
@@ -58,7 +58,7 @@ class GbToEmbl:
         return out
 
     # additional function to convert features lines
-    def features_converter(features: str) -> str:
+    def features_converter(self, features: str) -> str:
         f = features.split('\n')        # split for every new line
         out = 'FH   Key             Location/Qualifiers\nFH\n'
         for line in f[1:]:
@@ -75,7 +75,7 @@ class GbToEmbl:
         return out +'XX\n'
 
     # additional function to convert origin lines
-    def origin_converter(origin) -> str:
+    def origin_converter(self, origin) -> str:
         bp_dict = {"A": 0, "C": 0, "G": 0, "T": 0}      # creating the bases dictionary
         last_num = 0
         w = ''
@@ -109,42 +109,30 @@ class GbToEmbl:
 
     # main function converting the file
     def convert(self, ctx : ConverterContext):    
-       
-        # f = ''.join(ctx)
-        # output = []
-
-        with open('assistant_file.txt', 'w') as file:                       # To be discared
-            for line in ctx:
-                file.write(line)
-        
-        with open('assistant_file.txt', 'r') as file:                       # To be discared
-            f = file.read()
-            output = []
+        f = ''.join(ctx.read_lines())
+        output = []
 
         # splitting the parts
-            locus = f.split("LOCUS")[1].strip().split("DEFINITION")[0].strip()      
-            definition = f.split("DEFINITION")[1].strip().split("ACCESSION")[0].strip()
-            accesion = f.split("ACCESSION")[1].strip().split("VERSION")[0].strip()
-            organism = f.split("ORGANISM")[1].strip().split("REFERENCE")[0].strip()
-            source = f.split("ORGANISM")[1].strip().split("FEATURES")[0].strip()
-            features = f.split("FEATURES")[1].strip().split("ORIGIN")[0].strip()
-            origin = f.split("ORIGIN")[1].strip().split("//")[0].strip()
+        locus = f.split("LOCUS")[1].strip().split("DEFINITION")[0].strip()      
+        definition = f.split("DEFINITION")[1].strip().split("ACCESSION")[0].strip()
+        accesion = f.split("ACCESSION")[1].strip().split("VERSION")[0].strip()
+        organism = f.split("ORGANISM")[1].strip().split("REFERENCE")[0].strip()
+        source = f.split("ORGANISM")[1].strip().split("FEATURES")[0].strip()
+        features = f.split("FEATURES")[1].strip().split("ORIGIN")[0].strip()
+        origin = f.split("ORIGIN")[1].strip().split("//")[0].strip()
 
         # adding converted parts to the list
-            output.append(self.locus_converter(locus))
-            output.append(self.accesion_converter(accesion))
-            output.append(self.definition_converter(definition))
-            output.append(self.organism_converter(organism))
-            output.append(self.source_converter(source))
-            output.append(self.features_converter(features))
-            output.append(self.origin_converter(origin))
+        output.append(self.locus_converter(locus))
+        output.append(self.accesion_converter(accesion))
+        output.append(self.definition_converter(definition))
+        output.append(self.organism_converter(organism))
+        output.append(self.source_converter(source))
+        output.append(self.features_converter(features))
+        output.append(self.origin_converter(origin))
 
         # writing the content of the list in the output
         for part in output:
-            ctx.write(part)   # Not shure, if that's what intended,
-                              # but it will write each element of the "output" list as a line of ctx.
-
-
+            ctx.write(part)
 
 
 
@@ -153,12 +141,12 @@ class EmblToGb:
     OUT_EXTENSION = '.gb'
 
     # additional function to convert locus lines 
-    def locus_converter_embl(locus: str) -> str:
+    def locus_converter_embl(self, locus: str) -> str:
         parts = locus.split(';')
         return f"LOCUS       {parts[-1].split(' ')[1]}bp   {parts[3]}   {parts[2]}   {parts[5]}\n"
 
     # additional function to convert definition lines 
-    def definition_converter_embl(definition: str) -> str:
+    def definition_converter_embl(self, definition: str) -> str:
         lines = definition.split('\n')
         out = "DEFINITION  "
         for line in lines:          # for every line remove te 'DE' and connect the output string 
@@ -167,15 +155,15 @@ class EmblToGb:
         return f"{out}\n"
 
     # additional function to convert accession line
-    def accession_converter_embl(accession: str) -> str:
+    def accession_converter_embl(self, accession: str) -> str:
         return f"ACCESSION   {accession.strip().split('AC')[1].strip()}\nVERSION\n" # the version output is empty as we dont have information about the version in embl format
 
     # additional function to convert keyword lines 
-    def keyword_converter_embl(keyword: str) -> str:
+    def keyword_converter_embl(self, keyword: str) -> str:
         return f'KEYWORDS    {keyword.split("KW")[1].strip()}\n'    # keyword may also be empty, depending of the input
 
     # additional function to convert organism lines 
-    def organism_converter_embl(organism: str) -> str:
+    def organism_converter_embl(self, organism: str) -> str:
         lines = organism.split('\n')            # splitting the input by lines and converting it differently
         out = f"SOURCE      {lines[1].split('OS')[1].strip()}\n" \
             f"  ORGANISM  {lines[1].split('OS')[1].strip()}\n"
@@ -190,7 +178,7 @@ class EmblToGb:
         return f"{out}"
 
     # additional function to convert reference lines 
-    def reference_converter_embl(reference: str) -> str:
+    def reference_converter_embl(self, reference: str) -> str:
         out = ""
         is_pubmed = False
 
@@ -239,7 +227,7 @@ class EmblToGb:
         return f'{out}'
 
     # additional function to convert features lines 
-    def features_converter_embl(features: str) -> str:
+    def features_converter_embl(self, features: str) -> str:
         lines = features.split('\n')        # splitting info about feature by lines
         out = "FEATURES             Location/Qualifiers\n"
         for line in lines[:]:       # removing empty lines
@@ -258,7 +246,7 @@ class EmblToGb:
         return f"{out}"
 
     # additional function to convert origin lines 
-    def origin_converter_embl(origin: str) -> str:
+    def origin_converter_embl(self, origin: str) -> str:
         number = 1
         out = f"ORIGIN\n"
         seq_list = origin.split('\n')       # splitting info about origin by lines
@@ -277,40 +265,31 @@ class EmblToGb:
 
     # main function
     def convert(self, ctx : ConverterContext):
-        
-        # f = ''.join(ctx)
-        # output = []
+        f = ''.join(ctx.read_lines())
+        output = []
 
-        with open('assistant_file.txt', 'w') as file:                       # To be discared
-            for line in ctx:
-                file.write(line)
-        
-        with open('assistant_file.txt', 'r') as file:                       # To be discared
-            f = file.read()
-            output = []
+        # splitting the parts
+        elements = f.split('XX')
 
-            # splitting the parts
-            elements = f.split('XX')
+        locus = elements[0]
+        definition = elements[2]
+        accession = elements[1]
+        keyword = elements[3]
+        organism = elements[4]
+        references = elements[5:-2]
+        features = elements[-2]
+        origin = elements[-1]
 
-            locus = elements[0]
-            definition = elements[2]
-            accession = elements[1]
-            keyword = elements[3]
-            organism = elements[4]
-            references = elements[5:-2]
-            features = elements[-2]
-            origin = elements[-1]
+        # adding converted parts to the list
+        output.append(self.locus_converter_embl(locus))
+        output.append(self.definition_converter_embl(definition))
+        output.append(self.accession_converter_embl(accession))
+        output.append(self.keyword_converter_embl(keyword))
+        output.append(self.organism_converter_embl(organism))
+        output.append(self.reference_converter_embl(references))
+        output.append(self.features_converter_embl(features))
+        output.append(self.origin_converter_embl(origin))
 
-            # adding converted parts to the list
-            output.append(self.locus_converter_embl(locus))
-            output.append(self.definition_converter_embl(definition))
-            output.append(self.accession_converter_embl(accession))
-            output.append(self.keyword_converter_embl(keyword))
-            output.append(self.organism_converter_embl(organism))
-            output.append(self.reference_converter_embl(references))
-            output.append(self.features_converter_embl(features))
-            output.append(self.origin_converter_embl(origin))
-
-            # writing the content of the list in the output
-            for part in output:
-                ctx.write(part)
+        # writing the content of the list in the output
+        for part in output:
+            ctx.write(part)
