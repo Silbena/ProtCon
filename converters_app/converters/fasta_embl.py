@@ -72,7 +72,6 @@ class EmblToFasta:
         return ''.join([n for n in line if n.isalpha()]).upper()
 
 
-  
 class FastaToEmbl:
     IN_EXTENSION = '.fasta'
     OUT_EXTENSION = '.embl'
@@ -85,8 +84,30 @@ class FastaToEmbl:
         length = len(sequence)
         sequence_stats = self.calculate_sequence_stats(sequence)
         formatted_sequence = self.format_sequence(sequence)
-        embl_output = self.format_embl_output(header, sequence, length, sequence_stats, formatted_sequence)
-        return embl_output
+
+        Description, Accession, SV, organism_name, gene_name = self.extract_header_info(header)
+
+        ctx.write(f"ID   {Accession}; {SV}; ; DNA; ; UNC; {length} BP.\nXX\n")
+        ctx.write(f"AC   {Accession};\nXX\n")
+
+        for de_line in self.split_long_lines("DE  ", Description):
+            ctx.write(f"{de_line}\n")
+
+        ctx.write("XX\n")
+        for os_line in self.split_long_lines("OS  ", organism_name):
+            ctx.write(f"{os_line}\n")
+
+        ctx.write("OC   .\nXX\n")
+        ctx.write("FH   Key             Location/Qualifiers\nFH\n")
+
+        ctx.write(f"FT   source          1..{length}\n")
+        ctx.write(f"FT                   /organism=\"{organism_name}\"\n")
+        ctx.write("FT                   /mol_type=\"DNA\"\nXX\n")
+
+        a_count, c_count, g_count, t_count, other_count = sequence_stats
+        ctx.write(f"SQ   Sequence {len(sequence)} BP; {a_count} A; {c_count} C; {g_count} G; {t_count} T; {other_count} other;\n")
+        ctx.write(formatted_sequence)
+        ctx.write("//\n")
 
     def extract_fasta_data(self, ctx: ConverterContext):
         """
@@ -145,36 +166,6 @@ class FastaToEmbl:
             lines.append(current_line)
         return lines
 
-    def format_embl_output(self, header, sequence, length, sequence_stats, formatted_sequence):
-        """
-        Format the extracted data into EMBL format.
-        """
-        Description, Accession, SV, organism_name, gene_name = self.extract_header_info(header)
-
-        embl_output = f"ID   {Accession}; {SV}; ; DNA; ; UNC; {length} BP.\nXX\n"
-        embl_output += f"AC   {Accession};\nXX\n"
-
-        for de_line in self.split_long_lines("DE  ", Description):
-            embl_output += f"{de_line}\n"
-
-        embl_output += "XX\n"
-        for os_line in self.split_long_lines("OS  ", organism_name):
-            embl_output += f"{os_line}\n"
-
-        embl_output += "OC   .\nXX\n"
-        embl_output += "FH   Key             Location/Qualifiers\nFH\n"
-
-        embl_output += f"FT   source          1..{length}\n"
-        embl_output += f"FT                   /organism=\"{organism_name}\"\n"
-        embl_output += "FT                   /mol_type=\"DNA\"\nXX\n"
-
-        a_count, c_count, g_count, t_count, other_count = sequence_stats
-        embl_output += f"SQ   Sequence {len(sequence)} BP; {a_count} A; {c_count} C; {g_count} G; {t_count} T; {other_count} other;\n"
-        embl_output += formatted_sequence
-        embl_output += "//\n"
-
-        return embl_output
-
     def extract_header_info(self, header):
         """
         Extract and parse information from the FASTA header.
@@ -194,4 +185,5 @@ class FastaToEmbl:
             organism_name = '.'
             gene_name = ''
         return Description, Accession, SV, organism_name, gene_name
- 
+
+  
