@@ -8,7 +8,7 @@ SeCon is a nucleic acid sequence files batch converter. Able to convert both sin
 
 # Usage
 ```bash
-protcon
+secon
 -i input_file/folder
 -o output_file/folder     # to create new folder and save output there
 --format .extension       # output extension
