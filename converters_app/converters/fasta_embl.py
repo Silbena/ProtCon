@@ -86,7 +86,7 @@ class EmblToFasta:
 
 
   
- class FastaToEmbl:
+class FastaToEmbl:
     IN_EXTENSION = '.fasta'
     OUT_EXTENSION = '.embl'
 
