@@ -10,8 +10,8 @@ class Parser:
         self.exclude = False
         self.verbose = False
 
-    def parse(self):
-        parser = argparse.ArgumentParser(prog = 'SeCon',
+    def run(self):
+        parser = argparse.ArgumentParser(prog = 'secon',
                                          description = 'Nucleic acid sequence files batch converter.\
                                             Supports FASTA, GenBank and EMBL formats.',
                                          epilog='For more info go to: https://github.com/Silbena/SeCon')
@@ -27,7 +27,7 @@ class Parser:
                             help = '.extension (only for folders)')
         parser.add_argument('-e', '--exclude',
                             type = str,
-                            help = 'file to be excluded from conversion (only for folders)')
+                            help = 'file/folder to be excluded from conversion (only for folders)')
         parser.add_argument('-v', '--verbose',
                             action = 'store_true',
                             help = 'print all logs')

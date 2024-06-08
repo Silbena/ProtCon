@@ -2,8 +2,8 @@ from converters.baseConverter import ConverterContext
 import time
 
 class GbToFasta:
-    IN_EXTENSION = 'gb'
-    OUT_EXTENSION = 'fasta'
+    IN_EXTENSION = '.gb'
+    OUT_EXTENSION = '.fasta'
 
     def extract_nucleotide_sequence(self, entry_lines):
         """
@@ -60,8 +60,8 @@ class GbToFasta:
                 ctx.log_error(f"Error processing entry: {e}")
 
 class FastaToGb:
-    IN_EXTENSION = 'fasta'
-    OUT_EXTENSION = 'gbk'
+    IN_EXTENSION = '.fasta'
+    OUT_EXTENSION = '.gb'
 
     def __init__(self, identifier_type='locus'):
         self.identifier_type = identifier_type

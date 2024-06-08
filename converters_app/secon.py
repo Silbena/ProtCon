@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import converters as conv
 
 import os.path as path
@@ -25,7 +27,7 @@ def log_error(msg : str):
     print(f'{FAIL}[{time_str}][ERROR] {msg}{ENDC}')
 
 
-def print_logs(file_name : str, ctx : conv.ConverterContext):
+def print_logs(file_name : str, ctx : conv.ConverterContext, verbose : bool):
     WARNING = '\033[93m'
     FAIL = '\033[91m'
     ENDC = '\033[0m'
@@ -39,16 +41,18 @@ def print_logs(file_name : str, ctx : conv.ConverterContext):
         print(f'{FAIL}{err_str}{ENDC}')
 
     # print warnings
-    for entry in ctx.warnings:
-        location = f'{file_name}:{entry.line}'
-        time_str = log_strftime(entry.time)
+    if verbose:
+        for entry in ctx.warnings:
+            location = f'{file_name}:{entry.line}'
+            time_str = log_strftime(entry.time)
 
-        warn_str = f'[{time_str}][WARNING][{location}] {entry.msg}'     
-        print(f'{WARNING}{warn_str}{ENDC}')
+            warn_str = f'[{time_str}][WARNING][{location}] {entry.msg}'     
+            print(f'{WARNING}{warn_str}{ENDC}')
 
 
-def convert_single_file(in_filename, out_filename):
-    log_info(f'Converting {in_filename}->{out_filename}')
+def convert_single_file(in_filename : str, out_filename : str, verbose: bool):
+    if verbose:
+        log_info(f'Converting {in_filename}->{out_filename}')
 
     out_buffer = io.StringIO()
     
@@ -64,7 +68,7 @@ def convert_single_file(in_filename, out_filename):
         ctx = conv.ConverterContext(out_buffer, f)
         converter_obj.convert(ctx)
 
-    print_logs(in_filename, ctx)
+    print_logs(in_filename, ctx, verbose)
 
     if len(ctx.errors) > 0:
         log_error(f'Failed with {len(ctx.errors)} error')
@@ -75,9 +79,9 @@ def convert_single_file(in_filename, out_filename):
     with open(out_filename, 'w') as f:
         f.write(out_buffer.read())
 
-def convert_directory(input_dir, output_dir, out_extension):
+def convert_directory(input_dir : str, output_dir : str, out_extension : str, exclude : str, verbose: bool):
     if path.isdir(input_dir) == False:
-        log_error('Input is not directory')
+        log_error('Input is not a directory')
         return
     
     os.makedirs(output_dir, exist_ok=True)
@@ -103,7 +107,7 @@ def convert_directory(input_dir, output_dir, out_extension):
             ctx = conv.ConverterContext(io.StringIO(), f)
             converter_instance.convert(ctx)
         
-        print_logs(input_path, ctx)
+        print_logs(input_path, ctx, verbose)
         if len(ctx.errors) > 0:
             continue # don't save to output file
 
@@ -115,8 +119,21 @@ def convert_directory(input_dir, output_dir, out_extension):
 
 
 def main():
-    convert_directory('input', 'output', '.tsv')
+    parser = conv.cl_parser.Parser()
+    parser.run()
+
+    if not path.exists(parser.input):
+        raise FileNotFoundError(f'The input: {parser.input} does not exist or there is no permission to execute os.stat().')
+    
+    elif path.isdir(parser.input):
+        convert_directory(parser.input, parser.output, parser.format, parser.exclude, parser.verbose)
+        
+    elif path.isfile(parser.input):
+        convert_single_file(parser.input, parser.output, parser.verbose)
+
+    else:
+        raise ValueError(f'The input: {parser.input} is neither a file nor a directory.')
+    
 
 if __name__ == '__main__':
     main()
-    
