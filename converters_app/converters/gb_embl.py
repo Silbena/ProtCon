@@ -5,11 +5,10 @@ class GbToEmbl:
     OUT_EXTENSION = '.embl'
 
     # additional function to convert locus lines 
-    def locus_converter(self, locus: str) -> str:
+    def locus_converter(self, locus: str) -> str | bool:
         l = locus.split()
         if len(l) < 6:
-            l.log_error('Error. Invalid format.')
-            return                          # should I add return here?
+            return False             
         out = f"ID   {l[0]}; {l[4]}; {l[5]}; {l[1]} BP."
         return f'{out}\nXX\n'
 
@@ -138,7 +137,12 @@ class GbToEmbl:
         origin = f.split("ORIGIN")[1].strip().split("//")[0].strip()
 
         # adding converted parts to the list
-        output.append(self.locus_converter(locus))
+        conv_locus = self.locus_converter(locus) 
+        if conv_locus:
+            ctx.write(conv_locus) # Should work without a need of creating an output list.
+        else:
+            ctx.log_error('Invalid format.')
+
         output.append(self.accesion_converter(accesion))
         output.append(self.definition_converter(definition))
         output.append(self.organism_converter(organism))
