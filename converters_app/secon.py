@@ -50,26 +50,36 @@ def print_logs(file_name : str, ctx : conv.ConverterContext, verbose : bool):
             print(f'{WARNING}{warn_str}{ENDC}')
 
 
-def convert_single_file(in_filename : str, out_filename : str, verbose: bool):
+def convert_name(in_filename : str, output_dir : str, format : str):
+    format = '.' + format.strip('.')
+    out_filepath = os.path.join(output_dir, path.splitext(path.basename(in_filename))[0] + format)
+
+    return out_filepath
+
+
+def convert_single_file(in_filepath : str, output_dir: str, format: str, verbose: bool):
+    
+    out_filepath = convert_name(in_filepath, output_dir, format)
+
     if verbose:
-        log_info(f'Converting {in_filename}->{out_filename}')
+        log_info(f'Converting {in_filepath}->{out_filepath}')
 
     out_buffer = io.StringIO()
     
-    converter_key = conv.registry.getKey(in_filename, out_filename)
+    converter_key = conv.registry.getKey(in_filepath, out_filepath)
     
     converters = conv.registry.initRegistry()
     converter_class = converters.get(converter_key)
     if converter_class is None:
-        log_error(f'Failed to find converter for key for {in_filename} -> {out_filename}')
+        log_error(f'Failed to find converter for key for {in_filepath} -> {out_filepath}')
         return
     
     converter_obj = converter_class()
-    with open(in_filename, 'r') as f:
+    with open(in_filepath, 'r') as f:
         ctx = conv.ConverterContext(out_buffer, f)
         converter_obj.convert(ctx)
 
-    print_logs(in_filename, ctx, verbose)
+    print_logs(in_filepath, ctx, verbose)
 
     if len(ctx.errors) > 0:
         log_error(f'Failed with {len(ctx.errors)} error')
@@ -77,7 +87,7 @@ def convert_single_file(in_filename : str, out_filename : str, verbose: bool):
         
     out_buffer.seek(0)
     
-    with open(out_filename, 'w') as f:
+    with open(out_filepath, 'w') as f:
         f.write(out_buffer.read())
 
 def convert_directory(input_dir : str, output_dir : str, out_extension : str, exclude : str, verbose: bool):
@@ -126,11 +136,11 @@ def main():
     if not path.exists(parser.input):
         log_error(f'The input: {parser.input} does not exist or there is no permission to execute os.stat().')
     
-    elif path.isdir(parser.input):
+    if path.isdir(parser.input):
         convert_directory(parser.input, parser.output, parser.format, parser.exclude, parser.verbose)
         
     elif path.isfile(parser.input):
-        convert_single_file(parser.input, parser.output, parser.verbose)
+        convert_single_file(parser.input, parser.output, parser.format, parser.verbose)
 
     else:
         log_error(f'The input: {parser.input} is neither a file nor a directory.')
