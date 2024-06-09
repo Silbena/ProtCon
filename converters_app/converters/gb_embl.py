@@ -9,7 +9,7 @@ class GbToEmbl:
         l = locus.split()
         if len(l) < 6:
             return False             
-        out = f"ID   {l[0]}; {l[4]}; {l[5]}; {l[1]} BP."
+        out = f"ID   {l[0]}; {l[4]}; {l[3]}; {l[5]}; {l[1]} BP."
         return f'{out}\nXX\n'
 
     # additional function to convert definition lines 
@@ -23,6 +23,9 @@ class GbToEmbl:
     # additional function to convert accesion lines 
     def accesion_converter(self, accesion: str) -> str:
         return f'AC   {accesion.strip()};\nXX\n'
+    
+    def keyword_converter(self, keyword: str) -> str:
+        return f'KW    {keyword}\nXX\n'
 
     # additional function to convert organism lines 
     def organism_converter(self, organism: str) -> str:
@@ -126,6 +129,7 @@ class GbToEmbl:
         locus = f.split("LOCUS")[1].strip().split("DEFINITION")[0].strip()      
         definition = f.split("DEFINITION")[1].strip().split("ACCESSION")[0].strip()
         accesion = f.split("ACCESSION")[1].strip().split("VERSION")[0].strip()
+        keyword = f.split("KEYWORDS")[1].strip().split("SOURCE")[0].strip()
         organism = f.split("ORGANISM")[1].strip().split("REFERENCE")[0].strip()
         source = f.split("ORGANISM")[1].strip().split("FEATURES")[0].strip()
         features = f.split("FEATURES")[1].strip().split("ORIGIN")[0].strip()
@@ -135,6 +139,7 @@ class GbToEmbl:
         conv_locus = self.locus_converter(locus) 
         conv_accesion = self.accesion_converter(accesion) 
         conv_definition = self.definition_converter(definition)
+        conv_keyword = self.keyword_converter(keyword)
         conv_organism = self.organism_converter(organism)
         conv_source = self.source_converter(source)
         conv_features = self.features_converter(features)
@@ -153,6 +158,11 @@ class GbToEmbl:
 
         if conv_definition:
             ctx.write(conv_definition) 
+        else:
+            ctx.log_error('Invalid format.')
+
+        if conv_keyword:
+            ctx.write(conv_keyword) 
         else:
             ctx.log_error('Invalid format.')
 
@@ -183,12 +193,12 @@ class EmblToGb:
     OUT_EXTENSION = '.gb'
 
     # additional function to convert locus lines 
-    def locus_converter_embl(self, locus: str) -> str:
+    def locus_converter_embl(self, locus, accession):
         parts = locus.split(';')
-        if len(parts) < 6:
-            return False             
-        return f"LOCUS       {parts[-1].split(' ')[1]}bp   {parts[3]}   {parts[2]}   {parts[5]}\n"
-
+        if len(parts) < 5:
+            return False 
+        return f"LOCUS       {accession.strip().split('AC')[1].strip()} {parts[-1].split(' ')[1]} bp   {parts[1]}   {parts[2]}   {parts[3]}\n"
+    
     # additional function to convert definition lines 
     def definition_converter_embl(self, definition: str) -> str:
         lines = definition.split('\n')
@@ -204,12 +214,14 @@ class EmblToGb:
 
     # additional function to convert keyword lines 
     def keyword_converter_embl(self, keyword: str) -> str:
+        if len(keyword.split("KW")) < 2:
+            return f'KEYWORDS\n'
         return f'KEYWORDS    {keyword.split("KW")[1].strip()}\n'    # keyword may also be empty, depending of the input
 
     # additional function to convert organism lines 
     def organism_converter_embl(self, organism: str) -> str:
         lines = organism.split('\n')            # splitting the input by lines and converting it differently
-        if len(lines) < 1:
+        if len(lines) < 2:
             return False 
         out = f"SOURCE      {lines[1].split('OS')[1].strip()}\n" \
             f"  ORGANISM  {lines[1].split('OS')[1].strip()}\n"
@@ -333,7 +345,7 @@ class EmblToGb:
         origin = elements[-1]
         
         # converting
-        conv_locus_embl = self.locus_converter_embl(locus) 
+        conv_locus_embl = self.locus_converter_embl(locus, accession) 
         conv_definition_embl = self.definition_converter_embl(definition)
         conv_accesion_embl = self.accession_converter_embl(accession) 
         conv_keyword_embl = self.keyword_converter_embl(keyword)
