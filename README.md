@@ -8,10 +8,10 @@ SeCon is a nucleic acid sequence files batch converter. Able to convert both sin
 
 # Usage
 ```bash
-secon
--i input_file/folder
--o output_file/folder     # to create new folder and save output there
---format .extension       # output extension
+secon.py
+input file/folder
+format .extension         # output extension
+--output folder           # output folder (if not default)   
 --exclude pattern         # only for folder input
 --verbose                 # prints all logs
 ```
