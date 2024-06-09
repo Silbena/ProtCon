@@ -4,8 +4,8 @@ from converters.baseConverter import ConverterContext
 import time
 
 class GbToFasta:
-    IN_EXTENSION = '.gb'
-    OUT_EXTENSION = '.fasta'
+    IN_EXTENSION = 'gb'
+    OUT_EXTENSION = 'fasta'
 
     def extract_nucleotide_sequence(self, entry_lines):
         """
@@ -50,7 +50,9 @@ class GbToFasta:
         """
         Converts GenBank format to FASTA format.
         """
-        for entry in ctx:
+        genbank_file = ctx.input.read()  # Read the entire GenBank file
+        entry_lines = genbank_file.split("//\n")  # Split entries by "//"
+        for entry in entry_lines:
             if not entry.strip():
                 continue
             try:
