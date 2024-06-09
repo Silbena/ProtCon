@@ -51,6 +51,7 @@ def print_logs(file_name : str, ctx : conv.ConverterContext, verbose : bool):
 
 
 def convert_name(in_filename : str, output_dir : str, format : str):
+    os.makedirs(output_dir, exist_ok=True)
     format = '.' + format.strip('.')
     out_filepath = os.path.join(output_dir, path.splitext(path.basename(in_filename))[0] + format)
 
