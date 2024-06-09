@@ -59,9 +59,10 @@ def convert_single_file(in_filename : str, out_filename : str, verbose: bool):
     converter_key = conv.registry.getKey(in_filename, out_filename)
     
     converters = conv.registry.initRegistry()
-    converter_class = converters[converter_key]
+    converter_class = converters.get(converter_key)
     if converter_class is None:
-        log_error(f'Failed to find converter')
+        log_error(f'Failed to find converter for key for {in_filename} -> {out_filename}')
+        return
     
     converter_obj = converter_class()
     with open(in_filename, 'r') as f:
@@ -123,7 +124,7 @@ def main():
     parser.run()
 
     if not path.exists(parser.input):
-        raise FileNotFoundError(f'The input: {parser.input} does not exist or there is no permission to execute os.stat().')
+        log_error(f'The input: {parser.input} does not exist or there is no permission to execute os.stat().')
     
     elif path.isdir(parser.input):
         convert_directory(parser.input, parser.output, parser.format, parser.exclude, parser.verbose)
@@ -132,7 +133,7 @@ def main():
         convert_single_file(parser.input, parser.output, parser.verbose)
 
     else:
-        raise ValueError(f'The input: {parser.input} is neither a file nor a directory.')
+        log_error(f'The input: {parser.input} is neither a file nor a directory.')
     
 
 if __name__ == '__main__':
