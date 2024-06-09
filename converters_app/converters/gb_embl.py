@@ -360,13 +360,13 @@ class EmblToGb:
         else:
             ctx.log_error('Invalid format.')
 
-        if conv_accesion_embl:
-            ctx.write(conv_accesion_embl) 
+        if conv_definition_embl:
+            ctx.write(conv_definition_embl) 
         else:
             ctx.log_error('Invalid format.')
 
-        if conv_definition_embl:
-            ctx.write(conv_definition_embl) 
+        if conv_accesion_embl:
+            ctx.write(conv_accesion_embl) 
         else:
             ctx.log_error('Invalid format.')
         
