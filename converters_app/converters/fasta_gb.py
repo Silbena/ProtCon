@@ -1,11 +1,9 @@
-# Please add comments to your code
-
 from converters.baseConverter import ConverterContext
 import time
 
 class GbToFasta:
-    IN_EXTENSION = '.gb'
-    OUT_EXTENSION = '.fasta'
+    IN_EXTENSION = 'gb'
+    OUT_EXTENSION = 'fasta'
 
     def extract_nucleotide_sequence(self, entry_lines):
         """
@@ -50,7 +48,9 @@ class GbToFasta:
         """
         Converts GenBank format to FASTA format.
         """
-        for entry in ctx:
+        genbank_file = ctx.input.read()  # Read the entire GenBank file
+        entry_lines = genbank_file.split("//\n")  # Split entries by "//"
+        for entry in entry_lines:
             if not entry.strip():
                 continue
             try:
@@ -62,8 +62,8 @@ class GbToFasta:
                 ctx.log_error(f"Error processing entry: {e}")
 
 class FastaToGb:
-    IN_EXTENSION = '.fasta'
-    OUT_EXTENSION = '.gb'
+    IN_EXTENSION = 'fasta'
+    OUT_EXTENSION = 'gbk'
 
     def __init__(self, identifier_type='locus'):
         self.identifier_type = identifier_type
@@ -75,7 +75,7 @@ class FastaToGb:
         sequences = []
         header = None
         sequence = ""
-        for line in ctx:
+        for line in ctx.input:
             line = line.strip()
             if line.startswith(">"):
                 if header:
@@ -95,10 +95,17 @@ class FastaToGb:
         id_parts = header.split('-')
         if self.identifier_type == "accession":
             identifier = id_parts[-1]
+            organism = " ".join(id_parts[:-1])
         else:
             identifier = id_parts[0]
-        organism = " ".join(id_parts[:-1]) if self.identifier_type == "accession" else " ".join(id_parts[1:])
-
+            organism = " ".join(id_parts[1:])
+        
+        # If identifier or organism is missing, provide defaults
+        if not identifier:
+            identifier = "UNKNOWN"
+        if not organism:
+            organism = "Unknown"
+        
         genbank_entry = f"""LOCUS       {identifier} {len(sequence)} bp    DNA     linear   UNK {time.strftime('%d-%b-%Y').upper()}
 DEFINITION  {header}.
 ACCESSION   {identifier}
