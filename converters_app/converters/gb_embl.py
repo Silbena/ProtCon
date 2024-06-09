@@ -334,15 +334,26 @@ class EmblToGb:
 
         # splitting the parts
         elements = f.split('XX')
+        references = []
 
-        locus = elements[0]
-        definition = elements[2]
-        accession = elements[1]
-        keyword = elements[3]
-        organism = elements[4]
-        references = elements[5:-2]
-        features = elements[-2]
-        origin = elements[-1]
+        for el in elements:
+            el.strip()
+            if el.startswith('ID'):
+                locus = el
+            elif el.startswith('AC') or el.startswith('\nAC'):
+                accession = el
+            elif el.startswith('DE') or el.startswith('\nDE'):
+                definition = el
+            elif el.startswith('KW') or el.startswith('\nKW'):
+                keyword = el
+            elif el.startswith('OS') or el.startswith('\nOS'):
+                organism = el
+            elif el.startswith('RN') or el.startswith('\nRN'):
+                references.append(el)
+            elif el.startswith('FH') or el.startswith('\nFH'):
+                features = el
+            elif el.startswith('SQ') or el.startswith('\nSQ'):
+                origin = el
         
         # converting
         conv_locus_embl = self.locus_converter_embl(locus, accession) 
