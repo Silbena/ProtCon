@@ -4,7 +4,9 @@
 !README.md
 
 !.gitignore
-!input/
+!converters_app/input/embl/*.embl
+!converters_app/input/fasta/*.fa*
+!converters_app/input/gb/*.gb
 !converters_app/converters/*.py
 !converters_app/secon.py
 !converters_app/requirements.txt

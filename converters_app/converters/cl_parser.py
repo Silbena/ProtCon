@@ -19,12 +19,13 @@ class Parser:
         parser.add_argument('input',
                             type = str,
                             help = 'path to input file/folder')
-        parser.add_argument('output',
+        parser.add_argument('format',
                             type = str,
-                            help = 'path to output file/folder')
-        parser.add_argument('-f', '--format',
+                            help = '.ext (fasta/embl/gb)')
+        parser.add_argument('-o','--output',
+                            default='.',
                             type = str,
-                            help = '.extension (only for folders)')
+                            help = 'path to output folder')
         parser.add_argument('-e', '--exclude',
                             type = str,
                             help = 'file/folder to be excluded from conversion (only for folders)')

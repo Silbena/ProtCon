@@ -1,0 +1,494 @@
+ID   V00565; SV 1; linear; genomic DNA; STD; HUM; 4992 BP.
+XX
+AC   V00565;
+XX
+DT   03-NOV-1982 (Rel. 02, Created)
+DT   30-MAR-1995 (Rel. 43, Last updated, Version 6)
+XX
+DE   Human gene for preproinsulin, from chromosome 11. Includes a highly
+DE   polymorphic region upstream from the insulin gene containing tandemly
+DE   repeated sequences.
+XX
+KW   germ line; insulin; repetitive sequence; signal peptide; tandem repeat.
+XX
+OS   Homo sapiens (human)
+OC   Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi; Mammalia;
+OC   Eutheria; Euarchontoglires; Primates; Haplorrhini; Catarrhini; Hominidae;
+OC   Homo.
+XX
+RN   [1]
+RP   1925-3715
+RX   DOI; 10.1038/284026a0.
+RX   PUBMED; 6243748.
+RA   Bell G.I., Pictet R.L., Rutter W.J., Cordell B., Tischer E., Goodman H.M.;
+RT   "Sequence of the human insulin gene";
+RL   Nature 284(5751):26-32(1980).
+XX
+RN   [2]
+RP   1928-3651
+RX   DOI; 10.1126/science.6248962.
+RX   PUBMED; 6248962.
+RA   Ullrich A., Dull T.J., Gray A., Brosius J., Sures I.;
+RT   "Genetic variation in the human insulin gene";
+RL   Science, e1252229 209(4456):612-615(1980).
+XX
+RN   [3]
+RP   1-2227
+RX   DOI; 10.1038/295031a0.
+RX   PUBMED; 7035959.
+RA   Bell G.I., Selby M.J., Rutter W.J.;
+RT   "The highly polymorphic region near the human insulin gene is composed of
+RT   simple tandemly repeating sequences";
+RL   Nature 295(5844):31-35(1982).
+XX
+RN   [4]
+RP   1-4992
+RA   Bell G.I.;
+RT   ;
+RL   Submitted (01-APR-1982) to the INSDC.
+XX
+DR   MD5; 0cbbae00d8dc11fda6cbdc35378ff670.
+DR   EPD; EP07109; HS_INS.
+DR   EPD; EP17071; HS_IGF2_1.
+DR   Ensembl-Gn; ENSG00000254647; homo_sapiens.
+DR   Ensembl-Tr; ENST00000250971; homo_sapiens.
+DR   Ensembl-Tr; ENST00000381330; homo_sapiens.
+DR   Ensembl-Tr; ENST00000397262; homo_sapiens.
+XX
+CC   This entry is assembled from and replaces the previous entries
+CC   <HSINS1> and <HSINSUZ1>, and contains other new data.
+CC   
+CC   Some sequence and feature data have been adapted from the
+CC   Los Alamos sequence data base entry HUMINS1.
+CC   The immediate translation product of the gene is preproinsulin.
+CC   The signal peptide facilitates membrane transit of the insulin
+CC   precursor, and is cleaved off in the process.  In the resulting
+CC   proinsulin molecule, the peptide chains A and B are joined by the
+CC   connecting peptide C, which is believed to help in the formation
+CC   of the disulphide bridges required for insulin.  (See [1].)
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..4992
+FT                   /organism="Homo sapiens"
+FT                   /mol_type="genomic DNA"
+FT                   /db_xref="taxon:9606"
+FT   misc_feature    1340..1823
+FT                   /note="polymorphic region (tandem repeats)"
+FT   misc_difference 2101..2101
+FT                   /note="G is AGG in [2]"
+FT                   /note="conflict"
+FT                   /citation=[2]
+FT   misc_feature    2156..2161
+FT                   /note="TATAAA (Hogness) box"
+FT   precursor_RNA   2186..3615
+FT                   /note="preproinsulin primary transcript"
+FT   mRNA            2186..2227
+FT                   /note="preproinsulin mRNA (part 1)"
+FT   intron          2228..2406
+FT                   /note="intron"
+FT   variation       2401..2401
+FT                   /note="T can be A (see [2])"
+FT   mRNA            2407..2610
+FT                   /note="preproinsulin mRNA (part 2)"
+FT   CDS             join(2424..2610,3397..3542)
+FT                   /product="preproinsulin"
+FT                   /db_xref="GOA:P01308"
+FT                   /db_xref="HGNC:HGNC:6081"
+FT                   /db_xref="InterPro:IPR004825"
+FT                   /db_xref="InterPro:IPR016179"
+FT                   /db_xref="InterPro:IPR022352"
+FT                   /db_xref="InterPro:IPR022353"
+FT                   /db_xref="InterPro:IPR036438"
+FT                   /db_xref="PDB:1A7F"
+FT                   /db_xref="PDB:1AI0"
+FT                   /db_xref="PDB:1AIY"
+FT                   /db_xref="PDB:1B9E"
+FT                   /db_xref="PDB:1BEN"
+FT                   /db_xref="PDB:1EFE"
+FT                   /db_xref="PDB:1EV3"
+FT                   /db_xref="PDB:1EV6"
+FT                   /db_xref="PDB:1EVR"
+FT                   /db_xref="PDB:1FU2"
+FT                   /db_xref="PDB:1FUB"
+FT                   /db_xref="PDB:1G7A"
+FT                   /db_xref="PDB:1G7B"
+FT                   /db_xref="PDB:1GUJ"
+FT                   /db_xref="PDB:1HIQ"
+FT                   /db_xref="PDB:1HIS"
+FT                   /db_xref="PDB:1HIT"
+FT                   /db_xref="PDB:1HLS"
+FT                   /db_xref="PDB:1HTV"
+FT                   /db_xref="PDB:1HUI"
+FT                   /db_xref="PDB:1IOG"
+FT                   /db_xref="PDB:1IOH"
+FT                   /db_xref="PDB:1J73"
+FT                   /db_xref="PDB:1JCA"
+FT                   /db_xref="PDB:1JCO"
+FT                   /db_xref="PDB:1JK8"
+FT                   /db_xref="PDB:1K3M"
+FT                   /db_xref="PDB:1KMF"
+FT                   /db_xref="PDB:1LKQ"
+FT                   /db_xref="PDB:1LPH"
+FT                   /db_xref="PDB:1MHI"
+FT                   /db_xref="PDB:1MHJ"
+FT                   /db_xref="PDB:1MSO"
+FT                   /db_xref="PDB:1OS3"
+FT                   /db_xref="PDB:1OS4"
+FT                   /db_xref="PDB:1Q4V"
+FT                   /db_xref="PDB:1QIY"
+FT                   /db_xref="PDB:1QIZ"
+FT                   /db_xref="PDB:1QJ0"
+FT                   /db_xref="PDB:1RWE"
+FT                   /db_xref="PDB:1SF1"
+FT                   /db_xref="PDB:1SJT"
+FT                   /db_xref="PDB:1SJU"
+FT                   /db_xref="PDB:1T0C"
+FT                   /db_xref="PDB:1T1K"
+FT                   /db_xref="PDB:1T1P"
+FT                   /db_xref="PDB:1T1Q"
+FT                   /db_xref="PDB:1TRZ"
+FT                   /db_xref="PDB:1TYL"
+FT                   /db_xref="PDB:1TYM"
+FT                   /db_xref="PDB:1UZ9"
+FT                   /db_xref="PDB:1VKT"
+FT                   /db_xref="PDB:1W8P"
+FT                   /db_xref="PDB:1XDA"
+FT                   /db_xref="PDB:1XGL"
+FT                   /db_xref="PDB:1XW7"
+FT                   /db_xref="PDB:1ZEG"
+FT                   /db_xref="PDB:1ZEH"
+FT                   /db_xref="PDB:1ZNJ"
+FT                   /db_xref="PDB:2AIY"
+FT                   /db_xref="PDB:2C8Q"
+FT                   /db_xref="PDB:2C8R"
+FT                   /db_xref="PDB:2CEU"
+FT                   /db_xref="PDB:2G54"
+FT                   /db_xref="PDB:2G56"
+FT                   /db_xref="PDB:2H67"
+FT                   /db_xref="PDB:2HH4"
+FT                   /db_xref="PDB:2HHO"
+FT                   /db_xref="PDB:2HIU"
+FT                   /db_xref="PDB:2JMN"
+FT                   /db_xref="PDB:2JUM"
+FT                   /db_xref="PDB:2JUU"
+FT                   /db_xref="PDB:2JUV"
+FT                   /db_xref="PDB:2JV1"
+FT                   /db_xref="PDB:2JZQ"
+FT                   /db_xref="PDB:2K91"
+FT                   /db_xref="PDB:2K9R"
+FT                   /db_xref="PDB:2KJJ"
+FT                   /db_xref="PDB:2KJU"
+FT                   /db_xref="PDB:2KQP"
+FT                   /db_xref="PDB:2KQQ"
+FT                   /db_xref="PDB:2KXK"
+FT                   /db_xref="PDB:2L1Y"
+FT                   /db_xref="PDB:2L1Z"
+FT                   /db_xref="PDB:2LGB"
+FT                   /db_xref="PDB:2LWZ"
+FT                   /db_xref="PDB:2M1D"
+FT                   /db_xref="PDB:2M1E"
+FT                   /db_xref="PDB:2M2M"
+FT                   /db_xref="PDB:2M2N"
+FT                   /db_xref="PDB:2M2O"
+FT                   /db_xref="PDB:2M2P"
+FT                   /db_xref="PDB:2MLI"
+FT                   /db_xref="PDB:2MPG"
+FT                   /db_xref="PDB:2MPI"
+FT                   /db_xref="PDB:2MVC"
+FT                   /db_xref="PDB:2MVD"
+FT                   /db_xref="PDB:2N2V"
+FT                   /db_xref="PDB:2N2W"
+FT                   /db_xref="PDB:2N2X"
+FT                   /db_xref="PDB:2OLY"
+FT                   /db_xref="PDB:2OLZ"
+FT                   /db_xref="PDB:2OM0"
+FT                   /db_xref="PDB:2OM1"
+FT                   /db_xref="PDB:2OMG"
+FT                   /db_xref="PDB:2OMH"
+FT                   /db_xref="PDB:2OMI"
+FT                   /db_xref="PDB:2OMQ"
+FT                   /db_xref="PDB:2QIU"
+FT                   /db_xref="PDB:2R34"
+FT                   /db_xref="PDB:2R35"
+FT                   /db_xref="PDB:2R36"
+FT                   /db_xref="PDB:2RN5"
+FT                   /db_xref="PDB:2VJZ"
+FT                   /db_xref="PDB:2VK0"
+FT                   /db_xref="PDB:2W44"
+FT                   /db_xref="PDB:2WBY"
+FT                   /db_xref="PDB:2WC0"
+FT                   /db_xref="PDB:2WRU"
+FT                   /db_xref="PDB:2WRV"
+FT                   /db_xref="PDB:2WRW"
+FT                   /db_xref="PDB:2WRX"
+FT                   /db_xref="PDB:2WS0"
+FT                   /db_xref="PDB:2WS1"
+FT                   /db_xref="PDB:2WS4"
+FT                   /db_xref="PDB:2WS6"
+FT                   /db_xref="PDB:2WS7"
+FT                   /db_xref="PDB:3AIY"
+FT                   /db_xref="PDB:3BXQ"
+FT                   /db_xref="PDB:3E7Y"
+FT                   /db_xref="PDB:3E7Z"
+FT                   /db_xref="PDB:3EXX"
+FT                   /db_xref="PDB:3FQ9"
+FT                   /db_xref="PDB:3HYD"
+FT                   /db_xref="PDB:3I3Z"
+FT                   /db_xref="PDB:3I40"
+FT                   /db_xref="PDB:3ILG"
+FT                   /db_xref="PDB:3INC"
+FT                   /db_xref="PDB:3IR0"
+FT                   /db_xref="PDB:3JSD"
+FT                   /db_xref="PDB:3KQ6"
+FT                   /db_xref="PDB:3P2X"
+FT                   /db_xref="PDB:3P33"
+FT                   /db_xref="PDB:3Q6E"
+FT                   /db_xref="PDB:3ROV"
+FT                   /db_xref="PDB:3TT8"
+FT                   /db_xref="PDB:3U4N"
+FT                   /db_xref="PDB:3UTQ"
+FT                   /db_xref="PDB:3UTS"
+FT                   /db_xref="PDB:3UTT"
+FT                   /db_xref="PDB:3V19"
+FT                   /db_xref="PDB:3V1G"
+FT                   /db_xref="PDB:3W11"
+FT                   /db_xref="PDB:3W12"
+FT                   /db_xref="PDB:3W13"
+FT                   /db_xref="PDB:3W7Y"
+FT                   /db_xref="PDB:3W7Z"
+FT                   /db_xref="PDB:3W80"
+FT                   /db_xref="PDB:3ZI3"
+FT                   /db_xref="PDB:3ZQR"
+FT                   /db_xref="PDB:3ZS2"
+FT                   /db_xref="PDB:3ZU1"
+FT                   /db_xref="PDB:4AIY"
+FT                   /db_xref="PDB:4AJX"
+FT                   /db_xref="PDB:4AJZ"
+FT                   /db_xref="PDB:4AK0"
+FT                   /db_xref="PDB:4AKJ"
+FT                   /db_xref="PDB:4CXL"
+FT                   /db_xref="PDB:4CXN"
+FT                   /db_xref="PDB:4CY7"
+FT                   /db_xref="PDB:4EFX"
+FT                   /db_xref="PDB:4EWW"
+FT                   /db_xref="PDB:4EWX"
+FT                   /db_xref="PDB:4EWZ"
+FT                   /db_xref="PDB:4EX0"
+FT                   /db_xref="PDB:4EX1"
+FT                   /db_xref="PDB:4EXX"
+FT                   /db_xref="PDB:4EY1"
+FT                   /db_xref="PDB:4EY9"
+FT                   /db_xref="PDB:4EYD"
+FT                   /db_xref="PDB:4EYN"
+FT                   /db_xref="PDB:4EYP"
+FT                   /db_xref="PDB:4F0N"
+FT                   /db_xref="PDB:4F0O"
+FT                   /db_xref="PDB:4F1A"
+FT                   /db_xref="PDB:4F1B"
+FT                   /db_xref="PDB:4F1C"
+FT                   /db_xref="PDB:4F1D"
+FT                   /db_xref="PDB:4F1F"
+FT                   /db_xref="PDB:4F1G"
+FT                   /db_xref="PDB:4F4T"
+FT                   /db_xref="PDB:4F4V"
+FT                   /db_xref="PDB:4F51"
+FT                   /db_xref="PDB:4F8F"
+FT                   /db_xref="PDB:4FG3"
+FT                   /db_xref="PDB:4FKA"
+FT                   /db_xref="PDB:4GBC"
+FT                   /db_xref="PDB:4GBI"
+FT                   /db_xref="PDB:4GBK"
+FT                   /db_xref="PDB:4GBL"
+FT                   /db_xref="PDB:4GBN"
+FT                   /db_xref="PDB:4IUZ"
+FT                   /db_xref="PDB:4IYD"
+FT                   /db_xref="PDB:4IYF"
+FT                   /db_xref="PDB:4NIB"
+FT                   /db_xref="PDB:4OGA"
+FT                   /db_xref="PDB:4P65"
+FT                   /db_xref="PDB:4RXW"
+FT                   /db_xref="PDB:4UNE"
+FT                   /db_xref="PDB:4UNG"
+FT                   /db_xref="PDB:4UNH"
+FT                   /db_xref="PDB:4WDI"
+FT                   /db_xref="PDB:4XC4"
+FT                   /db_xref="PDB:4Y19"
+FT                   /db_xref="PDB:4Y1A"
+FT                   /db_xref="PDB:4Z76"
+FT                   /db_xref="PDB:4Z77"
+FT                   /db_xref="PDB:4Z78"
+FT                   /db_xref="PDB:5AIY"
+FT                   /db_xref="PDB:5BOQ"
+FT                   /db_xref="PDB:5BPO"
+FT                   /db_xref="PDB:5BQQ"
+FT                   /db_xref="PDB:5BTS"
+FT                   /db_xref="PDB:5C0D"
+FT                   /db_xref="PDB:5CJO"
+FT                   /db_xref="PDB:5CNY"
+FT                   /db_xref="PDB:5CO2"
+FT                   /db_xref="PDB:5CO6"
+FT                   /db_xref="PDB:5CO9"
+FT                   /db_xref="PDB:5E7W"
+FT                   /db_xref="PDB:5EMS"
+FT                   /db_xref="PDB:5EN9"
+FT                   /db_xref="PDB:5ENA"
+FT                   /db_xref="PDB:5HPR"
+FT                   /db_xref="PDB:5HPU"
+FT                   /db_xref="PDB:5HQI"
+FT                   /db_xref="PDB:5HRQ"
+FT                   /db_xref="PDB:5HYJ"
+FT                   /db_xref="PDB:5MAM"
+FT                   /db_xref="PDB:5MHD"
+FT                   /db_xref="PDB:5MT3"
+FT                   /db_xref="PDB:5MT9"
+FT                   /db_xref="PDB:5MWQ"
+FT                   /db_xref="PDB:5T7R"
+FT                   /db_xref="PDB:5UDP"
+FT                   /db_xref="PDB:5UOZ"
+FT                   /db_xref="PDB:5UQA"
+FT                   /db_xref="PDB:5URT"
+FT                   /db_xref="PDB:5URU"
+FT                   /db_xref="PDB:5USP"
+FT                   /db_xref="PDB:5USS"
+FT                   /db_xref="PDB:5USV"
+FT                   /db_xref="PDB:5UU2"
+FT                   /db_xref="PDB:5UU3"
+FT                   /db_xref="PDB:5UU4"
+FT                   /db_xref="PDB:5VIZ"
+FT                   /db_xref="PDB:5WBT"
+FT                   /db_xref="PDB:5WDM"
+FT                   /db_xref="PDB:5WOB"
+FT                   /db_xref="PDB:6B3Q"
+FT                   /db_xref="PDB:6B70"
+FT                   /db_xref="PDB:6BFC"
+FT                   /db_xref="PDB:6CE7"
+FT                   /db_xref="PDB:6CE9"
+FT                   /db_xref="PDB:6CEB"
+FT                   /db_xref="PDB:6CK2"
+FT                   /db_xref="PDB:6GNQ"
+FT                   /db_xref="PDB:6GV0"
+FT                   /db_xref="PDB:6HN5"
+FT                   /db_xref="PDB:6P4Z"
+FT                   /db_xref="PDB:6S34"
+FT                   /db_xref="UniProtKB/Swiss-Prot:P01308"
+FT                   /protein_id="CAA23828.1"
+FT                   /translation="MALWMRLLPLLALLALWGPDPAAAFVNQHLCGSHLVEALYLVCGE
+FT                   RGFFYTPKTRREAEDLQVGQVELGGGPGAGSLQPLALEGSLQKRGIVEQCCTSICSLYQ
+FT                   LENYCN"
+FT   sig_peptide     2424..2495
+FT                   /note="peptide pre (signal peptide)"
+FT   mat_peptide     2496..2585
+FT                   /note="proinsulin peptide B"
+FT   mat_peptide     join(2586..2610,3397..3476)
+FT                   /note="proinsulin peptide C (part 1) (2610 is 1st base in
+FT                   codon)"
+FT   intron          2611..3396
+FT                   /note="intron"
+FT   misc_difference 3068..3068
+FT                   /note="G is GG in [2]"
+FT                   /note="conflict"
+FT                   /citation=[2]
+FT   variation       3229..3229
+FT                   /note="G can be C (see [2])"
+FT   mRNA            3397..3615
+FT                   /note="preproinsulin mRNA (part 3)"
+FT   mat_peptide     3477..3539
+FT                   /note="proinsulin peptide A"
+FT   variation       3551..3551
+FT                   /note="T can be C (see [2])"
+FT   variation       3564..3564
+FT                   /note="A can be C (see [2])"
+FT   misc_difference 3638..3639
+FT                   /note="TT is T in [2]"
+FT                   /note="conflict"
+FT                   /citation=[2]
+FT   unsure          4381..4441
+FT                   /note="sequence unconfirmed"
+XX
+SQ   Sequence 4992 BP; 849 A; 1553 C; 1755 G; 835 T; 0 other;
+     ctcgaggggc ctagacattg ccctccagag agagcaccca acaccctcca ggcttgaccg        60
+     gccagggtgt ccccttccta ccttggagag agcagcccca gggcatcctg cagggggtgc       120
+     tgggacacca gctggccttc aaggtctctg cctccctcca gccaccccac tacacgctgc       180
+     tgggatcctg gatctcagct ccctggccga caacactggc aaactcctac tcatccacga       240
+     aggccctcct gggcatggtg gtccttccca gcctggcagt ctgttcctca cacaccttgt       300
+     tagtgcccag cccctgaggt tgcagctggg ggtgtctctg aagggctgtg agcccccagg       360
+     aagccctggg gaagtgcctg ccttgcctcc ccccggccct gccagcgcct ggctctgccc       420
+     tcctacctgg gctcccccca tccagcctcc ctccctacac actcctctca aggaggcacc       480
+     catgtcctct ccagctgccg ggcctcagag cactgtggcg tcctggggca gccaccgcat       540
+     gtcctgctgt ggcatggctc agggtggaaa gggcggaagg gaggggtcct gcagatagct       600
+     ggtgcccact accaaacccg ctcggggcag gagagccaaa ggctgggtgt gtgcagagcg       660
+     gccccgagag gttccgaggc tgaggccagg gtgggacata gggatgcgag gggccggggc       720
+     acaggatact ccaacctgcc tgcccccatg gtctcatcct cctgcttctg ggacctcctg       780
+     atcctgcccc tggtgctaag aggcaggtaa ggggctgcag gcagcagggc tcggagccca       840
+     tgccccctca ccatgggtca ggctggacct ccaggtgcct gttctgggga gctgggaggg       900
+     ccggaggggt gtaccccagg ggctcagccc agatgacact atgggggtga tggtgtcatg       960
+     ggacctggcc aggagagggg agatgggctc ccagaagagg agtgggggct gagagggtgc      1020
+     ctggggggcc aggacggagc tgggccagtg cacagcttcc cacacctgcc cacccccaga      1080
+     gtcctgccgc cacccccaga tcacacggaa gatgaggtcc gagtggcctg ctgaggactt      1140
+     gctgcttgtc cccaggtccc caggtcatgc cctccttctg ccaccctggg gagctgaggg      1200
+     cctcagctgg ggctgctgtc ctaaggcagg gtgggaacta ggcagccagc agggagggga      1260
+     cccctccctc actcccactc tcccaccccc accaccttgg cccatccatg gcggcatctt      1320
+     gggccatccg ggactgggga caggggtcct ggggacaggg gtccggggac agggtcctgg      1380
+     ggacaggggt gtggggacag gggtctgggg acaggggtgt ggggacaggg gtgtggggac      1440
+     aggggtctgg ggacaggggt gtggggacag gggtccgggg acaggggtgt ggggacaggg      1500
+     gtctggggac aggggtgtgg ggacaggggt gtggggacag gggtctgggg acaggggtgt      1560
+     ggggacaggg gtcctgggga caggggtgtg gggacagggg tgtggggaca ggggtgtggg      1620
+     gacaggggtg tggggacagg ggtcctgggg ataggggtgt ggggacaggg gtgtggggac      1680
+     aggggtcccg gggacagggg tgtggggaca ggggtgtggg gacaggggtc ctggggacag      1740
+     gggtctgagg acaggggtgt gggcacaggg gtcctgggga caggggtcct ggggacaggg      1800
+     gtcctgggga caggggtctg gggacagcag cgcaaagagc cccgccctgc agcctccagc      1860
+     tctcctggtc taatgtggaa agtggcccag gtgagggctt tgctctcctg gagacatttg      1920
+     cccccagctg tgagcaggga caggtctggc caccgggccc ctggttaaga ctctaatgac      1980
+     ccgctggtcc tgaggaagag gtgctgacga ccaaggagat cttcccacag acccagcacc      2040
+     agggaaatgg tccggaaatt gcagcctcag cccccagcca tctgccgacc cccccacccc      2100
+     gccctaatgg gccaggcggc aggggttgac aggtagggga gatgggctct gagactataa      2160
+     agccagcggg ggcccagcag ccctcagccc tccaggacag gctgcatcag aagaggccat      2220
+     caagcaggtc tgttccaagg gcctttgcgt caggtgggct cagggttcca gggtggctgg      2280
+     accccaggcc ccagctctgc agcagggagg acgtggctgg gctcgtgaag catgtggggg      2340
+     tgagcccagg ggccccaagg cagggcacct ggccttcagc ctgcctcagc cctgcctgtc      2400
+     tcccagatca ctgtccttct gccatggccc tgtggatgcg cctcctgccc ctgctggcgc      2460
+     tgctggccct ctggggacct gacccagccg cagcctttgt gaaccaacac ctgtgcggct      2520
+     cacacctggt ggaagctctc tacctagtgt gcggggaacg aggcttcttc tacacaccca      2580
+     agacccgccg ggaggcagag gacctgcagg gtgagccaac cgcccattgc tgcccctggc      2640
+     cgcccccagc caccccctgc tcctggcgct cccacccagc atgggcagaa gggggcagga      2700
+     ggctgccacc cagcaggggg tcaggtgcac ttttttaaaa agaagttctc ttggtcacgt      2760
+     cctaaaagtg accagctccc tgtggcccag tcagaatctc agcctgagga cggtgttggc      2820
+     ttcggcagcc ccgagataca tcagagggtg ggcacgctcc tccctccact cgcccctcaa      2880
+     acaaatgccc cgcagcccat ttctccaccc tcatttgatg accgcagatt caagtgtttt      2940
+     gttaagtaaa gtcctgggtg acctggggtc acagggtgcc ccacgctgcc tgcctctggg      3000
+     cgaacacccc atcacgcccg gaggagggcg tggctgcctg cctgagtggg ccagacccct      3060
+     gtcgccagcc tcacggcagc tccatagtca ggagatgggg aagatgctgg ggacaggccc      3120
+     tggggagaag tactgggatc acctgttcag gctcccactg tgacgctgcc ccggggcggg      3180
+     ggaaggaggt gggacatgtg ggcgttgggg cctgtaggtc cacacccagt gtgggtgacc      3240
+     ctccctctaa cctgggtcca gcccggctgg agatgggtgg gagtgcgacc tagggctggc      3300
+     gggcaggcgg gcactgtgtc tccctgactg tgtcctcctg tgtccctctg cctcgccgct      3360
+     gttccggaac ctgctctgcg cggcacgtcc tggcagtggg gcaggtggag ctgggcgggg      3420
+     gccctggtgc aggcagcctg cagcccttgg ccctggaggg gtccctgcag aagcgtggca      3480
+     ttgtggaaca atgctgtacc agcatctgct ccctctacca gctggagaac tactgcaact      3540
+     agacgcagcc tgcaggcagc cccacacccg ccgcctcctg caccgagaga gatggaataa      3600
+     agcccttgaa ccagccctgc tgtgccgtct gtgtgtcttg ggggccctgg gccaagcccc      3660
+     acttcccggc actgttgtga gcccctccca gctctctcca cgctctctgg gtgcccacag      3720
+     gtgccaacgc caggcaggcc cagcatgcag tggctctccc caaagcggcc atgcctgttg      3780
+     gctgcctgct gcccccaccc tgtggctcag ggtccagtat gggagcttcg ggggtctctg      3840
+     aggggccagg gatggtgggg ccactgagaa gtgactctgt cagtagccga cctggagtcc      3900
+     ccagagacct tgttcaggaa agggaatgag aacattccag caattttccc cccacctagc      3960
+     cctcccaggt tctattttta gagttatttc tgatggagtc cctgtggagg gaggaggctg      4020
+     ggctgaggga gggggtcctg cagggcgggg ggctgggaag gtggggagag gctgccgaga      4080
+     gccacccgct atccccagct ctgggcagcc ccgggacagt cacacaccct ggcctcgcgg      4140
+     cccaagctgg cagccgtctg cagccacagc ttatgccagc ccaggtccag ccagacacct      4200
+     gagggaccca ctggtgcctt ggaggaagca ggagaggtca gatggcacca tgagctgggg      4260
+     caggtgcagg gaccgtggca gcacctggca gggcctcaga acccatgcct tgggcacccc      4320
+     ggccatgagg ccctgaggat tgcagcccaa gagaagcagg gaacgccagg gccacagggg      4380
+     cagagaccag gccagggtcc cttgcggccc ttagcccacc ccctcccagt aagcaggggc      4440
+     tgcttggcta ggcttccttt tgctacagac ctgctgctca cccagaggcc cacgggccct      4500
+     agtgacaagg tcgttgtggc tccaggtcct tgggggtcct gacacagagc ctcttctgca      4560
+     gcacccctga ggacagggtg ctccgctggg cacccagcct agtgggcaga cgagaaccta      4620
+     ggggctgcct gggcctactg tggcctggga ggtcagcggg tgaccctagc taccctgtgg      4680
+     ctgggccagt ctgcctgcca cccaggccaa accaatctgc acctttcctg agagctccac      4740
+     ccagggctgg gctggggatg gctgggcctg gggctggcat gggctgtggc tgcagaccac      4800
+     tgccagcttg ggcctcgagg ccaggagctc accctccagc tgccccgcct ccagagtggg      4860
+     ggccagggct gggcaggcgg gtggacggcc ggacactggc cccggaagag gagggaggcg      4920
+     gtggctggga tcggcagcag ccgtccatgg gaacacccag ccggccccac tcgcacgggt      4980
+     agagacaggc gc                                                          4992
+//
