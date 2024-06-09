@@ -29,8 +29,7 @@ class GbToEmbl:
         out = ''
         o = organism.split("\n")
         if len(o) < 1:
-            o.log_error('Error. Invalid format.')
-            return
+            return False 
         out += f"OS   {o[0].strip()}\n" # for the first line its 'OS' and for the other 'OC'
         for el in o[1:]:
             out += f"OC   {el.strip()}\n"
@@ -41,8 +40,7 @@ class GbToEmbl:
         out = ''
         r = source.split('REFERENCE')   # split to have list of references
         if len(r) < 2:
-            r.log_error('Error. Invalid format.')
-            return
+            return False 
         for ref in r[1:]:       
             reference_list = []
 
@@ -55,8 +53,7 @@ class GbToEmbl:
 
             for reference in reference_list:        # converting specific parts of information to embl format
                 if len(reference) < 4:
-                    reference.log_error('Error. Invalid format.')
-                    return
+                    return False 
                 rl_lines = reference[3].strip().split("\n")
                 rl_string = '\n'.join([f'RL   {line.strip()}' for line in rl_lines[:]])
                 rt_lines = reference[2].strip().split("\n")
@@ -92,16 +89,14 @@ class GbToEmbl:
         w = ''
 
         if len(origin.split()) < 1:
-            origin.log_error('Error. Invalid format.')
-            return
+            return False 
         # splitting the sequence and checking if we have number or part of the sequence
         for element in origin.split()[1:]:
             if element.isalpha():       # for sequences adding them to w string
                 w += element + " "
                 for aa in element:
                     if aa.upper() not in bp_dict.keys():    # checking if bases are valid
-                        element.log_error('Error in sequence. This is not a base.')
-                        continue
+                        return False 
                     else:
                         bp_dict[aa.upper()] += 1            # counting the bases in the dictionary
             else:
@@ -136,23 +131,50 @@ class GbToEmbl:
         features = f.split("FEATURES")[1].strip().split("ORIGIN")[0].strip()
         origin = f.split("ORIGIN")[1].strip().split("//")[0].strip()
 
-        # adding converted parts to the list
+        # converting
         conv_locus = self.locus_converter(locus) 
+        conv_accesion = self.accesion_converter(accesion) 
+        conv_definition = self.definition_converter(definition)
+        conv_organism = self.organism_converter(organism)
+        conv_source = self.source_converter(source)
+        conv_features = self.features_converter(features)
+        conv_origin = self.origin_converter(origin)
+
+        # writing and logging the errors
         if conv_locus:
-            ctx.write(conv_locus) # Should work without a need of creating an output list.
+            ctx.write(conv_locus) 
         else:
             ctx.log_error('Invalid format.')
 
-        output.append(self.accesion_converter(accesion))
-        output.append(self.definition_converter(definition))
-        output.append(self.organism_converter(organism))
-        output.append(self.source_converter(source))
-        output.append(self.features_converter(features))
-        output.append(self.origin_converter(origin))
+        if conv_accesion:
+            ctx.write(conv_accesion) 
+        else:
+            ctx.log_error('Invalid format.')
 
-        # writing the content of the list in the output
-        for part in output:
-            ctx.write(part)
+        if conv_definition:
+            ctx.write(conv_definition) 
+        else:
+            ctx.log_error('Invalid format.')
+
+        if conv_organism:
+            ctx.write(conv_organism) 
+        else:
+            ctx.log_error('Invalid format.')
+
+        if conv_source:
+            ctx.write(conv_source) 
+        else:
+            ctx.log_error('Invalid format.')
+
+        if conv_features:
+            ctx.write(conv_features) 
+        else:
+            ctx.log_error('Invalid format.')
+        
+        if conv_origin:
+            ctx.write(conv_origin) 
+        else:
+            ctx.log_error('Invalid format.')
 
 
 
@@ -164,8 +186,7 @@ class EmblToGb:
     def locus_converter_embl(self, locus: str) -> str:
         parts = locus.split(';')
         if len(parts) < 6:
-            parts.log_error('Error. Invalid format.')
-            return             
+            return False             
         return f"LOCUS       {parts[-1].split(' ')[1]}bp   {parts[3]}   {parts[2]}   {parts[5]}\n"
 
     # additional function to convert definition lines 
@@ -189,8 +210,7 @@ class EmblToGb:
     def organism_converter_embl(self, organism: str) -> str:
         lines = organism.split('\n')            # splitting the input by lines and converting it differently
         if len(lines) < 1:
-            lines.log_error('Error. Invalid format.')
-            return
+            return False 
         out = f"SOURCE      {lines[1].split('OS')[1].strip()}\n" \
             f"  ORGANISM  {lines[1].split('OS')[1].strip()}\n"
         for line in lines[:]:       # removing the empty lines
@@ -211,8 +231,7 @@ class EmblToGb:
         for ref in reference[:]:        # we splitid the lines by XX (which are lines between different references as well so we iterate over each reference)
 
             if len(ref.split('RN')) < 2 or len(ref.split('RP')) < 2 or len(ref.split('RA')) < 2 or len(ref.split('RT')) < 2:
-                    ref.log_error('Error. Invalid format.')
-                    return
+                    return False 
             # splitting specific lines containing different info (RN - number, RP - base count , RA - autor, RT - tittle, RL - citation)
             rn_part = ref.split('RN')[1].strip().split('\n')[0] 
             rp_part = ref.split('RP')[1].strip()
@@ -285,8 +304,7 @@ class EmblToGb:
                 seq_list.remove(el)
 
         if len(seq_list) < 2:
-            seq_list.log_error('Error. Invalid format.')
-            return
+            return False 
         
         for o in seq_list[1:]:              # igniring first part as its 'SQ' and unimportant info
             # line conversion by adding the number at the beggining, evening the sequence output and removing the number at the end of the line (the split has to be minimum two spaces as there is one space in between each sequence part)
@@ -313,17 +331,54 @@ class EmblToGb:
         references = elements[5:-2]
         features = elements[-2]
         origin = elements[-1]
+        
+        # converting
+        conv_locus_embl = self.locus_converter_embl(locus) 
+        conv_definition_embl = self.definition_converter_embl(definition)
+        conv_accesion_embl = self.accession_converter_embl(accession) 
+        conv_keyword_embl = self.keyword_converter_embl(keyword)
+        conv_organism_embl = self.organism_converter_embl(organism)
+        conv_references_embl = self.reference_converter_embl(references)
+        conv_features_embl = self.features_converter_embl(features)
+        conv_origin_embl = self.origin_converter_embl(origin)
 
-        # adding converted parts to the list
-        output.append(self.locus_converter_embl(locus))
-        output.append(self.definition_converter_embl(definition))
-        output.append(self.accession_converter_embl(accession))
-        output.append(self.keyword_converter_embl(keyword))
-        output.append(self.organism_converter_embl(organism))
-        output.append(self.reference_converter_embl(references))
-        output.append(self.features_converter_embl(features))
-        output.append(self.origin_converter_embl(origin))
+        # writing and logging the errors
+        if conv_locus_embl:
+            ctx.write(conv_locus_embl) 
+        else:
+            ctx.log_error('Invalid format.')
 
-        # writing the content of the list in the output
-        for part in output:
-            ctx.write(part)
+        if conv_accesion_embl:
+            ctx.write(conv_accesion_embl) 
+        else:
+            ctx.log_error('Invalid format.')
+
+        if conv_definition_embl:
+            ctx.write(conv_definition_embl) 
+        else:
+            ctx.log_error('Invalid format.')
+        
+        if conv_keyword_embl:
+            ctx.write(conv_keyword_embl) 
+        else:
+            ctx.log_error('Invalid format.')
+
+        if conv_organism_embl:
+            ctx.write(conv_organism_embl) 
+        else:
+            ctx.log_error('Invalid format.')
+
+        if conv_references_embl:
+            ctx.write(conv_references_embl) 
+        else:
+            ctx.log_error('Invalid format.')
+
+        if conv_features_embl:
+            ctx.write(conv_features_embl) 
+        else:
+            ctx.log_error('Invalid format.')
+        
+        if conv_origin_embl:
+            ctx.write(conv_origin_embl) 
+        else:
+            ctx.log_error('Invalid format.')
