@@ -104,7 +104,7 @@ def convert_directory(input_dir : str, output_dir : str, out_extension : str, ex
     files = os.listdir(input_dir)
 
     for file_name in files:
-        out_path = os.path.join(output_dir, path.splitext(path.basename(file_name))[0] + out_extension)
+        out_path = convert_name(file_name, output_dir, out_extension)
         conv_key = conv.registry.getKey(file_name, out_path)
         converter_class = conv_registry[conv_key]
         
