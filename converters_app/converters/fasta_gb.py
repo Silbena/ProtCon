@@ -52,7 +52,7 @@ class GbToFasta:
         Converts GenBank format to FASTA format.
         """
         genbank_file = ctx.input.read()  # Read the entire GenBank file
-        entry_lines = genbank_file.split("//\n")  # Split entries by "//"
+        genbank_file.strip().split("//\n")  # Split entries by "//"
         if not entry_lines:
             ctx.log_error("No entries found in the GenBank file.")
 
