@@ -14,6 +14,7 @@ class GbToEmbl:
         out = f"ID   {l[0]}; {l[4]}; {l[3]}; {l[5]}; {l[1]} BP."
         return f'{out}\nXX\n'
 
+
     # additional function to convert definition lines 
     def definition_converter(self, definition: str) -> str:
         definition_str = definition.split('DEFINITION')[1]
@@ -23,14 +24,17 @@ class GbToEmbl:
             out += f'DE   {d[el].strip()}\n'
         return f'{out}XX\n'
 
+
     # additional function to convert accesion lines 
     def accesion_converter(self, accesion: str) -> str:
         accesion_str = accesion.split('ACCESSION')[1].split('\n')[0].strip()
         return f'AC   {accesion_str.strip()};\nXX\n'
     
+
     def keyword_converter(self, keyword: str) -> str:
         keyword_str = keyword.split('KEYWORDS')[1].strip()
         return f'KW    {keyword_str}\nXX\n'
+
 
     # additional function to convert organism lines 
     def organism_converter(self, organism: str) -> str:
@@ -42,6 +46,7 @@ class GbToEmbl:
         for el in o[1:]:
             out += f"OC   {el.strip()}\n"
         return f'{out}XX\n'
+
 
     # additional function to convert source lines 
     def source_converter(self, source: str) -> str:
@@ -86,8 +91,9 @@ class GbToEmbl:
                 else:
                     out += f'RN   [{reference[0][0].strip()}]\nRP   {reference[0][2].strip()}-{reference[0][4].strip().split(")")[0]}\n' \
                         f'RA   {reference[1].strip()};\n{rt_string}\n' \
-                        f'{rl_string}\nXX\n'                                         # Simplify?
+                        f'{rl_string}\nXX\n'                               
         return out
+
 
     # additional function to convert features lines
     def features_converter(self, features: str) -> str:
@@ -105,6 +111,7 @@ class GbToEmbl:
                 else:
                     out += f'FT{" " * 19}{line.strip()}\n'
         return out +'XX\n'
+
 
     # additional function to convert origin lines
     def origin_converter(self, origin) -> str:
@@ -146,9 +153,8 @@ class GbToEmbl:
         sections = ['LOCUS', 'DEFINITION', 'ACCESSION', 'KEYWORDS', 'SOURCE', 'ORGANISM',
                     'FEATURES', 'ORIGIN']
 
-        # Making pattern that matches any of the sections
-        pattern = re.compile(r'^(LOCUS|DEFINITION|ACCESSION|KEYWORDS|SOURCE|ORGANISM|FEATURES|ORIGIN)',
-                                re.MULTILINE)
+        # making pattern that matches any of the sections
+        pattern = re.compile(r'^(LOCUS|DEFINITION|ACCESSION|KEYWORDS|SOURCE|ORGANISM|FEATURES|ORIGIN)', re.MULTILINE)
 
         # spliting data for each section
         section_positions = [match.start() for match in pattern.finditer(f)]
@@ -157,7 +163,7 @@ class GbToEmbl:
         # adding the sections
         sections_data = [f[section_positions[i]:section_positions[i + 1]] for i in range(len(section_positions) - 1)]
 
-        # Filter the data that are not the part of the section
+        # filter the data that are not the part of the section
         filtered_sections = [section for section in sections_data if any(sec in section for sec in sections)]
         return filtered_sections
         
