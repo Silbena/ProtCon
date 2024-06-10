@@ -1,0 +1,102 @@
+ID   AF136606; linear; DNA; INV; 2697 BP.
+XX
+AC   AF136606;
+XX
+DE   Drosophila melanogaster DHR23 (DHR23) gene, complete cds.
+XX
+KW    .
+XX
+OS   Drosophila melanogaster
+OC   Eukaryota; Metazoa; Ecdysozoa; Arthropoda; Hexapoda; Insecta;
+OC   Pterygota; Neoptera; Endopterygota; Diptera; Brachycera;
+OC   Muscomorpha; Ephydroidea; Drosophilidae; Drosophila; Sophophora
+XX
+RN   [1]
+RP   1-2697
+RA   Nabirochkina E.N., Grischuk A.L. and Soldatov A.V.;
+RT   Cloning and characterization of the Drosophila melanogaster
+RT   homologue of the Sacharomyces cerevisiae gene RAD23
+RL   Genetika 35 (7) (1999) In press
+XX
+RN   [2]
+RP   1-2697
+RA   Soldatov,A.V.;
+RT   Direct Submission
+RL   Submitted (23-MAR-1999) RAS, Institute of Gene Biology, Vavilov
+RL   str. 34/5, 117334, Moscow, Russia
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..2697
+FT                   /organism="Drosophila melanogaster"
+FT                   /mol_type="genomic DNA"
+FT                   /db_xref="taxon:7227"
+FT                   /chromosome="4"
+FT                   /map="102A"
+FT   gene            1..2623
+FT                   /gene="DHR23"
+FT   mRNA            join(1..181,323..971,1431..1525,1586..1909,1971..2623)
+FT                   /gene="DHR23"
+FT   CDS             join(116..181,323..971,1431..1525,1586..1909,1971..2081)
+FT                   /gene="DHR23"
+FT                   /note="similar to Sacharomyces cerevisiae RAD23"
+FT                   /codon_start=1
+FT                   /product="DHR23"
+FT                   /protein_id="AAD33695.1"
+FT                   /translation="MIITIKNLQQQTFTIEFAPEKTVLELKKKIFEERGPEYVAEKQK
+FT                   LIYAGVILTDDRTVGSYNVDEKKFIVVMLTRDSSSSNRNQLSVKESNKLTSTDDSKQS
+FT                   MPCEEANHTNSPSSTNTEDSVLSRETRPLSSDELIGELAQASLQSRAESNLLMGDEYN
+FT                   QTVLSMVEMGYPREQVERAMAASYNNPERAVEYLINGIPAEEGTFYNRLNESTNPSLI
+FT                   PSGPQPASATSAERSTESNSDPFEFLRSQPQFLQMRSLIYQNPHLLHAVLQQIGQTNP
+FT                   ALLQLISENQDAFLNMLNQPIDRESESGATVPPVSNARIPSTLDNVDLFSPDLEVATS
+FT                   AQRSAAGTSAAHQSGSAADNEDLEQPLGVSTIRLNRQDKDAIERLKALGFPEALVLQA
+FT                   YFACEKNEEQAANFLLSSSFED"
+XX
+SQ  Sequence 2697 BP; A: 855, C: 487, G: 496, T: 859 
+    gtcacactga tgacaaatcg tttttatcaa gcgatattgg gaactaactt tcgagtttgc 60
+    atatgtgtat gcatatgtat atttaattaa gttttggttt tgtctgatac acaagatgat 120
+    tattacaatt aaaaatcttc aacagcaaac ttttactatt gagtttgccc cggaaaaaac 180
+    ggtatgtgta taaataggca aatactagta tattcacatg tatggtatat acaattattg 240
+    caaatgcata tgtgtgctta tacaggtatt tcttacaatt aatttgtgat accataataa 300
+    gcagggattc tgattacaaa aggttttgga actgaagaag aaaatattcg aggagcgcgg 360
+    tccagagtac gtcgccgaaa aacaaaaact gatctacgct ggcgtcatat tgacggatga 420
+    ccgcaccgtt ggttcataca acgttgatga aaaaaagttc attgtggtaa tgttgacacg 480
+    cgattcgtct agttcaaatc gtaatcaact tagtgtaaaa gaaagtaata aattgactag 540
+    caccgacgat tcaaagcaat ctatgccttg cgaagaagcc aaccatacca attcgcctag 600
+    ttccacaaat acagaagatt cagttttatc acgtgaaacc agacctttat ctagtgacga 660
+    attgattggc gagttggccc aggcttcctt acaatcgcgc gctgaatcta atttgcttat 720
+    gggtgacgaa tacaaccaaa cagtcctatc aatggtggaa atgggttacc caagagagca 780
+    ggttgaacgt gcgatggctg ctagttataa caacccggaa agagccgttg aatatctcat 840
+    taatggcata cctgcagagg aaggtacttt ttacaatagg ctgaatgaat caacgaatcc 900
+    tagtctaatc ccctccggac cgcaacctgc gtcggcaacc tctgccgagc gttcaacaga 960
+    atcaaattca ggtaacttga tgggatttca atcagcagtc aatttatgta ttcttgtatg 1020
+    aaacgaaaat atataatttc tacgcagaag tactaaattt gcacacttca aaacatagtg 1080
+    aaattaataa acccgatttg cgtctcgctc tttaatgaaa ttatacggcc ttaacataat 1140
+    tgcgttagtt ttcctggtca agaaatattg ttgatcaaaa cttatgttgc acattcgtta 1200
+    ataaataata aaagagttct cttagtactg gaaatatatg cagctgttaa agattcacta 1260
+    aaatgtttgt gagctcgttg tcccgcagta tcatttacat atatatgtca acagacacta 1320
+    aaggagcgat aattcacgaa tttttgtcac tattctcttc aaggacaggg catcactata 1380
+    tgtttttagt taatttaatt attatttaat tatttatatt tacgtttcag acccctttga 1440
+    atttttacgt agccagccac agtttcttca aatgcgatct ttaatttatc aaaaccctca 1500
+    tcttttgcat gcagtattgc agcaggtaag tacacttata ataataatta catgacacgt 1560
+    aaatgataat tttttttacg tatagattgg tcagacaaac ccagcccttt tacaacttat 1620
+    ttcggagaac caagatgcgt ttctcaatat gcttaatcaa ccgattgacc gcgaatcgga 1680
+    gtcaggcgcc accgttcctc ccgtttcgaa tgcgcggatt ccttcaactt tggacaatgt 1740
+    tgacctcttt tctccagatt tagaagtagc tacttcagca caaagatcag ccgcgggtac 1800
+    aagtgcagca catcaaagcg gtagcgcagc ggataacgaa gacttggaac aacctttagg 1860
+    agtatcaacc attcgtttaa atcgccaaga taaggacgca atagaacggg tatataggag 1920
+    tgaataatta tatatggact gtcgagttac ttaatatatt cttcttctag ctaaaagctc 1980
+    ttggattccc agaggccctt gtactgcaag cgtacttcgc ttgtgaaaag aacgaggaac 2040
+    aagcagctaa ttttttgcta tcgtctagct tcgaagatta ggatgacaaa atgtaagaag 2100
+    ttatgcaaat aacaccggaa gcgttacatt taaagttaga tgttcttaaa ttaaatgtaa 2160
+    aatgtcgatc ataaaaattc ttttatattc ttttaatacc gtcggcgtat tgtacttgtt 2220
+    atttgttaaa aattgcagcc atgggtaaaa tagagttacg atgtcatttt tactaaatat 2280
+    ttcaccacga cattgtattc agcataagac tgcaaatgtc tacaaattta tctgtgccaa 2340
+    tccatggtag ggaggccttg gattaggcct tcacctaatg gatggcaaag tatatttcta 2400
+    gtgtgtgtat ttctagtgta tatgcaatac acacattaat tattttaagg tcgtattaag 2460
+    ctaaagaagt cttatgattt attctttcct tatcttggtt gatttataaa atattttttt 2520
+    gactagtggg agtccacaat taagtcactt aacacataaa gtactttttg tcgtcctgga 2580
+    tgttggacat atgactaaaa tatattaatc attgtattac ataaatttcg tgttttttta 2640
+    ttgtaaataa tgtccgcaat tatgccctaa taagcgtggc gctctttggt gatcctt    2697
+
+//

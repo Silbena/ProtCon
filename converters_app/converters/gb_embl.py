@@ -7,6 +7,10 @@ class GbToEmbl:
 
     # additional function to convert locus lines 
     def locus_converter(self, locus: str) -> str | bool:
+
+        if not locus:
+            return False
+        
         locus_str = locus.split('LOCUS')[1]
         l = locus_str.split()
         if len(l) < 6:
@@ -17,6 +21,10 @@ class GbToEmbl:
 
     # additional function to convert definition lines 
     def definition_converter(self, definition: str) -> str:
+
+        if not definition:
+            return False
+        
         definition_str = definition.split('DEFINITION')[1]
         out = ''
         d = definition_str.split('\n')
@@ -27,6 +35,10 @@ class GbToEmbl:
 
     # additional function to convert accesion lines 
     def accesion_converter(self, accesion: str) -> str:
+
+        if not accesion:
+            return False
+        
         accesion_str = accesion.split('ACCESSION')[1].split('\n')[0].strip()
         return f'AC   {accesion_str.strip()};\nXX\n'
     
@@ -38,6 +50,10 @@ class GbToEmbl:
 
     # additional function to convert organism lines 
     def organism_converter(self, organism: str) -> str:
+
+        if not organism:
+            return False
+
         out = ''
         o = organism.split("\n")
         if len(o) < 1:
@@ -50,6 +66,10 @@ class GbToEmbl:
 
     # additional function to convert source lines 
     def source_converter(self, source: str) -> str:
+
+        if not source:
+            return False
+        
         out = ''
         r = source.split('REFERENCE')   # split to have list of references
         if len(r) < 2:
@@ -115,6 +135,10 @@ class GbToEmbl:
 
     # additional function to convert origin lines
     def origin_converter(self, origin) -> str:
+        
+        if not origin:
+            return False
+
         origin = origin.split('//')[0]
         bp_dict = {"A": 0, "C": 0, "G": 0, "T": 0}      # creating the bases dictionary
         last_num = 0
@@ -259,6 +283,10 @@ class EmblToGb:
 
     # additional function to convert locus lines 
     def locus_converter_embl(self, locus, accession):
+
+        if not locus:
+            return False
+        
         parts = locus.split(';')
         if len(parts) < 5:
             return False 
@@ -266,6 +294,10 @@ class EmblToGb:
     
     # additional function to convert definition lines 
     def definition_converter_embl(self, definition: str) -> str:
+
+        if not definition:
+            return False
+        
         lines = definition.split('\n')
         out = "DEFINITION  "
         for line in lines:          # for every line remove te 'DE' and connect the output string 
@@ -275,6 +307,10 @@ class EmblToGb:
 
     # additional function to convert accession line
     def accession_converter_embl(self, accession: str) -> str:
+
+        if not accession:
+            return False
+        
         return f"ACCESSION   {accession.strip().split('AC')[1].strip()}\nVERSION\n" # the version output is empty as we dont have information about the version in embl format
 
     # additional function to convert keyword lines 
@@ -285,6 +321,10 @@ class EmblToGb:
 
     # additional function to convert organism lines 
     def organism_converter_embl(self, organism: str) -> str:
+
+        if not organism:
+            return False
+        
         lines = organism.split('\n')            # splitting the input by lines and converting it differently
         if len(lines) < 2:
             return False 
@@ -372,6 +412,10 @@ class EmblToGb:
 
     # additional function to convert origin lines 
     def origin_converter_embl(self, origin: str) -> str:
+
+        if not origin:
+            return False
+        
         number = 1
         out = f"ORIGIN\n"
         seq_list = origin.split('\n')       # splitting info about origin by lines
