@@ -28,7 +28,7 @@ class Parser:
                             help = 'path to output folder')
         parser.add_argument('-e', '--exclude',
                             type = str,
-                            help = 'file/folder to be excluded from conversion (only for folders)')
+                            help = 'pattern to be excluded from conversion (only for folders)')
         parser.add_argument('-v', '--verbose',
                             action = 'store_true',
                             help = 'print all logs')

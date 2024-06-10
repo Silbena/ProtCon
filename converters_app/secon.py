@@ -7,6 +7,7 @@ import os
 
 import io
 import time
+import fnmatch
 
 
 def log_strftime(t : time.struct_time):
@@ -104,6 +105,9 @@ def convert_directory(input_dir : str, output_dir : str, out_extension : str, ex
     files = os.listdir(input_dir)
 
     for file_name in files:
+        if fnmatch.fnmatch(file_name, exclude):
+            continue
+
         out_path = convert_name(file_name, output_dir, out_extension)
         conv_key = conv.registry.getKey(file_name, out_path)
         converter_class = conv_registry[conv_key]
