@@ -77,6 +77,9 @@ def convert_single_file(in_filepath : str, output_dir: str, format: str, verbose
         return
     
     converter_obj = converter_class()
+    if os.path.getsize(in_filepath) == 0:
+        log_info(f'File {in_filepath} is empty')
+
     with open(in_filepath, 'r') as f:
         ctx = conv.ConverterContext(out_buffer, f)
         converter_obj.convert(ctx)
@@ -118,6 +121,9 @@ def convert_directory(input_dir : str, output_dir : str, out_extension : str, ex
         input_path = path.join(input_dir, file_name)
 
         converter_instance = converter_class()
+
+        if os.path.getsize(file_name) == 0:
+            log_info(f'File {file_name} is empty')
         
         with open(input_path, 'r') as f:
             ctx = conv.ConverterContext(io.StringIO(), f)
