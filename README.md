@@ -16,7 +16,7 @@ secon.py [-h] [-o OUTPUT] [-e EXCLUDE] [-v] input format
 
 Positional arguments:  
   `input` path to input file/folder  
-  `format` .ext (fasta/embl/gb)  
+  `format` fasta/embl/gb  
 
 Options:  
   `-h, --help` show this help message and exit  
