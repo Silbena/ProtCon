@@ -1,0 +1,128 @@
+LOCUS       XM_003852360            1598 bp    mRNA    linear   PLN 06-FEB-2020
+DEFINITION  Zymoseptoria tritici IPO323 cell division control protein 1 (CDC1),
+            partial mRNA.
+ACCESSION   XM_003852360
+VERSION     XM_003852360.1
+DBLINK      BioProject: PRJNA170847
+            BioSample: SAMN02746078
+KEYWORDS    RefSeq.
+SOURCE      Zymoseptoria tritici IPO323 (Mycosphaerella graminicola IPO323)
+  ORGANISM  Zymoseptoria tritici IPO323
+            Eukaryota; Fungi; Dikarya; Ascomycota; Pezizomycotina;
+            Dothideomycetes; Dothideomycetidae; Mycosphaerellales;
+            Mycosphaerellaceae; Zymoseptoria.
+REFERENCE   1  (bases 1 to 1598)
+  AUTHORS   Goodwin,S.B., Ben M'barek,S., Dhillon,B., Wittenberg,A.H.,
+            Crane,C.F., Hane,J.K., Foster,A.J., Van der Lee,T.A., Grimwood,J.,
+            Aerts,A., Antoniw,J., Bailey,A., Bluhm,B., Bowler,J., Bristow,J.,
+            van der Burgt,A., Canto-Canche,B., Churchill,A.C.,
+            Conde-Ferraez,L., Cools,H.J., Coutinho,P.M., Csukai,M., Dehal,P.,
+            De Wit,P., Donzelli,B., van de Geest,H.C., van Ham,R.C.,
+            Hammond-Kosack,K.E., Henrissat,B., Kilian,A., Kobayashi,A.K.,
+            Koopmann,E., Kourmpetis,Y., Kuzniar,A., Lindquist,E., Lombard,V.,
+            Maliepaard,C., Martins,N., Mehrabi,R., Nap,J.P., Ponomarenko,A.,
+            Rudd,J.J., Salamov,A., Schmutz,J., Schouten,H.J., Shapiro,H.,
+            Stergiopoulos,I., Torriani,S.F., Tu,H., de Vries,R.P., Waalwijk,C.,
+            Ware,S.B., Wiebenga,A., Zwiers,L.H., Oliver,R.P., Grigoriev,I.V.
+            and Kema,G.H.
+  TITLE     Finished Genome of the Fungal Wheat Pathogen Mycosphaerella
+            graminicola Reveals Dispensome Structure, Chromosome Plasticity,
+            and Stealth Pathogenesis
+  JOURNAL   PLoS Genet. 7 (6), E1002070 (2011)
+   PUBMED   21695235
+REFERENCE   2  (bases 1 to 1598)
+  CONSRTM   NCBI Genome Project
+  TITLE     Direct Submission
+  JOURNAL   Submitted (06-FEB-2020) National Center for Biotechnology
+            Information, NIH, Bethesda, MD 20894, USA
+REFERENCE   3  (bases 1 to 1598)
+  AUTHORS   Aerts,A., Grimwood,J., Salamov,A., Schmutz,J., Tu,H., Shapiro,H.,
+            Pitluck,S., Lucas,S., Goodwin,S.B., Ben M'Barek,S., Dhillon,B.,
+            Wittenberg,A.H.J., Crane,C.F., Van der Lee,T.A.J., Antoniw,J.,
+            Bailey,A., Bluhm,B., Bowler,J., Canto-Canche,B., Churchill,A.,
+            Conde-Ferraez,L., Cools,H., Coutinho,P.M., Csukai,M., Dehal,P., De
+            Wit,P., Donzelli,B., Foster,A.J., Hammond-Kosack,K., Hane,J.,
+            Henrissat,B., Kilian,A., Koopmann,E., Kourmpetis,Y., Kuzniar,A.,
+            Lindquist,E., Lombard,V., Maliepaard,C., Martins,N., Mehrabi,R.,
+            Oliver,R., Ponomarenko,A., Rudd,J., Schouten,H.J.,
+            Stergiopoulos,I., Torriani,S.F.F., de Vries,R.P., Wiebenga,A.,
+            Zwiers,L.-H., Kema,G.H.J. and Grigoriev,I.V.
+  CONSRTM   US DOE Joint Genome Institute (JGI-PGF)
+  TITLE     Direct Submission
+  JOURNAL   Submitted (18-MAY-2011) US DOE Joint Genome Institute, 2800
+            Mitchell Drive, Walnut Creek, CA 94598-1698, USA
+COMMENT     PROVISIONAL REFSEQ: This record has not yet been subject to final
+            NCBI review. This record is derived from an annotated genomic
+            sequence (NC_018214).
+            
+            ##Metadata-START##
+            Organism Display Name :: Mycosphaerella graminicola IPO323
+            GOLD Stamp ID         :: Gi00795
+            ##Metadata-END##
+            COMPLETENESS: incomplete on the 3' end.
+FEATURES             Location/Qualifiers
+     source          1..1598
+                     /organism="Zymoseptoria tritici IPO323"
+                     /mol_type="mRNA"
+                     /strain="IPO323"
+                     /type_material="culture from epitype of Septoria tritici"
+                     /db_xref="taxon:336722"
+                     /chromosome="5"
+     gene            1..>1598
+                     /gene="CDC1"
+                     /locus_tag="MYCGRDRAFT_72693"
+                     /db_xref="GeneID:13394184"
+     CDS             108..>1598
+                     /gene="CDC1"
+                     /locus_tag="MYCGRDRAFT_72693"
+                     /note="In Sacharomyces, this gene expresses a putative
+                     /membrane protein of unknown function involved in Mn2+
+                     /homeostasis; mutants display actin and general growth
+                     /defects, heterogeneous cell cycle arrests, and pleiotropic
+                     /defects in cell cycle progression and organelle
+                     /distribution."
+                     /codon_start=1
+                     /product="cell division control protein 1"
+                     /protein_id="XP_003852408.1"
+                     /db_xref="GeneID:13394184"
+                     /db_xref="InterPro:IPR004843"
+                     /db_xref="JGIDB:Mycgr3_72693"
+                     /translation="MNAQNFYVQFCRRTARRYPFLRRFSVTTIGLILVWTIAIYTGER
+                     STFASHITSCAWESWEEWPQDAAPHRLVFVSDPQLVDPHTYPGRPWPLSSLTEFFTDK
+                     YMARNFRLINRELDPDSIVFLGDLFDGGREWRTSQFISGEQGRWKEYGTSQWTLEYNR
+                     FGKIFFAPEQLYPRADRAITAARDRKIKTNLPGNHDLGFGTRVQIPVRDRFEAHYGDT
+                     NTVYVIANHTFISLDTPSLSAADEMTDPEHKQQARLEHVWQPANDFLNKLDAAGPKVV
+                     AEALNEYFPTARPSQGFSHEVFDPKEASRRPTADKHTAEPRLPLVLLTHVPLFRPDGD
+                     HCGSQRERGRAIPISHGYQYQNVLTPGLSSTIARKISETGDLVHVFSGDDHDYCDLVH
+                     RFNVKPWIDGKIQDKPVMKAIREITVKSFSWAMGVRRPGFQLVSMWNPVDAQGISIGG
+                     TPTTIQTHLCLLPDQLSIFINYGLLLGVTLVVLIVRGVVLSLRKPDA"
+ORIGIN      
+        1 ctcccttctg atacgcgaca ggtcgcgtgt acggcggcaa cctaatcttc acttctttct
+       61 cattgagcag cgaccacgat gcgcactcga tccaagcaga atcgatcatg aacgctcaga
+      121 acttctacgt acagttctgc cgccgaacag cacgccgcta ccccttcctc cgccgcttct
+      181 ccgtcaccac gatcggactg attctcgtct ggacgattgc aatctacacc ggcgagcgct
+      241 cgacattcgc atcacacatc acatcctgcg cctgggagag ttgggaagaa tggcctcagg
+      301 acgcggctcc gcaccgcctg gtcttcgtgt ccgatcctca gcttgttgat ccgcatacat
+      361 acccaggtcg accatggccg ctgtccagcc tgaccgagtt cttcaccgac aaatacatgg
+      421 ccaggaactt ccgtcttatc aaccgcgagc tcgacccgga ctcgattgta ttcctgggag
+      481 atctgttcga cggtggaaga gagtggagaa ccagccaatt catctcaggt gagcagggtc
+      541 ggtggaaaga gtatggcaca tcgcagtgga cgttggagta caatcgattt ggcaagatct
+      601 tcttcgctcc ggaacaactt tatcctcgtg ccgatcgagc gatcacagca gctcgtgacc
+      661 gcaagatcaa gacgaatttg ccaggaaatc acgaccttgg atttggtact cgagttcaaa
+      721 tacccgtgcg ggaccgattt gaagcccact atggcgacac caacacggtg tatgtcattg
+      781 cgaaccacac attcatcagt ctggatacac cgtctctctc cgctgcagat gagatgacag
+      841 atccggaaca caagcagcaa gcgcggctgg agcatgtctg gcagccggcg aatgacttct
+      901 tgaacaagct tgacgctgcc ggtcccaagg tcgtggcgga agcgctgaat gagtacttcc
+      961 cgaccgcacg cccttcgcaa gggttcagtc atgaggtttt tgatccgaaa gaggcgtcgc
+     1021 gtcgaccgac cgctgacaag cacactgcgg aaccacgact accgctcgta ctgctcacgc
+     1081 atgtgccgct cttccggcca gatggagatc actgcggttc tcaaagagag cgcggaaggg
+     1141 cgatacccat cagtcatggc tatcagtacc agaacgtcct cactccggga ctgagcagta
+     1201 ctattgcgag gaagatctcc gagacgggag accttgtcca cgtcttctct ggagacgacc
+     1261 acgactattg tgatttggta catcgcttca atgtcaagcc ttggattgat ggcaagatac
+     1321 aagacaagcc agtcatgaag gccattcgcg agattacagt caagagcttt agctgggcca
+     1381 tgggcgtgcg aagacccggc tttcaacttg tcagcatgtg gaacccggtc gatgctcaag
+     1441 gtatctcgat tggaggcacg ccgacgacaa ttcagacaca tctctgtctg ctgccggatc
+     1501 agctgagcat attcatcaat tatggcctgc tgctcggcgt gacgctcgtg gtgctgattg
+     1561 tgcgcggcgt cgtgctgtca ttgcgcaagc ccgatgca
+//
+

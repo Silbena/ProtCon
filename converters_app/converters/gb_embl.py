@@ -1,4 +1,5 @@
 from converters.baseConverter import ConverterContext
+import re
 
 class GbToEmbl:
     IN_EXTENSION = '.gb'
@@ -6,26 +7,30 @@ class GbToEmbl:
 
     # additional function to convert locus lines 
     def locus_converter(self, locus: str) -> str | bool:
-        l = locus.split()
+        locus_str = locus.split('LOCUS')[1]
+        l = locus_str.split()
         if len(l) < 6:
-            return False             
+            print('Error. Invalid format.')
         out = f"ID   {l[0]}; {l[4]}; {l[3]}; {l[5]}; {l[1]} BP."
         return f'{out}\nXX\n'
 
     # additional function to convert definition lines 
     def definition_converter(self, definition: str) -> str:
+        definition_str = definition.split('DEFINITION')[1]
         out = ''
-        d = definition.split('\n')
+        d = definition_str.split('\n')
         for el in range(len(d)):
             out += f'DE   {d[el].strip()}\n'
         return f'{out}XX\n'
 
     # additional function to convert accesion lines 
     def accesion_converter(self, accesion: str) -> str:
-        return f'AC   {accesion.strip()};\nXX\n'
+        accesion_str = accesion.split('ACCESSION')[1].split('\n')[0].strip()
+        return f'AC   {accesion_str.strip()};\nXX\n'
     
     def keyword_converter(self, keyword: str) -> str:
-        return f'KW    {keyword}\nXX\n'
+        keyword_str = keyword.split('KEYWORDS')[1].strip()
+        return f'KW    {keyword_str}\nXX\n'
 
     # additional function to convert organism lines 
     def organism_converter(self, organism: str) -> str:
@@ -48,10 +53,23 @@ class GbToEmbl:
             reference_list = []
 
             # find information about reference, authors, tittle and journal
-            reference = ref.split("AUTHORS")[0].strip().split()                 # What's the purpose of the last split()?   
-            authors = ref.split("AUTHORS")[1].strip().split("TITLE")[0].strip()
-            title = ref.split("TITLE")[1].strip().split("JOURNAL")[0].strip()
-            journal = ref.split("JOURNAL")[1].strip()
+            if 'AUTHORS' not in ref:
+                reference = ref.split('\n')[0].strip().split()
+                authors = 'unknown'
+            else:
+                reference = ref.split("AUTHORS")[0].strip().split()
+                authors = ref.split("AUTHORS")[1].strip().split("TITLE")[0].strip()
+
+            if 'TITLE' not in ref:
+                title = 'unknown'
+            else:
+                title = ref.split("TITLE")[1].strip().split("JOURNAL")[0].strip()
+
+            if 'JOURNAL'not in ref:
+                journal = 'unknown'
+            else:
+                journal = ref.split("JOURNAL")[1].strip()
+
             reference_list.append((reference, authors, title, journal)) # adding information to the list
 
             for reference in reference_list:        # converting specific parts of information to embl format
@@ -90,6 +108,7 @@ class GbToEmbl:
 
     # additional function to convert origin lines
     def origin_converter(self, origin) -> str:
+        origin = origin.split('//')[0]
         bp_dict = {"A": 0, "C": 0, "G": 0, "T": 0}      # creating the bases dictionary
         last_num = 0
         w = ''
@@ -97,7 +116,7 @@ class GbToEmbl:
         if len(origin.split()) < 1:
             return False 
         # splitting the sequence and checking if we have number or part of the sequence
-        for element in origin.split()[1:]:
+        for element in origin.split()[2:]:
             if element.isalpha():       # for sequences adding them to w string
                 w += element + " "
                 for aa in element:
@@ -123,20 +142,57 @@ class GbToEmbl:
         return out
 
 
+    def extract_sections(self, f) -> list:
+        sections = ['LOCUS', 'DEFINITION', 'ACCESSION', 'KEYWORDS', 'SOURCE', 'ORGANISM',
+                    'FEATURES', 'ORIGIN']
+
+        # Making pattern that matches any of the sections
+        pattern = re.compile(r'^(LOCUS|DEFINITION|ACCESSION|KEYWORDS|SOURCE|ORGANISM|FEATURES|ORIGIN)',
+                                re.MULTILINE)
+
+        # spliting data for each section
+        section_positions = [match.start() for match in pattern.finditer(f)]
+        section_positions.append(len(f))
+
+        # adding the sections
+        sections_data = [f[section_positions[i]:section_positions[i + 1]] for i in range(len(section_positions) - 1)]
+
+        # Filter the data that are not the part of the section
+        filtered_sections = [section for section in sections_data if any(sec in section for sec in sections)]
+        return filtered_sections
+        
+
     # main function converting the file
     def convert(self, ctx : ConverterContext):    
         f = ''.join(ctx.read_lines())
+
+        word_list = ['LOCUS', 'DEFINITION', 'ACCESSION', 'KEYWORDS', 'SOURCE', 'ORGANISM',
+                     'REFERENCE', 'FEATURES', 'ORIGIN']
+        
+        for word in word_list:
+            if word not in f:
+                ctx.log_error('Invalid format.')
+        
+
         output = []
 
-        # splitting the parts
-        locus = f.split("LOCUS")[1].strip().split("DEFINITION")[0].strip()      
-        definition = f.split("DEFINITION")[1].strip().split("ACCESSION")[0].strip()
-        accesion = f.split("ACCESSION")[1].strip().split("VERSION")[0].strip()
-        keyword = f.split("KEYWORDS")[1].strip().split("SOURCE")[0].strip()
-        organism = f.split("ORGANISM")[1].strip().split("REFERENCE")[0].strip()
-        source = f.split("ORGANISM")[1].strip().split("FEATURES")[0].strip()
-        features = f.split("FEATURES")[1].strip().split("ORIGIN")[0].strip()
-        origin = f.split("ORIGIN")[1].strip().split("//")[0].strip()
+        section_list = self.extract_sections(f)
+        for element in section_list:
+            if element.startswith('LOCUS'):
+                locus = element.strip()
+            if element.startswith('DEFINITION'):
+                definition = element.strip()
+            if element.startswith('ACCESSION'):
+                accesion = element.strip()
+            if element.startswith('KEYWORDS'):
+                keyword = element.strip()
+            if element.startswith('SOURCE'):
+                source = element.split('ORGANISM', maxsplit=1)[1].strip()
+                organism = element.split('ORGANISM', maxsplit=1)[1].strip().split('.')[0].strip()
+            if element.startswith('FEATURES'):
+                features = element.strip()
+            if element.startswith('ORIGIN'):
+                origin = element.strip()
 
         # converting
         conv_locus = self.locus_converter(locus) 
