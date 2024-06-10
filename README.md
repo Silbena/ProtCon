@@ -6,8 +6,6 @@ SeCon is a nucleic acid sequence files batch converter. Able to convert both sin
 - GenBank
 - EMBL
 
-FASTA -> GenBank, GenBank -> FASTA, FASTA -> EMBL, EMBL -> FASTA, GenBank -> EMBL, EMBL -> GenBank  
-
 # Requirements
 Python 3.12.2
 
