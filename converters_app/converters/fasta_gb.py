@@ -54,7 +54,7 @@ class GbToFasta:
         genbank_file = ctx.input.read()  # Read the entire GenBank file
         entry_lines = genbank_file.split("//\n")  # Split entries by "//"
         if not entry_lines:
-            ctx.log_warning("No entries found in the GenBank file.")
+            ctx.log_error("No entries found in the GenBank file.")
 
         for entry in entry_lines:
             if not entry.strip():
@@ -62,16 +62,16 @@ class GbToFasta:
             try:
                 identifier = self.find_id(entry, "accession")
                 if not identifier:
-                    ctx.log_warning("No identifier found in the entry.")
+                    ctx.log_error("No identifier found in the entry.")
                     identifier = "Unknown"
 
                 organism = self.find_organism(entry)
                 if organism == "Unknown":
-                    ctx.log_warning(f"No organism name found for entry with identifier {identifier}.")
+                    ctx.log_error(f"No organism name found for entry with identifier {identifier}.")
 
                 sequence = self.extract_nucleotide_sequence(entry.split('\n'))
                 if not sequence:
-                    ctx.log_warning(f"No sequence found for entry with identifier {identifier}.")
+                    ctx.log_error(f"No sequence found for entry with identifier {identifier}.")
                 else:
                     ctx.write(f">{organism}-{identifier}\n{sequence}\n")  # Write to context in FASTA format
 
@@ -119,10 +119,10 @@ class FastaToGb:
         
         # If identifier or organism is missing, provide defaults
         if not identifier:
-            ctx.log_warning(f"Missing identifier in header: {header}. Using 'UNKNOWN'.")
+            ctx.log_errorf"Missing identifier in header: {header}. Using 'UNKNOWN'.")
             identifier = "UNKNOWN"
         if not organism:
-            ctx.log_warning(f"Missing organism name in header: {header}. Using 'Unknown'.")
+            ctx.log_error(f"Missing organism name in header: {header}. Using 'Unknown'.")
             organism = "Unknown"
         
         genbank_entry = f"""LOCUS       {identifier} {len(sequence)} bp    DNA     linear   UNK {time.strftime('%d-%b-%Y').upper()}
@@ -150,7 +150,7 @@ ORIGIN
         """
         sequences = self.parse_fasta(ctx)  # Parse sequences from FASTA format
         if not sequences:
-            ctx.log_warning("No sequences found in the FASTA file.")
+            ctx.log_error("No sequences found in the FASTA file.")
 
         for header, sequence in sequences:
             if not header:
