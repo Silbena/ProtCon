@@ -23,16 +23,14 @@ secon.py [-h] [-o OUTPUT] [-e EXCLUDE] [-v] input format
 ```
 
 Positional arguments:
-  `input`                path to input file/folder  
-  `format`                .ext (fasta/embl/gb)  
+  `input` path to input file/folder  
+  `format` .ext (fasta/embl/gb)  
 
 Options:  
-  `-h, --help`            show this help message and exit  
-  `-o OUTPUT --output OUTPUT`  
-                        path to output folder  
-  `-e EXCLUDE, --exclude EXCLUDE`  
-                        pattern to be excluded from conversion (only for folders)  
-  `-v, --verbose`         print all logs  
+  `-h, --help` show this help message and exit  
+  `-o OUTPUT --output OUTPUT` path to output folder  
+  `-e EXCLUDE, --exclude EXCLUDE` pattern to be excluded from conversion (only for folders)  
+  `-v, --verbose` print all logs  
 
 
 The command-line interface was designed to be flexible and intuitive. The input folder may contain files of various formats. The output folder and file names are automatically generated unless specified with `-o`. Extension may be given with or without a dot. Files to be excluded `-e` from batch convertersion may be specified with the Unix shell-style pattern.
