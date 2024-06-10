@@ -63,9 +63,12 @@ class GbToEmbl:
                 rt_string = '\n'.join([f'RT   {line.strip()}' for line in rt_lines[:]])
 
                 # compose everything into one string
-                out += f'RN   [{reference[0][0].strip()}]\nRP   {reference[0][2].strip()}-{reference[0][4].strip().split(")")[0]}\n' \
-                    f'RA   {reference[1].strip()};\n{rt_string}\n' \
-                    f'{rl_string}\nXX\n'                                         # Simplify?
+                if len (reference[0]) < 3:
+                    out += f'RN   [{reference[0][0].strip()}]\nRP\n'
+                else:
+                    out += f'RN   [{reference[0][0].strip()}]\nRP   {reference[0][2].strip()}-{reference[0][4].strip().split(")")[0]}\n' \
+                        f'RA   {reference[1].strip()};\n{rt_string}\n' \
+                        f'{rl_string}\nXX\n'                                         # Simplify?
         return out
 
     # additional function to convert features lines
