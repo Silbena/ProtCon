@@ -119,7 +119,7 @@ class FastaToGb:
         
         # If identifier or organism is missing, provide defaults
         if not identifier:
-            ctx.log_errorf"Missing identifier in header: {header}. Using 'UNKNOWN'.")
+            ctx.log_error(f"Missing identifier in header: {header}. Using 'UNKNOWN'.")
             identifier = "UNKNOWN"
         if not organism:
             ctx.log_error(f"Missing organism name in header: {header}. Using 'Unknown'.")
