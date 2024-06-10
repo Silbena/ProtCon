@@ -62,16 +62,16 @@ class GbToFasta:
             try:
                 identifier = self.find_id(entry, "accession")
                 if not identifier:
-                    ctx.log_error("No identifier found in the entry.")
+                    ctx.log_warning("No identifier found in the entry.")
                     identifier = "Unknown"
 
                 organism = self.find_organism(entry)
                 if organism == "Unknown":
-                    ctx.log_error(f"No organism name found for entry with identifier {identifier}.")
+                    ctx.log_warning(f"No organism name found for entry with identifier {identifier}.")
 
                 sequence = self.extract_nucleotide_sequence(entry.split('\n'))
                 if not sequence:
-                    ctx.log_error(f"No sequence found for entry with identifier {identifier}.")
+                    ctx.log_warning(f"No sequence found for entry with identifier {identifier}.")
                 else:
                     ctx.write(f">{organism}-{identifier}\n{sequence}\n")  # Write to context in FASTA format
 
@@ -105,7 +105,7 @@ class FastaToGb:
             sequences.append((header, sequence))
         return sequences
 
-    def generate_genbank(self, header: str, sequence: str) -> str:
+    def generate_genbank(self, ctx: ConverterContext, header: str, sequence: str) -> str:
         """
         Generates a GenBank formatted entry from FASTA header and sequence.
         """
@@ -119,10 +119,10 @@ class FastaToGb:
         
         # If identifier or organism is missing, provide defaults
         if not identifier:
-            ctx.log_error(f"Missing identifier in header: {header}. Using 'UNKNOWN'.")
+            ctx.log_warning(f"Missing identifier in header: {header}. Using 'UNKNOWN'.")
             identifier = "UNKNOWN"
         if not organism:
-            ctx.log_error(f"Missing organism name in header: {header}. Using 'Unknown'.")
+            ctx.log_warning(f"Missing organism name in header: {header}. Using 'Unknown'.")
             organism = "Unknown"
         
         genbank_entry = f"""LOCUS       {identifier} {len(sequence)} bp    DNA     linear   UNK {time.strftime('%d-%b-%Y').upper()}
