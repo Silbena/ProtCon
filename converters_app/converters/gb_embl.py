@@ -107,7 +107,9 @@ class GbToEmbl:
 
                 # compose everything into one string
                 if len (reference[0]) < 3:
-                    out += f'RN   [{reference[0][0].strip()}]\nRP\n'
+                    out += f'RN   [{reference[0][0].strip()}]\nRP\n' \
+                       f'RA   {reference[1].strip()};\n{rt_string}\n' \
+                       f'{rl_string}\nXX\n'
                 else:
                     out += f'RN   [{reference[0][0].strip()}]\nRP   {reference[0][2].strip()}-{reference[0][4].strip().split(")")[0]}\n' \
                         f'RA   {reference[1].strip()};\n{rt_string}\n' \
@@ -381,11 +383,18 @@ class EmblToGb:
             # converting the RL line
             rl_part = ref.split('RL')[1].strip().split('XX')[0]
 
+
             # combaining the output for each reference
-            out += f"REFERENCE   {rn_part} (bases {rp_part.split('-')[0]} to {rp_part.split('-')[1].strip()})\n" \
-                f"  AUTHORS   {ra_part.split(';')[0]}\n"\
-                f"  TITLE     {rt_part}\n"\
-                f"  JOURNAL   {rl_part}\n"
+            if len(rp_part.split('-')) < 2:
+                out += f"REFERENCE   {rn_part}\n" \
+                    f"  AUTHORS   {ra_part.split(';')[0]}\n" \
+                    f"  TITLE     {rt_part}\n" \
+                    f"  JOURNAL   {rl_part}\n"
+            else:
+                out += f"REFERENCE   {rn_part} (bases {rp_part.split('-')[0]} to {rp_part.split('-')[1].strip()})\n" \
+                    f"  AUTHORS   {ra_part.split(';')[0]}\n"\
+                    f"  TITLE     {rt_part}\n"\
+                    f"  JOURNAL   {rl_part}\n"
             if is_pubmed:       # if there is pubmed line it is added into the output
                 out += f"  PUBMED    {p_part}\n"
             is_pubmed = False      # its changed to false because next reference may don't have a pubmed info

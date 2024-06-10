@@ -1,0 +1,67 @@
+ID   AB377170; linear; DNA; BCT; 1311 BP.
+XX
+AC   AB377170;
+XX
+DE   Haemophilus influenzae gene for 16S rRNA, partial sequence, strain:
+DE   GTC-DY0060.
+XX
+KW    .
+XX
+OS   Haemophilus influenzae
+OC   Bacteria; Pseudomonadota; Gammaproteobacteria; Pasteurellales;
+OC   Pasteurellaceae; Haemophilus
+XX
+RN   [1]
+RP
+RA   Sun,X., Shah,M.M., Nhung,P.H., Iihara,H., Noda,M., Hayashi,M.,
+            Kato,Y., Otiai,H., Zhang,W.J., Ohkusu,K. and Ezaki,T.;
+RT   A comparison of dnaJ and 16S rRNA gene sequence diversity of
+RT   Haemophilus influenzae serotypeable and nontypeable isolates, and a
+RT   novel dnaJ gene based sero-grouping for Haemophilus influenzae
+RT   isolates
+RL   Unpublished
+XX
+RN   [2]
+RP   1-1311
+RA   Sun,X. and Ezaki,T.;
+RT   Direct Submission
+RL   Submitted (24-JAN-2008) Contact:XiaoSong Sun Gifu University
+RL   Graduate School of Medicine, Department of Microbiology,
+RL   Regeneration and Advanced Medical Science; 1-1, Yanagido, Gifu,
+RL   Gifu 501-1194, Japan
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..1311
+FT                   /organism="Haemophilus influenzae"
+FT                   /mol_type="genomic DNA"
+FT                   /strain="GTC-DY0060"
+FT                   /db_xref="taxon:727"
+FT   rRNA            <1..>1311
+FT                   /product="16S ribosomal RNA"
+XX
+SQ  Sequence 1311 BP; A: 338, C: 268, G: 421, T: 284 
+    gaagcttgct ttcttgctga cgagtggcgg acgggtgagt aatgcttggg aatctggctt 60
+    atggaggggg ataacgacgg gaaactgtcg ctaataccgc gtagtgtcga gagacgaaag 120
+    tgcgggactg taaggccgca tgccatagga tgagcccaag tgggattagg tagttggtgg 180
+    ggtaaaggcc taccaagcct gcgatctcta gctggtctga gaggatgacc agccacactg 240
+    gaactgagac acggtccaga ctcctacggg aggcagcagt ggggaatatt gcgcaatggg 300
+    gggaaccctg acgcagccat gccgcgtgaa tgaagaaggc cttcgggttg taaagttctt 360
+    tcggtattga ggaaggttga tgtgttaata gtacatcaaa ttgacgttaa atacagaaga 420
+    agcaccggct aactccgtgc cagcagccgc ggtaatacgg agggtgcgag cgttaatcgg 480
+    aataactggg cgtaaagggc acgcaggcgg ttatttaagt gaggtgtgaa agccccgggc 540
+    ttaacctggg aatagcattt cagactgggt aactagagta ctttagggag gggtagaatt 600
+    ccacgtgtag cggtgaaatg cgtagagatg tggaggaata ccgaaggcga aggcagcccc 660
+    ttgggaatgt actgacgctc atgtgcgaaa gcgtggggag caaacaggat tagataccct 720
+    ggtagtccac gctgtaaacg ctgtcgattt gggggttggg gtttaactct ggcgcccgta 780
+    gctaacgtga taaatcgacc gcctggggag tacggccgca aggttaaaac tcaaatgaat 840
+    tgacgggggc ccgcacaagc ggtggagcat gtggtttaat tcgatgcaac gcgaagaacc 900
+    ttacctactc ttgacatcct aagaagtttg cagagatgcg aatgtgcctt cgggaactta 960
+    gagacaggtg ctgcatggct gtcgtcagct cgtgttgtga aatgttgggt taagtcccgc 1020
+    aacgagcgca acccttatcc tttgttgcca gcgatttggt cgggaactca aaggagactg 1080
+    ccagtgataa actggaggaa ggtggggatg acgtcaagtc atcatggccc ttacgagtag 1140
+    ggctacacac gtgctacaat ggcgtataca gagggaagcg aagctgcgag gtggagcgaa 1200
+    tctcataaag tacgtctaag tccggattgg agtctgcaac tcgactccat gaagtcggaa 1260
+    tcgctagtaa tcgcgaatca gaatgtcgcg gtgaatacgt tcccgggcct t          1311
+
+//
