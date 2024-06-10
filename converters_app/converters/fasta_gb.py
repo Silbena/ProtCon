@@ -150,7 +150,7 @@ ORIGIN
         """
         sequences = self.parse_fasta(ctx)  # Parse sequences from FASTA format
         if not sequences:
-            ctx.log_error("No sequences found in the FASTA file.")
+            ctx.log_warning("No sequences found in the FASTA file.")
 
         for header, sequence in sequences:
             if not header:
@@ -160,7 +160,7 @@ ORIGIN
                 ctx.log_warning(f"Empty sequence found for header: {header}. Skipping this entry.")
                 continue
             try:
-                genbank_entry = self.generate_genbank(header, sequence)
+                genbank_entry = self.generate_genbank(ctx, header, sequence)
                 ctx.write(genbank_entry)  # Write to context in GenBank format
             except Exception as e:
                 ctx.log_error(f"Error processing entry with header {header}: {e}")
