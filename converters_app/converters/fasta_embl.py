@@ -1,4 +1,4 @@
-# Please add comments to your code
+
 
 from converters.baseConverter import ConverterContext
 
@@ -18,60 +18,121 @@ class EmblToFasta:
         nucleobases = ""
         in_sequence = False
 
-        for line in ctx:
-            if line.startswith("AC"):
-                accession = self.extract_accession(line)
-            elif line.startswith("ID"):
-                version, mol_type = self.extract_version_and_mol_type(line)
-            elif line.startswith("DE"):
-                description = self.extract_description(line)
-            elif line.startswith("OS"):
-                organism_name = self.extract_organism_name(line)
-            elif line.startswith("SQ"):
-                in_sequence = True
-            elif in_sequence:
-                if line.startswith("//"):
-                    in_sequence = False
-                else:
-                    nucleobases += self.extract_nucleobases(line)
+        try:
+            embl_file = ctx.input.read()
+            
+            if not embl_file.strip():
+                ctx.log_error("The input file is empty.")
+                return
+
+            lines = embl_file.splitlines()
+            in_description = False
+            in_organism = False
+
+            for line in lines:
+                if line.startswith("AC"):
+                    accession = self.extract_accession(line)
+                elif line.startswith("ID"):
+                    version, mol_type = self.extract_version_and_mol_type(line)
+                elif line.startswith("DE"):
+                    if description:
+                        description += " " + self.extract_description(line)
+                    else:
+                        description = self.extract_description(line)
+                    in_description = True
+                    in_organism = False
+                elif line.startswith("OS"):
+                    if organism_name:
+                        organism_name += " " + self.extract_organism_name(line)
+                    else:
+                        organism_name = self.extract_organism_name(line)
+                    in_organism = True
+                    in_description = False
+                elif line.startswith("SQ"):
+                    in_sequence = True
+                    in_description = False
+                    in_organism = False
+                elif in_description and not line.startswith(" "):
+                    in_description = False
+                elif in_description:
+                    description += " " + self.extract_description(line)
+                elif in_organism and not line.startswith(" "):
+                    in_organism = False
+                elif in_organism:
+                    organism_name += " " + self.extract_organism_name(line)
+                elif in_sequence:
+                    if line.startswith("//"):
+                        in_sequence = False
+                    else:
+                        nucleobases += self.extract_nucleobases(line)
+
+            if not accession:
+                ctx.log_warning("Accession number not found.")
+            if not version:
+                ctx.log_warning("Version not found.")
+            if not description:
+                ctx.log_warning("Description not found.")
+            if not organism_name:
+                ctx.log_warning("Organism name not found.")
+                organism_name = "UNKNOWN"
+            if not nucleobases:
+                ctx.log_error("No sequence found.")
+
+            header = f">{accession}.{version} | {description} | {organism_name} | {mol_type}\n"
+            sequence = "\n".join(nucleobases[i:i+60] for i in range(0, len(nucleobases), 60))
+            fasta_output = header + sequence
+            ctx.write(fasta_output)
         
-        header = f">{accession}.{version} | {description} | {organism_name} | {mol_type}\n"
-        sequence = "\n".join(nucleobases[i:i+60] for i in range(0, len(nucleobases), 60))
-        fasta_output = header + sequence
-        ctx.write(fasta_output)
+        except Exception as e:
+            ctx.log_error(f"Error processing entry with accession number {accession}: {e}")
 
     def extract_accession(self, line):
         """
         Extract accession number from the line.
         """
-        return line.strip().split()[1].rstrip(';')
+        try:
+            return line.strip().split()[1].rstrip(';')
+        except IndexError:
+            return ""
 
     def extract_version_and_mol_type(self, line):
         """
         Extract version and molecule type from the line.
         """
-        parts = line.strip().split(";")
-        version = parts[1].strip().split()[1]
-        mol_type = parts[3].strip().rstrip(';')
-        return version, mol_type
+        try:
+            parts = line.strip().split(";")
+            version = parts[1].strip().split()[1]
+            mol_type = parts[3].strip().rstrip(';')
+            return version, mol_type
+        except (IndexError, ValueError):
+            return "", ""
 
     def extract_description(self, line):
         """
         Extract description from the line and remove trailing dot if present.
         """
-        return " ".join(line.strip().split()[1:]).rstrip('.')
+        try:
+            return " ".join(line.strip().split()[1:]).rstrip('.')
+        except IndexError:
+            return ""
 
     def extract_organism_name(self, line):
         """
         Extract organism name from the line.
         """
-        return " ".join(line.strip().split()[1:])
+        try:
+            return ' '.join(line.strip().split()[1:])
+        except IndexError:
+            return "Unknown"
 
     def extract_nucleobases(self, line):
         """
         Extract nucleobases from the sequence lines.
         """
-        return ''.join([n for n in line if n.isalpha()]).upper()
+        try:
+            return ''.join([n for n in line if n.isalpha()]).upper()
+        except Exception:
+            return ""
 
 
 class FastaToEmbl:
