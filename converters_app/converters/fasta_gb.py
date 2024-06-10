@@ -150,7 +150,7 @@ ORIGIN
         """
         sequences = self.parse_fasta(ctx)  # Parse sequences from FASTA format
         if not sequences:
-            ctx.log_warning("No sequences found in the FASTA file.")
+            ctx.log_error("No sequences found in the FASTA file.")
 
         for header, sequence in sequences:
             if not header:
