@@ -207,6 +207,7 @@ class GbToEmbl:
         for word in word_list:
             if word not in f:
                 ctx.log_error(f'Invalid format. {word} not in Genebank file.')
+                return
         
 
         output = []
