@@ -202,12 +202,11 @@ class GbToEmbl:
     def convert(self, ctx : ConverterContext):    
         f = ''.join(ctx.read_lines())
 
-        word_list = ['LOCUS', 'DEFINITION', 'ACCESSION', 'KEYWORDS', 'SOURCE', 'ORGANISM',
-                     'FEATURES', 'ORIGIN']
+        word_list = ['LOCUS', 'DEFINITION', 'ACCESSION', 'ORGANISM', 'ORIGIN']
         
         for word in word_list:
             if word not in f:
-                ctx.log_error('Invalid format.')
+                ctx.log_error(f'Invalid format. {word} not in Genebank file.')
         
 
         output = []
