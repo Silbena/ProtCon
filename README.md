@@ -25,7 +25,7 @@ Options:
   `-v, --verbose` print all logs  
 
 
-The command-line interface was designed to be flexible and intuitive. The input folder may contain files of various formats. The output folder and file names are automatically generated unless specified with `-o`. Extension may be given with or without a dot. Files to be excluded `-e` from batch convertersion may be specified with the Unix shell-style pattern.
+The command-line interface was designed to be flexible and intuitive. The input folder may contain files of various formats. The file names are automatically generated. Extension may be given with or without a dot. Files to be excluded `-e` from batch convertersion may be specified with the Unix shell-style pattern.
 
 ## Examples
 ```bash
