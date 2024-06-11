@@ -71,6 +71,10 @@ class GbToEmbl:
             return False
         
         out = ''
+        
+        if 'REFERENCE' not in source:
+            return ''
+        
         r = source.split('REFERENCE')   # split to have list of references
         if len(r) < 2:
             return False 
@@ -199,7 +203,7 @@ class GbToEmbl:
         f = ''.join(ctx.read_lines())
 
         word_list = ['LOCUS', 'DEFINITION', 'ACCESSION', 'KEYWORDS', 'SOURCE', 'ORGANISM',
-                     'REFERENCE', 'FEATURES', 'ORIGIN']
+                     'FEATURES', 'ORIGIN']
         
         for word in word_list:
             if word not in f:
@@ -350,7 +354,7 @@ class EmblToGb:
         for ref in reference[:]:        # we splitid the lines by XX (which are lines between different references as well so we iterate over each reference)
 
             if len(ref.split('RN')) < 2 or len(ref.split('RP')) < 2 or len(ref.split('RA')) < 2 or len(ref.split('RT')) < 2:
-                    return False 
+                    continue 
             # splitting specific lines containing different info (RN - number, RP - base count , RA - autor, RT - tittle, RL - citation)
             rn_part = ref.split('RN')[1].strip().split('\n')[0] 
             rp_part = ref.split('RP')[1].strip()

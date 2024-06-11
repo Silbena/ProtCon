@@ -1,0 +1,59 @@
+LOCUS       KF850980                 720 bp    DNA     linear   PLN 31-OCT-2015
+DEFINITION  Lilium pumilum voucher G08008 clone CD13TrLF-41 tRNA-Leu (trnL)
+            gene and trnL-trnF intergenic spacer, partial sequence;
+            chloroplast.
+ACCESSION   KF850980
+VERSION     KF850980.1
+KEYWORDS    .
+SOURCE      chloroplast Lilium pumilum
+  ORGANISM  Lilium pumilum
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Magnoliopsida; Liliopsida; Liliales; Liliaceae;
+            Lilium.
+REFERENCE   1  (bases 1 to 720)
+  AUTHORS   Gao,Y.
+  TITLE     Habitat specialization and hybridization may drive morphological
+            and genetic convergence in genera of the Hengduan Mountains: A case
+            study of Nomocharis and Lilium (Liliaceae)
+  JOURNAL   Unpublished
+REFERENCE   2  (bases 1 to 720)
+  AUTHORS   Gao,Y.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (07-NOV-2013) Chengdu institute of Biology, Chinese
+            Academy of Sciences, No. 9 Section 4, Renmin Nan Road, Chengdu,
+            Sichuan 610041, China
+COMMENT     ##Assembly-Data-START##
+            Assembly Method       :: MEGA v. 5
+            Sequencing Technology :: Sanger dideoxy sequencing
+            ##Assembly-Data-END##
+FEATURES             Location/Qualifiers
+     source          1..720
+                     /organism="Lilium pumilum"
+                     /organelle="plastid:chloroplast"
+                     /mol_type="genomic DNA"
+                     /specimen_voucher="G08008"
+                     /db_xref="taxon:82327"
+                     /clone="CD13TrLF-41"
+                     /note="authority: Lilium pumilum Redoute"
+     gene            <1..579
+                     /gene="trnL"
+     tRNA            <552..579
+                     /gene="trnL"
+                     /product="tRNA-Leu"
+     misc_feature    580..>720
+                     /note="trnL-trnF intergenic spacer"
+ORIGIN      
+        1 gaaaccccgg aattaaaaat gggcaatcct gagccaaatc tttattttga gaaaaagggt
+       61 ttaatttata gtttttttaa tataaaacta caataaaaaa agataggtgc agagactcaa
+      121 tggaagttgt tctaacgaat gaagttgatt acgttgcgct ggtagccgga attcttctat
+      181 caaaattaca gagaggatgc ccgccctata tacgtatata tacatactga ccatagtaaa
+      241 cgattgatta atcgcggccc gaatccatta taatatatat atatatatat gaaaaattta
+      301 agagttattg taaatctatt ccatattcca atcaaagttt aaggaagaat cgaatattca
+      361 gtgatcaaat tattcattcc agagtctgta tagatctttt taaaaactga ttattcggac
+      421 gagaataaag agagagtccc attctacgtg tcaataccga caacaatgaa atttatagta
+      481 aaaggaaaat ccgtcgactt tataagtcgt gagggttcaa gtccctctat ccccaataaa
+      541 agcccatttt aagtactaac ttaactatac ttcctaacta ctttttatct tatctttttt
+      601 taatctaaga aattcaggag ctgggtaaga ttttttaata ctttcttaat tttttagtcc
+      661 ctttaattga catagataaa gtgctctact aggataatgc gcgagaaaag gtcggatagc
+//
+

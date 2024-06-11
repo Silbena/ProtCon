@@ -1,0 +1,45 @@
+LOCUS       HG799508                 460 bp    DNA     linear   BCT 27-JAN-2014
+DEFINITION  Serratia marcescens genomic DNA containing partial 16S rRNA gene,
+            16S rRNA-23S rRNA IGS and partial 23S rRNA gene, isolate S47.
+ACCESSION   HG799508
+VERSION     HG799508.1
+KEYWORDS    .
+SOURCE      Serratia marcescens
+  ORGANISM  Serratia marcescens
+            Bacteria; Pseudomonadota; Gammaproteobacteria; Enterobacterales;
+            Yersiniaceae; Serratia.
+REFERENCE   1
+  AUTHORS   Kamou,N.N., Tzelepis,G.D., Lotos,L., Menejes,G. and Lagopodi,A.L.
+  TITLE     Isolation and characterization of plant growth promoting
+            rhizobacteria and their ability to suppress tomato foot and root
+            rot, caused by Fusarium oxusporum f.sp. radicis lycopersici
+  JOURNAL   Unpublished
+REFERENCE   2  (bases 1 to 460)
+  AUTHORS   Kamou,N.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (27-NOV-2013) School of Agriculture, Plant Pathology
+            Laboratory, Aristotle University of Thessaloniki, Aristotelian
+            University Campus, GR 54124/ P.O.B. 269, GREECE
+FEATURES             Location/Qualifiers
+     source          1..460
+                     /organism="Serratia marcescens"
+                     /mol_type="genomic DNA"
+                     /isolate="S47"
+                     /isolation_source="plant rhizosphere"
+                     /db_xref="taxon:615"
+                     /country="Greece:Thessaloniki"
+                     /collection_date="28-Apr-2010"
+     misc_feature    <1..>460
+                     /note="contains partial 16S rRNA gene, 16S rRNA-23S rRNA
+                     intergenic spacer and partial 23S rRNA gene"
+ORIGIN      
+        1 gtacgcttag tcacttaacc tcacaacccg aagatgtttc catcgttcgc gctgcaaaca
+       61 tttgagagac tctatgacag gttactcttt atcccgttac ttctacggag ggataaattt
+      121 cagccgtcat gtttcaattt tcagcttgtt ccagattgtt aaagagcaat atcttaaaca
+      181 tgactcggaa gtcatcttta agatatggtg tatcgtcaga tacttgagac cgccgctttc
+      241 accgggtggg tcggaagctt ggcgtcccct aggggattcg aacccctgtt accgccgtga
+      301 aagggcggtg tcctaggcct ctagacgaag gggacacgac accgtacttt tatgacgctt
+      361 ttgctcgtta ctttttcatc agacaatctg tgtgagcacg ccacgcgaac taatatcttt
+      421 aggtaaggag gtgatccaac cgcaggttcc cctacggtta
+//
+

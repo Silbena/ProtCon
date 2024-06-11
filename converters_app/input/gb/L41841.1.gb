@@ -1,0 +1,158 @@
+LOCUS       L41841; 4358 bp    SV 1    linear    genomic DNA
+DEFINITION  Chlamydomonas reinhardtii histone H3, histone H4, histone H2B, and histoneH2A genes, complete cds.
+ACCESSION   L41841;
+VERSION
+KEYWORDS    histone H2A; histone H2B; histone H3; histone H4.
+SOURCE      Chlamydomonas reinhardtii
+  ORGANISM  Chlamydomonas reinhardtii
+            Eukaryota; Viridiplantae; Chlorophyta; core chlorophytes; Chlorophyceae;
+            Chlamydomonadales; Chlamydomonadaceae; Chlamydomonas.
+REFERENCE   [1] (bases 1 to 4358)
+  AUTHORS   Walther Z., Hall J.L.
+  TITLE     "The uni chromosome of Chlamydomonas: histone genes and nucleosome structure"
+  JOURNAL   Nucleic Acids Res. 23(18):3756-3763(1995).
+  PUBMED    10
+FEATURES             Location/Qualifiers
+     source          1..4358
+                     /organism="Chlamydomonas reinhardtii"
+                     /strain="137"
+                     /mol_type="genomic DNA"
+                     /note="(vector lambda 17)"
+                     /db_xref="taxon:3055"
+     misc_RNA        168..183
+                     /note="3' palindrome; putative"
+     CDS             complement(266..673)
+                     /codon_start=1
+                     /product="histone H3"
+                     /note="putative"
+                     /db_xref="GOA:P50564"
+                     /db_xref="InterPro:IPR000164"
+                     /db_xref="InterPro:IPR007125"
+                     /db_xref="InterPro:IPR009072"
+                     /db_xref="UniProtKB/Swiss-Prot:P50564"
+                     /protein_id="AAA99965.1"
+                     /translation="MARTKQTARKSTGGKAPRKQLATKAARKTPATGGVKKPHRYRPGT
+                     VALREIRKYQKSTELLIRKLPFQRLVREIAQDFKTDLRFQSQAVVALQEAAEAYLVGLF
+                     EDTNLCAITAKRVTIMPKDIQLARRIRGERA"
+     CDS             961..1272
+                     /codon_start=1
+                     /product="histone H4"
+                     /note="putative"
+                     /db_xref="GOA:P50566"
+                     /db_xref="InterPro:IPR001951"
+                     /db_xref="InterPro:IPR009072"
+                     /db_xref="InterPro:IPR019809"
+                     /db_xref="InterPro:IPR035425"
+                     /db_xref="UniProtKB/Swiss-Prot:P50566"
+                     /protein_id="AAA99966.1"
+                     /translation="MSGRGKGGKGLGKGGAKRHRKVLRDNIQGITKPAIRRLARRGGVK
+                     RISGLIYEETRTVLKTFLENVIRDSVTYTEHARRKTVTAMDVVYALKRQGRTLYGFGG"
+     misc_RNA        1375..1390
+                     /note="3' palindrome; putative"
+     misc_RNA        2961..2976
+                     /note="3' palindrome; putative"
+     CDS             complement(3033..3494)
+                     /codon_start=1
+                     /product="histone H2B"
+                     /note="putative"
+                     /db_xref="GOA:P50565"
+                     /db_xref="InterPro:IPR000558"
+                     /db_xref="InterPro:IPR007125"
+                     /db_xref="InterPro:IPR009072"
+                     /db_xref="UniProtKB/Swiss-Prot:P50565"
+                     /protein_id="AAA99967.1"
+                     /translation="MAPKKDEKPPTQEAGAEAPAKAERKPKAEKAAKKAKKEPSKKAAK
+                     EPKGSGEKKDKKKKKSAVETYKLYIYKVLKQVHPDTGISSKAMSIMNSFINDIFEKVAT
+                     EASKLSRYNKKPTVTSREIQTAVRLVLPGELAKHAVSEGTKAVTKFTSG"
+     CDS             3804..4193
+                     /codon_start=1
+                     /product="histone H2A"
+                     /note="putative"
+                     /db_xref="GOA:P50567"
+                     /db_xref="InterPro:IPR002119"
+                     /db_xref="InterPro:IPR007125"
+                     /db_xref="InterPro:IPR009072"
+                     /db_xref="InterPro:IPR032454"
+                     /db_xref="InterPro:IPR032458"
+                     /db_xref="UniProtKB/Swiss-Prot:P50567"
+                     /protein_id="AAA99968.1"
+                     /translation="MAGRGKGKTSGKKAVSRSAKAGLQFPVGRIARYLKKGKYAERIGA
+                     GAPVYLAAVLEYLTAEVLELAGNAARDNKKNRIVPRHIQLAIRNDEELGKLLGEVTIAS
+                     GGVLPNIHAVLLPKKTKGGKGEETA"
+     misc_RNA        4234..4249
+                     /note="3' palindrome; putative"
+ORIGIN
+        1 gtacagtaac agcgcgcgaa caacgcacca atgccttgtc ccttcttgct acgcatttat
+       61 gtgggcacgg gtgggagcca cacacatcgg gactacgctt tcctgcccct tgccatgttc
+      121 catcacgtgc cccacagccc cgccctccaa gaccacgagg ataaggtggt gttgagaaac
+      181 accgagtttt ttttggttgc gccgcccgct gtcatcacgc ccgaggaagg gccgacgtca
+      241 gctagaagcg caggtgccgg gacacttagg cgcgctcgcc acggatgcgg cgggccagct
+      301 ggatgtcctt gggcatgatg gtcacacgct tggcggtgat ggcgcacagg ttggtgtcct
+      361 cgaacaggcc caccaggtaa gcctcagcgg cctcctgcag cgccacgacg gcctggctct
+      421 ggaagcgcag gtcggtcttg aagtcctggg caatctcacg gaccaggcgc tggaacggca
+      481 gcttgcggat gagcagctca gtcgacttct ggtacttgcg aatctcacgc agcgccacgg
+      541 taccggggcg gtagcgatga ggcttcttca caccgccggt ggcgggggtc ttacgagcgg
+      601 ccttggtggc cagctgcttg cggggcgcct tgccaccggt ggacttgcga gcggtctgct
+      661 tggtgcgggc cattttgttg gaagctggga aaaggacgat gtgaattgct ggaaagtttt
+      721 agtttagcag aagccgcttc ggcttaaata gcaggcgcga ggatgactgg tcaacatggc
+      781 cagggtgagg cgttgaccgg caagactcga ctgcatgaag gcctggtcaa cgcctcacct
+      841 gtgtcgttga cttggatcct gccttgcccc gagcgccctg ttataagcac ccagggcctc
+      901 agtgtgattc acaaaccaac tcacatatct tatcttcgta cccctaacct atcagcaaac
+      961 atgtccggac gtggcaaggg cggcaagggc ctgggcaagg gcggtgccaa gcgccatcgc
+     1021 aaggtgcttc gcgacaacat ccagggcatc accaagcccg ctatccgccg tctggctcgt
+     1081 cgtggcggtg tgaagcgtat cagcggcctg atctacgagg agacccgcac ggtgctcaag
+     1141 accttcctgg agaacgtcat ccgcgactcg gtcacataca ccgagcacgc tcgccgcaag
+     1201 accgtgaccg ccatggacgt ggtctacgcg ctcaagcgcc agggccgcac cctgtacggc
+     1261 ttcggtggct aagcggctcc tataccctgc gcgcactgta tctgccacgc cttccctcac
+     1321 ccgggagaag cgggctcgcg tggcgtgcca ggacctaaaa cccccaaaaa actcggtgtt
+     1381 tctcaacacc accctcaacc tcgggattct gtacctttgt acatggtcct ccctgcctct
+     1441 acttttatgt tgtcctgagc ctgcacaatg ccggacattg ccgttatccg cttacacaag
+     1501 acaccaaccc cagcttccgc accacgctgc cgtactgcca ggggtaccca gcatgctcag
+     1561 cgagccgcct tttcctcggg ccgtgcctgc actccgtgct gcagcatacc gtatgactgc
+     1621 cgcgctgcca agtgccacag acgggggtca ttccagcgtg ccctgctgcc aacggcctct
+     1681 agaggccgtg acaccagcct cagactacgc cttcacactt gtttggtcct ccctgtcctt
+     1741 accaggtttg ccgtgcccca tgctaactgt cgtcttcagc ctgcgtgatc ccatcccgcg
+     1801 gcgttcaccg tataattcta gcaatgctca gtatctggca cggttgcctt gcctggcaat
+     1861 gcgcagtagc aactgggggc ctccacatgc cctgccacgc accagaggtc ccgtacatac
+     1921 ggcaagtgaa ggaggcaagg ggcccacctg gtaactcagc cctcattacg tttcgctaac
+     1981 agtcccatgc acaccatatg gttatgcaat acgggtgtgc tgaacaaaaa gtaattgggg
+     2041 ccccaaggat cccagtggtc cacacgcctc acacgcttca cgggtggcca acccgggttc
+     2101 actcgggggc gtgcacgtac acagctgagc atccaaagtc taaaccttcc catatgccct
+     2161 gggccaatcc cgggcatgtc ctggcctttg cagtgttcga gtctcccatg gcctgcctga
+     2221 tggtgtaccg cctgcccaca ccccgccgcg gtaggacgca gttgcaaccg gggccttcct
+     2281 ccaatcctac acaaggatac tacacaggta cgtgcctacc ttggggaaca ccatgccagg
+     2341 aggtgttagg tgcaattgaa tgtggagggc gccactgggc agccttggcc tttgcaagga
+     2401 gcagcccacc agccatgcca cgagacaagc accacggcgg ggcatgatcc cagcggctcg
+     2461 cacataccat agacgtgtgg ccacgaacgc gctccctggc atcccaactt gacacgagta
+     2521 tgcagccgct tagtgcttat gtggctttgg ggtcccctgg gtctggtgca tacagcaagt
+     2581 gtctcggtag gcaggtaaat tgatacagtt caactgttgc tccccaacaa ccccaaatga
+     2641 aggcctgcac aacttcagac cacctgacac cctaaagccg gcgtggatgc cgccctacct
+     2701 gcccatgaag ccagaccagg tcaacactct caggtcacca ttcagcagct ctacctattt
+     2761 acctgcagca tgcaaacagt gtcagcgtat accgtaatgt agggcaccag gtcccccacc
+     2821 cgtcctgtgc caactgtgtg cccctcgcca cggtgcctgg agcctgagct ggccaggctc
+     2881 actgcggcaa cagcttacaa ggaccccacg tgcaatgcgt caggtcgtaa atggtctccc
+     2941 cccatcccca agtgtgtggt ggtgttgaga aacaccgatt ttgttttgtg gtatgcgtca
+     3001 atgcgtcacc aggtcatcgg tccagagggc gcttagcccg aggtgaactt ggtcacggcc
+     3061 ttggtgccct ccgacaccgc gtgcttggcc agctcgccag gcagcaccag gcgcacggcg
+     3121 gtctggatct cacgggaggt cacggtgggc ttcttgttgt agcggctcag cttggaggcc
+     3181 tcggtggcca ccttctcaaa gatgtcgttg atgaagctgt tcatgataga catggccttg
+     3241 ctgctgatgc cggtgtcggg gtgcacctgc ttgagcacct tgtagatgta cagcttgtag
+     3301 gtctccacgg cgctcttctt cttcttcttg tccttcttct cgccactgcc cttgggctcc
+     3361 ttggcagcct tcttggaggg ctccttcttg gccttcttgg cggccttctc ggccttgggc
+     3421 ttgcgctcgg ccttggcagg ggcctcggcg ccggcctcct gagtcggggg cttctcgtcc
+     3481 ttcttggggg ccattttgtt tagatatggg agctgtgaaa gcaaaaatgt aacggagtat
+     3541 tcggggttga ggaaatatat gcgggaacag gcagcttatg aggaagctcg gctggtcgcg
+     3601 gggtggccag ggcgaggaga cgggttgttt gacccaaccg ccgatgagcg ttgactgcgt
+     3661 tgaccggctg gccaggcgag gcgcctcgtt ttcgggcctg ctgcatatat acacagggga
+     3721 cgctagcgat ataattacaa cgcttacaac actcactctc caaccttatt acttcgttct
+     3781 tcaagaaccc cccactcgat acgatggctg gtcgcggcaa gggcaagacc tctggcaaga
+     3841 aggctgtgag ccgcagcgcc aaggccggcc tgcagttccc cgttggccgc attgcgcgct
+     3901 acctgaagaa gggcaagtac gccgagcgca tcggtgccgg cgcgcccgtg tacctggccg
+     3961 ctgtgctgga gtacctgacc gctgaggtgc tggagctggc cggcaacgcc gcccgcgaca
+     4021 acaagaagaa ccgcatcgtg ccccgccaca tccagctggc catccgcaac gacgaggagc
+     4081 tgggcaagct gctgggcgag gtgaccattg cttcgggcgg tgtgctgccc aacatccacg
+     4141 cggtgctgct gcccaagaag accaagggcg gcaagggcga ggagaccgcc taagcgctcc
+     4201 tgttgcacct cacttgcact ctaaaaaaaa ctcggtgttt ctcaacacca ccttggatgt
+     4261 gaacgtgtaa gggttgtttc tctatgagca tcgctatccg cattcgctca ctaccgccca
+     4321 cgtagtggtg gcggtgtagg ggtgaggttt cattgcag
+//

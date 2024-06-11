@@ -1,0 +1,173 @@
+ID   L41841; SV 1; linear; genomic DNA; STD; PLN; 4358 BP.
+XX
+AC   L41841;
+XX
+DT   04-MAY-1995 (Rel. 43, Created)
+DT   17-APR-2005 (Rel. 83, Last updated, Version 6)
+XX
+DE   Chlamydomonas reinhardtii histone H3, histone H4, histone H2B, and histone
+DE   H2A genes, complete cds.
+XX
+KW   histone H2A; histone H2B; histone H3; histone H4.
+XX
+OS   Chlamydomonas reinhardtii
+OC   Eukaryota; Viridiplantae; Chlorophyta; core chlorophytes; Chlorophyceae;
+OC   Chlamydomonadales; Chlamydomonadaceae; Chlamydomonas.
+XX
+RN   [1]
+RP   1-4358
+RX   DOI; 10.1093/nar/23.18.3756.
+RX   PUBMED; 7479007.
+RA   Walther Z., Hall J.L.;
+RT   "The uni chromosome of Chlamydomonas: histone genes and nucleosome
+RT   structure";
+RL   Nucleic Acids Res. 23(18):3756-3763(1995).
+XX
+DR   MD5; b36cdfe74e798c44bc901b92540cd484.
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..4358
+FT                   /organism="Chlamydomonas reinhardtii"
+FT                   /strain="137"
+FT                   /mol_type="genomic DNA"
+FT                   /note="(vector lambda 17)"
+FT                   /db_xref="taxon:3055"
+FT   misc_RNA        168..183
+FT                   /note="3' palindrome; putative"
+FT   CDS             complement(266..673)
+FT                   /codon_start=1
+FT                   /product="histone H3"
+FT                   /note="putative"
+FT                   /db_xref="GOA:P50564"
+FT                   /db_xref="InterPro:IPR000164"
+FT                   /db_xref="InterPro:IPR007125"
+FT                   /db_xref="InterPro:IPR009072"
+FT                   /db_xref="UniProtKB/Swiss-Prot:P50564"
+FT                   /protein_id="AAA99965.1"
+FT                   /translation="MARTKQTARKSTGGKAPRKQLATKAARKTPATGGVKKPHRYRPGT
+FT                   VALREIRKYQKSTELLIRKLPFQRLVREIAQDFKTDLRFQSQAVVALQEAAEAYLVGLF
+FT                   EDTNLCAITAKRVTIMPKDIQLARRIRGERA"
+FT   CDS             961..1272
+FT                   /codon_start=1
+FT                   /product="histone H4"
+FT                   /note="putative"
+FT                   /db_xref="GOA:P50566"
+FT                   /db_xref="InterPro:IPR001951"
+FT                   /db_xref="InterPro:IPR009072"
+FT                   /db_xref="InterPro:IPR019809"
+FT                   /db_xref="InterPro:IPR035425"
+FT                   /db_xref="UniProtKB/Swiss-Prot:P50566"
+FT                   /protein_id="AAA99966.1"
+FT                   /translation="MSGRGKGGKGLGKGGAKRHRKVLRDNIQGITKPAIRRLARRGGVK
+FT                   RISGLIYEETRTVLKTFLENVIRDSVTYTEHARRKTVTAMDVVYALKRQGRTLYGFGG"
+FT   misc_RNA        1375..1390
+FT                   /note="3' palindrome; putative"
+FT   misc_RNA        2961..2976
+FT                   /note="3' palindrome; putative"
+FT   CDS             complement(3033..3494)
+FT                   /codon_start=1
+FT                   /product="histone H2B"
+FT                   /note="putative"
+FT                   /db_xref="GOA:P50565"
+FT                   /db_xref="InterPro:IPR000558"
+FT                   /db_xref="InterPro:IPR007125"
+FT                   /db_xref="InterPro:IPR009072"
+FT                   /db_xref="UniProtKB/Swiss-Prot:P50565"
+FT                   /protein_id="AAA99967.1"
+FT                   /translation="MAPKKDEKPPTQEAGAEAPAKAERKPKAEKAAKKAKKEPSKKAAK
+FT                   EPKGSGEKKDKKKKKSAVETYKLYIYKVLKQVHPDTGISSKAMSIMNSFINDIFEKVAT
+FT                   EASKLSRYNKKPTVTSREIQTAVRLVLPGELAKHAVSEGTKAVTKFTSG"
+FT   CDS             3804..4193
+FT                   /codon_start=1
+FT                   /product="histone H2A"
+FT                   /note="putative"
+FT                   /db_xref="GOA:P50567"
+FT                   /db_xref="InterPro:IPR002119"
+FT                   /db_xref="InterPro:IPR007125"
+FT                   /db_xref="InterPro:IPR009072"
+FT                   /db_xref="InterPro:IPR032454"
+FT                   /db_xref="InterPro:IPR032458"
+FT                   /db_xref="UniProtKB/Swiss-Prot:P50567"
+FT                   /protein_id="AAA99968.1"
+FT                   /translation="MAGRGKGKTSGKKAVSRSAKAGLQFPVGRIARYLKKGKYAERIGA
+FT                   GAPVYLAAVLEYLTAEVLELAGNAARDNKKNRIVPRHIQLAIRNDEELGKLLGEVTIAS
+FT                   GGVLPNIHAVLLPKKTKGGKGEETA"
+FT   misc_RNA        4234..4249
+FT                   /note="3' palindrome; putative"
+XX
+SQ   Sequence 4358 BP; 839 A; 1357 C; 1255 G; 907 T; 0 other;
+     gtacagtaac agcgcgcgaa caacgcacca atgccttgtc ccttcttgct acgcatttat        60
+     gtgggcacgg gtgggagcca cacacatcgg gactacgctt tcctgcccct tgccatgttc       120
+     catcacgtgc cccacagccc cgccctccaa gaccacgagg ataaggtggt gttgagaaac       180
+     accgagtttt ttttggttgc gccgcccgct gtcatcacgc ccgaggaagg gccgacgtca       240
+     gctagaagcg caggtgccgg gacacttagg cgcgctcgcc acggatgcgg cgggccagct       300
+     ggatgtcctt gggcatgatg gtcacacgct tggcggtgat ggcgcacagg ttggtgtcct       360
+     cgaacaggcc caccaggtaa gcctcagcgg cctcctgcag cgccacgacg gcctggctct       420
+     ggaagcgcag gtcggtcttg aagtcctggg caatctcacg gaccaggcgc tggaacggca       480
+     gcttgcggat gagcagctca gtcgacttct ggtacttgcg aatctcacgc agcgccacgg       540
+     taccggggcg gtagcgatga ggcttcttca caccgccggt ggcgggggtc ttacgagcgg       600
+     ccttggtggc cagctgcttg cggggcgcct tgccaccggt ggacttgcga gcggtctgct       660
+     tggtgcgggc cattttgttg gaagctggga aaaggacgat gtgaattgct ggaaagtttt       720
+     agtttagcag aagccgcttc ggcttaaata gcaggcgcga ggatgactgg tcaacatggc       780
+     cagggtgagg cgttgaccgg caagactcga ctgcatgaag gcctggtcaa cgcctcacct       840
+     gtgtcgttga cttggatcct gccttgcccc gagcgccctg ttataagcac ccagggcctc       900
+     agtgtgattc acaaaccaac tcacatatct tatcttcgta cccctaacct atcagcaaac       960
+     atgtccggac gtggcaaggg cggcaagggc ctgggcaagg gcggtgccaa gcgccatcgc      1020
+     aaggtgcttc gcgacaacat ccagggcatc accaagcccg ctatccgccg tctggctcgt      1080
+     cgtggcggtg tgaagcgtat cagcggcctg atctacgagg agacccgcac ggtgctcaag      1140
+     accttcctgg agaacgtcat ccgcgactcg gtcacataca ccgagcacgc tcgccgcaag      1200
+     accgtgaccg ccatggacgt ggtctacgcg ctcaagcgcc agggccgcac cctgtacggc      1260
+     ttcggtggct aagcggctcc tataccctgc gcgcactgta tctgccacgc cttccctcac      1320
+     ccgggagaag cgggctcgcg tggcgtgcca ggacctaaaa cccccaaaaa actcggtgtt      1380
+     tctcaacacc accctcaacc tcgggattct gtacctttgt acatggtcct ccctgcctct      1440
+     acttttatgt tgtcctgagc ctgcacaatg ccggacattg ccgttatccg cttacacaag      1500
+     acaccaaccc cagcttccgc accacgctgc cgtactgcca ggggtaccca gcatgctcag      1560
+     cgagccgcct tttcctcggg ccgtgcctgc actccgtgct gcagcatacc gtatgactgc      1620
+     cgcgctgcca agtgccacag acgggggtca ttccagcgtg ccctgctgcc aacggcctct      1680
+     agaggccgtg acaccagcct cagactacgc cttcacactt gtttggtcct ccctgtcctt      1740
+     accaggtttg ccgtgcccca tgctaactgt cgtcttcagc ctgcgtgatc ccatcccgcg      1800
+     gcgttcaccg tataattcta gcaatgctca gtatctggca cggttgcctt gcctggcaat      1860
+     gcgcagtagc aactgggggc ctccacatgc cctgccacgc accagaggtc ccgtacatac      1920
+     ggcaagtgaa ggaggcaagg ggcccacctg gtaactcagc cctcattacg tttcgctaac      1980
+     agtcccatgc acaccatatg gttatgcaat acgggtgtgc tgaacaaaaa gtaattgggg      2040
+     ccccaaggat cccagtggtc cacacgcctc acacgcttca cgggtggcca acccgggttc      2100
+     actcgggggc gtgcacgtac acagctgagc atccaaagtc taaaccttcc catatgccct      2160
+     gggccaatcc cgggcatgtc ctggcctttg cagtgttcga gtctcccatg gcctgcctga      2220
+     tggtgtaccg cctgcccaca ccccgccgcg gtaggacgca gttgcaaccg gggccttcct      2280
+     ccaatcctac acaaggatac tacacaggta cgtgcctacc ttggggaaca ccatgccagg      2340
+     aggtgttagg tgcaattgaa tgtggagggc gccactgggc agccttggcc tttgcaagga      2400
+     gcagcccacc agccatgcca cgagacaagc accacggcgg ggcatgatcc cagcggctcg      2460
+     cacataccat agacgtgtgg ccacgaacgc gctccctggc atcccaactt gacacgagta      2520
+     tgcagccgct tagtgcttat gtggctttgg ggtcccctgg gtctggtgca tacagcaagt      2580
+     gtctcggtag gcaggtaaat tgatacagtt caactgttgc tccccaacaa ccccaaatga      2640
+     aggcctgcac aacttcagac cacctgacac cctaaagccg gcgtggatgc cgccctacct      2700
+     gcccatgaag ccagaccagg tcaacactct caggtcacca ttcagcagct ctacctattt      2760
+     acctgcagca tgcaaacagt gtcagcgtat accgtaatgt agggcaccag gtcccccacc      2820
+     cgtcctgtgc caactgtgtg cccctcgcca cggtgcctgg agcctgagct ggccaggctc      2880
+     actgcggcaa cagcttacaa ggaccccacg tgcaatgcgt caggtcgtaa atggtctccc      2940
+     cccatcccca agtgtgtggt ggtgttgaga aacaccgatt ttgttttgtg gtatgcgtca      3000
+     atgcgtcacc aggtcatcgg tccagagggc gcttagcccg aggtgaactt ggtcacggcc      3060
+     ttggtgccct ccgacaccgc gtgcttggcc agctcgccag gcagcaccag gcgcacggcg      3120
+     gtctggatct cacgggaggt cacggtgggc ttcttgttgt agcggctcag cttggaggcc      3180
+     tcggtggcca ccttctcaaa gatgtcgttg atgaagctgt tcatgataga catggccttg      3240
+     ctgctgatgc cggtgtcggg gtgcacctgc ttgagcacct tgtagatgta cagcttgtag      3300
+     gtctccacgg cgctcttctt cttcttcttg tccttcttct cgccactgcc cttgggctcc      3360
+     ttggcagcct tcttggaggg ctccttcttg gccttcttgg cggccttctc ggccttgggc      3420
+     ttgcgctcgg ccttggcagg ggcctcggcg ccggcctcct gagtcggggg cttctcgtcc      3480
+     ttcttggggg ccattttgtt tagatatggg agctgtgaaa gcaaaaatgt aacggagtat      3540
+     tcggggttga ggaaatatat gcgggaacag gcagcttatg aggaagctcg gctggtcgcg      3600
+     gggtggccag ggcgaggaga cgggttgttt gacccaaccg ccgatgagcg ttgactgcgt      3660
+     tgaccggctg gccaggcgag gcgcctcgtt ttcgggcctg ctgcatatat acacagggga      3720
+     cgctagcgat ataattacaa cgcttacaac actcactctc caaccttatt acttcgttct      3780
+     tcaagaaccc cccactcgat acgatggctg gtcgcggcaa gggcaagacc tctggcaaga      3840
+     aggctgtgag ccgcagcgcc aaggccggcc tgcagttccc cgttggccgc attgcgcgct      3900
+     acctgaagaa gggcaagtac gccgagcgca tcggtgccgg cgcgcccgtg tacctggccg      3960
+     ctgtgctgga gtacctgacc gctgaggtgc tggagctggc cggcaacgcc gcccgcgaca      4020
+     acaagaagaa ccgcatcgtg ccccgccaca tccagctggc catccgcaac gacgaggagc      4080
+     tgggcaagct gctgggcgag gtgaccattg cttcgggcgg tgtgctgccc aacatccacg      4140
+     cggtgctgct gcccaagaag accaagggcg gcaagggcga ggagaccgcc taagcgctcc      4200
+     tgttgcacct cacttgcact ctaaaaaaaa ctcggtgttt ctcaacacca ccttggatgt      4260
+     gaacgtgtaa gggttgtttc tctatgagca tcgctatccg cattcgctca ctaccgccca      4320
+     cgtagtggtg gcggtgtagg ggtgaggttt cattgcag                              4358
+//

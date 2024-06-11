@@ -1,0 +1,256 @@
+ID   NM_001278161; linear; mRNA; ROD; 630 BP.
+XX
+AC   NM_001278161;
+XX
+DE   Mus musculus hemoglobin, beta adult major chain (Hbb-b1), mRNA.
+XX
+KW    RefSeq; RefSeq Select.
+XX
+OS   Mus musculus
+OC   Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi;
+OC   Mammalia; Eutheria; Euarchontoglires; Glires; Rodentia; Myomorpha;
+OC   Muroidea; Muridae; Murinae; Mus; Mus
+XX
+RN   [1]
+RP   1-630
+RA   Lotinun S, Atjanasuppat K, Limsuvech J, Leelahavanichkul A, Svasti
+            S and Krishnamra N.;
+RT   Nephrectomy Does not Exacerbate Cancellous Bone loss in Thalassemic
+RT   Mice
+RL   Sci Rep 10 (1), 7786 (2020)
+RL   PUBMED   32385316
+RL   REMARK    Publication Status: Online-Only
+XX
+RN   [2]
+RP   1-630
+RA   Arezes J, Foy N, McHugh K, Quinkert D, Benard S, Sawant A, Frost
+            JN, Armitage AE, Pasricha SR, Lim PJ, Tam MS, Lavallie E, Pittman
+            DD, Cunningham O, Lambert M, Murphy JE, Draper SJ, Jasuja R and
+            Drakesmith H.;
+RT   Antibodies against the erythroferrone N-terminal domain prevent
+RT   hepcidin suppression and ameliorate murine thalassemia
+RL   Blood 135 (8), 547-557 (2020)
+RL   PUBMED   31899794
+XX
+RN   [3]
+RP   1-630
+RA   Ueda T, Yokota T, Okuzaki D, Uno Y, Mashimo T, Kubota Y, Sudo T,
+            Ishibashi T, Shingai Y, Doi Y, Ozawa T, Nakai R, Tanimura A, Ichii
+            M, Ezoe S, Shibayama H, Oritani K and Kanakura Y.;
+RT   Endothelial Cell-Selective Adhesion Molecule Contributes to the
+RT   Development of Definitive Hematopoiesis in the Fetal Liver
+RL   Stem Cell Reports 13 (6), 992-1005 (2019)
+RL   PUBMED   31813828
+XX
+RN   [4]
+RP   1-630
+RA   Bulger M, van Doorninck JH, Saitoh N, Telling A, Farrell C, Bender
+            MA, Felsenfeld G, Axel R and Groudine M.;
+RT   Conservation of sequence and structure flanking the mouse and human
+RT   beta-globin loci: the beta-globin genes are embedded within an
+RT   array of odorant receptor genes
+RL   Proc. Natl. Acad. Sci. U.S.A. 96 (9), 5129-5134 (1999)
+RL   PUBMED   10220430
+RL   REMARK    Erratum:[Proc Natl Acad Sci U S A 1999 Jul 6;96(14):8307. von
+RL   Doorninck JH [corrected to van Doorninck JH]]
+XX
+RN   [5]
+RP   1-630
+RA   Weaver,S., Comer,M.B., Jahn,C.L., Hutchison,C.A. 3rd and
+            Edgell,M.H.;
+RT   The adult beta-globin genes of the 'single' type mouse C57BL
+RL   Cell 24 (2), 403-411 (1981)
+RL   PUBMED   7237554
+XX
+RN   [6]
+RP   1-630
+RA   Jahn,C.L., Hutchison,C.A. 3rd, Phillips,S.J., Weaver,S.,
+            Haigwood,N.L., Voliva,C.F. and Edgell,M.H.;
+RT   DNA sequence organization of the beta-globin complex in the BALB/c
+RT   mouse
+RL   Cell 21 (1), 159-168 (1980)
+RL   PUBMED   6250710
+XX
+RN   [7]
+RP   1-630
+RA   Honjo,T., Obata,M., Yamawaki-Katoaka,Y., Kataoka,T., Kawakami,T.,
+            Takahashi,N. and Mano,Y.;
+RT   Cloning and complete nucleotide sequence of mouse immunoglobulin
+RT   gamma 1 chain gene
+RL   Cell 18 (2), 559-568 (1979)
+RL   PUBMED   115593
+XX
+RN   [8]
+RP   1-630
+RA   Konkel,D.A., Tilghman,S.M. and Leder,P.;
+RT   The sequence of the chromosomal mouse beta-globin major gene:
+RT   homologies in capping, splicing and poly(A) sites
+RL   Cell 15 (4), 1125-1132 (1978)
+RL   PUBMED   569555
+XX
+RN   [9]
+RP   1-630
+RA   van den Berg,J., van Ooyen,A., Mantei,N., Schambock,A.,
+            Grosveld,G., Flavell,R.A. and Weissmann,C.;
+RT   Comparison of cloned rabbit and mouse beta-globin genes showing
+RT   strong evolutionary divergence of two homologous pairs of introns
+RL   Nature 276 (5683), 37-44 (1978)
+RL   PUBMED   264241
+XX
+RN   [10]
+RP   1-630
+RA   Tilghman,S.M., Tiemeier,D.C., Polsky,F., Edgell,M.H., Seidman,J.G.,
+            Leder,A., Enquist,L.W., Norman,B. and Leder,P.;
+RT   Cloning specific segments of the mammalian genome: bacteriophage
+RT   lambda containing mouse globin and surrounding gene sequences
+RL   Proc. Natl. Acad. Sci. U.S.A. 74 (10), 4406-4410 (1977)
+RL   PUBMED   270684
+RL   COMMENT     VALIDATED REFSEQ: This record has undergone validation or
+RL   preliminary review. The reference sequence was derived from
+RL   X14061.1.
+RL   
+RL   Summary: This gene encodes a beta polypeptide chain found in adult
+RL   hemoglobin, which consists of a tetramer of two alpha chains and
+RL   two beta chains, and which functions in the transport of oxygen to
+RL   various peripheral tissues. This gene is one of a cluster of
+RL   beta-hemoglobin genes that are distally regulated by a locus
+RL   control region, and which are organized along the chromosome in the
+RL   order of their developmental expression. In mouse, two major
+RL   strain-specific haplotypes of the beta-globin gene cluster are
+RL   found - a 'single' haplotype found in C57BL/-type strains, which
+RL   includes two highly similar adult beta-globin genes, beta s and
+RL   beta t, and a 'diffuse' haplotype found in strains such as BALB/c
+RL   and 129Sv, which includes two somewhat diverse adult beta-globin
+RL   genes, beta-major and beta-minor. This gene represents the
+RL   beta-major adult gene found in the 'diffuse' haplotype. Primary
+RL   chromosome 7 of the mouse reference genome assembly, which is
+RL   derived from C57BL/6 strain mice, represents the 'single'
+RL   haplotype, while the 'diffuse' haplotype is represented in the
+RL   reference genome collection by the BALB/c strain alternate contig,
+RL   NT_095534.1. [provided by RefSeq, May 2013].
+RL   
+RL   Sequence Note: The RefSeq transcript and protein were derived from
+RL   genomic sequence to make the sequence consistent with the alternate
+RL   haplotype that this gene represents. The genomic coordinates used
+RL   for the transcript record were based on transcript alignments.
+RL   
+RL   Publication Note:  This RefSeq record includes a subset of the
+RL   publications that are available for this gene. Please see the Gene
+RL   record to access additional publications.
+RL   
+RL   ##RefSeq-Attributes-START##
+RL   RefSeq Select criteria :: based on single protein-coding transcript
+RL   ##RefSeq-Attributes-END##
+RL   COMPLETENESS: complete on the 3' end.
+RL   PRIMARY     REFSEQ_SPAN         PRIMARY_IDENTIFIER PRIMARY_SPAN        COMP
+RL   1-146               X14061.1           38285-38430
+RL   147-369             X14061.1           38547-38769
+RL   370-630             X14061.1           39424-39684
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..630
+FT                   /organism="Mus musculus"
+FT                   /mol_type="mRNA"
+FT                   /strain="BALB/c"
+FT                   /db_xref="taxon:10090"
+FT                   /chromosome="7"
+FT                   /map="7 54.85 cM"
+FT   gene            1..630
+FT                   /gene="Hbb-b1"
+FT                   /gene_synonym="AA409645; beta1; Hbb1; Hbbt1; Hbbt2;
+FT   MommeD;         MommeD7"
+FT                   /note="hemoglobin, beta adult major chain"
+FT                   /db_xref="GeneID:15129"
+FT                   /db_xref="MGI:MGI:96021"
+FT   exon            1..146
+FT                   /gene="Hbb-b1"
+FT                   /gene_synonym="AA409645; beta1; Hbb1; Hbbt1; Hbbt2;
+FT   MommeD;         MommeD7"
+FT                   /inference="alignment:Splign:2.1.0"
+FT   misc_feature    28..30
+FT                   /gene="Hbb-b1"
+FT                   /gene_synonym="AA409645; beta1; Hbb1; Hbbt1; Hbbt2;
+FT   MommeD;         MommeD7"
+FT                   /note="upstream in-frame stop codon"
+FT   CDS             55..498
+FT                   /gene="Hbb-b1"
+FT                   /gene_synonym="AA409645; beta1; Hbb1; Hbbt1; Hbbt2;
+FT   MommeD;         MommeD7"
+FT                   /note="beta major globin"
+FT                   /codon_start=1
+FT                   /product="hemoglobin subunit beta-1"
+FT                   /protein_id="NP_001265090.1"
+FT                   /db_xref="GeneID:15129"
+FT                   /db_xref="MGI:MGI:96021"
+FT                   /translation="MVHLTDAEKAAVSCLWGKVNSDEVGGEALGRLLVVYPWTQRYFD
+FT                   SFGDLSSASAIMGNAKVKAHGKKVITAFNDGLNHLDSLKGTFASLSELHCDKLHVDPE
+FT                   NFRLLGNMIVIVLGHHLGKDFTPAAQAAFQKVVAGVATALAHKYH"
+FT   misc_feature    58..60
+FT                   /gene="Hbb-b1"
+FT                   /gene_synonym="AA409645; beta1; Hbb1; Hbbt1; Hbbt2;
+FT   MommeD;         MommeD7"
+FT                   /note="N-acetylvaline.
+FT                   /evidence=ECO:0000250|UniProtKB:P02086; propagated from
+FT                   UniProtKB/Swiss-Prot (P02088.2); acetylation site"
+FT   misc_feature    115..117
+FT                   /gene="Hbb-b1"
+FT                   /gene_synonym="AA409645; beta1; Hbb1; Hbbt1; Hbbt2;
+FT   MommeD;         MommeD7"
+FT                   /note="Phosphoserine.
+FT                   /evidence=ECO:0000244|PubMed:17242355,
+FT   ECO:0000244|PubMed:21183079;propagated from
+FT                   UniProtKB/Swiss-Prot (P02088.2); phosphorylation site"
+FT   misc_feature    187..189
+FT                   /gene="Hbb-b1"
+FT                   /gene_synonym="AA409645; beta1; Hbb1; Hbbt1; Hbbt2;
+FT   MommeD;         MommeD7"
+FT                   /note="Phosphoserine.
+FT                   /evidence=ECO:0000250|UniProtKB:P02091; propagated from
+FT                   UniProtKB/Swiss-Prot (P02088.2); phosphorylation site"
+FT   misc_feature    205..207
+FT                   /gene="Hbb-b1"
+FT                   /gene_synonym="AA409645; beta1; Hbb1; Hbbt1; Hbbt2;
+FT   MommeD;         MommeD7"
+FT                   /note="Phosphoserine.
+FT                   /evidence=ECO:0000250|UniProtKB:P02091; propagated from
+FT                   UniProtKB/Swiss-Prot (P02088.2); phosphorylation site"
+FT   misc_feature    367..369
+FT                   /gene="Hbb-b1"
+FT                   /gene_synonym="AA409645; beta1; Hbb1; Hbbt1; Hbbt2;
+FT   MommeD;         MommeD7"
+FT                   /note="Asymmetric dimethylarginine.
+FT                   /evidence=ECO:0000250|UniProtKB:P02089; propagated from
+FT                   UniProtKB/Swiss-Prot (P02088.2); methylation site"
+FT   misc_feature    424..426
+FT                   /gene="Hbb-b1"
+FT                   /gene_synonym="AA409645; beta1; Hbb1; Hbbt1; Hbbt2;
+FT   MommeD;         MommeD7"
+FT                   /note="Phosphothreonine.
+FT                   /evidence=ECO:0000250|UniProtKB:P11517; propagated from
+FT                   UniProtKB/Swiss-Prot (P02088.2); phosphorylation site"
+FT   exon            147..369
+FT                   /gene="Hbb-b1"
+FT                   /gene_synonym="AA409645; beta1; Hbb1; Hbbt1; Hbbt2;
+FT   MommeD;         MommeD7"
+FT                   /inference="alignment:Splign:2.1.0"
+FT   exon            370..630
+FT                   /gene="Hbb-b1"
+FT                   /gene_synonym="AA409645; beta1; Hbb1; Hbbt1; Hbbt2;
+FT   MommeD;         MommeD7"
+FT                   /inference="alignment:Splign:2.1.0"
+XX
+SQ  Sequence 630 BP; A: 147, C: 160, G: 161, T: 162 
+    tcacatttgc ttctgacata gttgtgttga ctcacaaccc cagaaacaga catcatggtg 60
+    cacctgactg atgctgagaa ggctgctgtc tcttgcctgt ggggaaaggt gaactccgat 120
+    gaagttggtg gtgaggccct gggcaggctg ctggttgtct acccttggac ccagcggtac 180
+    tttgatagct ttggagacct atcctctgcc tctgctatca tgggtaatgc caaagtgaag 240
+    gcccatggca agaaggtgat aactgccttt aacgatggcc tgaatcactt ggacagcctc 300
+    aagggcacct ttgccagcct cagtgagctc cactgtgaca agctgcatgt ggatcctgag 360
+    aacttcaggc tcctgggcaa tatgatcgtg attgtgctgg gccaccacct gggcaaggat 420
+    ttcacccccg ctgcacaggc tgccttccag aaggtggtgg ctggagtggc cactgccctg 480
+    gctcacaagt accactaaac cccctttcct gctcttgcct gtgaacaatg gttaattgtt 540
+    cccaagagag catctgtcag ttgttggcaa aatgatagac atttgaaaat ctgtcttctg 600
+    acaaataaaa agcatttatg ttcactgcaa                                  630
+
+//

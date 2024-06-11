@@ -1,0 +1,68 @@
+ID   KF850980; linear; DNA; PLN; 720 BP.
+XX
+AC   KF850980;
+XX
+DE   Lilium pumilum voucher G08008 clone CD13TrLF-41 tRNA-Leu (trnL)
+DE   gene and trnL-trnF intergenic spacer, partial sequence;
+DE   chloroplast.
+XX
+KW    .
+XX
+OS   Lilium pumilum
+OC   Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+OC   Spermatophyta; Magnoliopsida; Liliopsida; Liliales; Liliaceae;
+OC   Lilium
+XX
+RN   [1]
+RP   1-720
+RA   Gao,Y.;
+RT   Habitat specialization and hybridization may drive morphological
+RT   and genetic convergence in genera of the Hengduan Mountains: A case
+RT   study of Nomocharis and Lilium (Liliaceae)
+RL   Unpublished
+XX
+RN   [2]
+RP   1-720
+RA   Gao,Y.;
+RT   Direct Submission
+RL   Submitted (07-NOV-2013) Chengdu institute of Biology, Chinese
+RL   Academy of Sciences, No. 9 Section 4, Renmin Nan Road, Chengdu,
+RL   Sichuan 610041, China
+RL   COMMENT     ##Assembly-Data-START##
+RL   Assembly Method       :: MEGA v. 5
+RL   Sequencing Technology :: Sanger dideoxy sequencing
+RL   ##Assembly-Data-END##
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..720
+FT                   /organism="Lilium pumilum"
+FT                   /organelle="plastid:chloroplast"
+FT                   /mol_type="genomic DNA"
+FT                   /specimen_voucher="G08008"
+FT                   /db_xref="taxon:82327"
+FT                   /clone="CD13TrLF-41"
+FT                   /note="authority: Lilium pumilum Redoute"
+FT   gene            <1..579
+FT                   /gene="trnL"
+FT   tRNA            <552..579
+FT                   /gene="trnL"
+FT                   /product="tRNA-Leu"
+FT   misc_feature    580..>720
+FT                   /note="trnL-trnF intergenic spacer"
+XX
+SQ  Sequence 720 BP; A: 256, C: 115, G: 117, T: 232 
+    gaaaccccgg aattaaaaat gggcaatcct gagccaaatc tttattttga gaaaaagggt 60
+    ttaatttata gtttttttaa tataaaacta caataaaaaa agataggtgc agagactcaa 120
+    tggaagttgt tctaacgaat gaagttgatt acgttgcgct ggtagccgga attcttctat 180
+    caaaattaca gagaggatgc ccgccctata tacgtatata tacatactga ccatagtaaa 240
+    cgattgatta atcgcggccc gaatccatta taatatatat atatatatat gaaaaattta 300
+    agagttattg taaatctatt ccatattcca atcaaagttt aaggaagaat cgaatattca 360
+    gtgatcaaat tattcattcc agagtctgta tagatctttt taaaaactga ttattcggac 420
+    gagaataaag agagagtccc attctacgtg tcaataccga caacaatgaa atttatagta 480
+    aaaggaaaat ccgtcgactt tataagtcgt gagggttcaa gtccctctat ccccaataaa 540
+    agcccatttt aagtactaac ttaactatac ttcctaacta ctttttatct tatctttttt 600
+    taatctaaga aattcaggag ctgggtaaga ttttttaata ctttcttaat tttttagtcc 660
+    ctttaattga catagataaa gtgctctact aggataatgc gcgagaaaag gtcggatagc 720
+
+//

@@ -1,0 +1,54 @@
+ID   HG799508; linear; DNA; BCT; 460 BP.
+XX
+AC   HG799508;
+XX
+DE   Serratia marcescens genomic DNA containing partial 16S rRNA gene,
+DE   16S rRNA-23S rRNA IGS and partial 23S rRNA gene, isolate S47.
+XX
+KW    .
+XX
+OS   Serratia marcescens
+OC   Bacteria; Pseudomonadota; Gammaproteobacteria; Enterobacterales;
+OC   Yersiniaceae; Serratia
+XX
+RN   [1]
+RP
+RA   Kamou,N.N., Tzelepis,G.D., Lotos,L., Menejes,G. and Lagopodi,A.L.;
+RT   Isolation and characterization of plant growth promoting
+RT   rhizobacteria and their ability to suppress tomato foot and root
+RT   rot, caused by Fusarium oxusporum f.sp. radicis lycopersici
+RL   Unpublished
+XX
+RN   [2]
+RP   1-460
+RA   Kamou,N.;
+RT   Direct Submission
+RL   Submitted (27-NOV-2013) School of Agriculture, Plant Pathology
+RL   Laboratory, Aristotle University of Thessaloniki, Aristotelian
+RL   University Campus, GR 54124/ P.O.B. 269, GREECE
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..460
+FT                   /organism="Serratia marcescens"
+FT                   /mol_type="genomic DNA"
+FT                   /isolate="S47"
+FT                   /isolation_source="plant rhizosphere"
+FT                   /db_xref="taxon:615"
+FT                   /country="Greece:Thessaloniki"
+FT                   /collection_date="28-Apr-2010"
+FT   misc_feature    <1..>460
+FT                   /note="contains partial 16S rRNA gene, 16S rRNA-23S rRNA
+FT   intergenic      spacer and partial 23S rRNA gene"
+XX
+SQ  Sequence 460 BP; A: 110, C: 113, G: 106, T: 131 
+    gtacgcttag tcacttaacc tcacaacccg aagatgtttc catcgttcgc gctgcaaaca 60
+    tttgagagac tctatgacag gttactcttt atcccgttac ttctacggag ggataaattt 120
+    cagccgtcat gtttcaattt tcagcttgtt ccagattgtt aaagagcaat atcttaaaca 180
+    tgactcggaa gtcatcttta agatatggtg tatcgtcaga tacttgagac cgccgctttc 240
+    accgggtggg tcggaagctt ggcgtcccct aggggattcg aacccctgtt accgccgtga 300
+    aagggcggtg tcctaggcct ctagacgaag gggacacgac accgtacttt tatgacgctt 360
+    ttgctcgtta ctttttcatc agacaatctg tgtgagcacg ccacgcgaac taatatcttt 420
+    aggtaaggag gtgatccaac cgcaggttcc cctacggtta                       460
+
+//
