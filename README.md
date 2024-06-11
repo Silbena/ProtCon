@@ -1,5 +1,5 @@
 # SeCon
-SeCon is a nucleic acid sequence files batch converter. Able to convert both single files and folders of diverse sequence files.
+SeCon is a nucleic acid sequence files batch converter. Able to convert both single files and folders of diverse sequence formats.
 
 ## Supported formats
 - FASTA
