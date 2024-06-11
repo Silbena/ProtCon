@@ -1,0 +1,48 @@
+LOCUS       AF136606                2697 bp    DNA     linear   INV 01-JUN-1999
+DEFINITION  Drosophila melanogaster DHR23 (DHR23) gene, complete cds.
+ACCESSION   AF136606
+VERSION     AF136606.1
+KEYWORDS    .
+SOURCE      Drosophila melanogaster (fruit fly)
+  ORGANISM  Drosophila melanogaster
+            Eukaryota; Metazoa; Ecdysozoa; Arthropoda; Hexapoda; Insecta;
+            Pterygota; Neoptera; Endopterygota; Diptera; Brachycera;
+            Muscomorpha; Ephydroidea; Drosophilidae; Drosophila; Sophophora.
+REFERENCE   1  (bases 1 to 2697)
+  AUTHORS   Nabirochkina E.N., Grischuk A.L. and Soldatov A.V.
+  TITLE     Cloning and characterization of the Drosophila melanogaster
+            homologue of the Sacharomyces cerevisiae gene RAD23
+  JOURNAL   Genetika 35 (7) (1999) In press
+REFERENCE   2  (bases 1 to 2697)
+  AUTHORS   Soldatov,A.V.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (23-MAR-1999) RAS, Institute of Gene Biology, Vavilov
+            str. 34/5, 117334, Moscow, Russia
+FEATURES             Location/Qualifiers
+     source          1..2697
+                     /organism="Drosophila melanogaster"
+                     /mol_type="genomic DNA"
+                     /db_xref="taxon:7227"
+                     /chromosome="4"
+                     /map="102A"
+     gene            1..2623
+                     /gene="DHR23"
+     mRNA            join(1..181,323..971,1431..1525,1586..1909,1971..2623)
+                     /gene="DHR23"
+     CDS             join(116..181,323..971,1431..1525,1586..1909,1971..2081)
+                     /gene="DHR23"
+                     /note="similar to Sacharomyces cerevisiae RAD23"
+                     /codon_start=1
+                     /product="DHR23"
+                     /protein_id="AAD33695.1"
+                     /translation="MIITIKNLQQQTFTIEFAPEKTVLELKKKIFEERGPEYVAEKQK
+                     LIYAGVILTDDRTVGSYNVDEKKFIVVMLTRDSSSSNRNQLSVKESNKLTSTDDSKQS
+                     MPCEEANHTNSPSSTNTEDSVLSRETRPLSSDELIGELAQASLQSRAESNLLMGDEYN
+                     QTVLSMVEMGYPREQVERAMAASYNNPERAVEYLINGIPAEEGTFYNRLNESTNPSLI
+                     PSGPQPASATSAERSTESNSDPFEFLRSQPQFLQMRSLIYQNPHLLHAVLQQIGQTNP
+                     ALLQLISENQDAFLNMLNQPIDRESESGATVPPVSNARIPSTLDNVDLFSPDLEVATS
+                     AQRSAAGTSAAHQSGSAADNEDLEQPLGVSTIRLNRQDKDAIERLKALGFPEALVLQA
+                     YFACEKNEEQAANFLLSSSFED"
+
+//
+

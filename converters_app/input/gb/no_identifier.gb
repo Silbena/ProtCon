@@ -1,0 +1,92 @@
+LOCUS       AF136606                2697 bp    DNA     linear   INV 01-JUN-1999
+DEFINITION  Drosophila melanogaster DHR23 (DHR23) gene, complete cds.
+VERSION     AF136606.1
+KEYWORDS    .
+SOURCE      Drosophila melanogaster (fruit fly)
+  ORGANISM  Drosophila melanogaster
+            Eukaryota; Metazoa; Ecdysozoa; Arthropoda; Hexapoda; Insecta;
+            Pterygota; Neoptera; Endopterygota; Diptera; Brachycera;
+            Muscomorpha; Ephydroidea; Drosophilidae; Drosophila; Sophophora.
+REFERENCE   1  (bases 1 to 2697)
+  AUTHORS   Nabirochkina E.N., Grischuk A.L. and Soldatov A.V.
+  TITLE     Cloning and characterization of the Drosophila melanogaster
+            homologue of the Sacharomyces cerevisiae gene RAD23
+  JOURNAL   Genetika 35 (7) (1999) In press
+REFERENCE   2  (bases 1 to 2697)
+  AUTHORS   Soldatov,A.V.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (23-MAR-1999) RAS, Institute of Gene Biology, Vavilov
+            str. 34/5, 117334, Moscow, Russia
+FEATURES             Location/Qualifiers
+     source          1..2697
+                     /organism="Drosophila melanogaster"
+                     /mol_type="genomic DNA"
+                     /db_xref="taxon:7227"
+                     /chromosome="4"
+                     /map="102A"
+     gene            1..2623
+                     /gene="DHR23"
+     mRNA            join(1..181,323..971,1431..1525,1586..1909,1971..2623)
+                     /gene="DHR23"
+     CDS             join(116..181,323..971,1431..1525,1586..1909,1971..2081)
+                     /gene="DHR23"
+                     /note="similar to Sacharomyces cerevisiae RAD23"
+                     /codon_start=1
+                     /product="DHR23"
+                     /protein_id="AAD33695.1"
+                     /translation="MIITIKNLQQQTFTIEFAPEKTVLELKKKIFEERGPEYVAEKQK
+                     LIYAGVILTDDRTVGSYNVDEKKFIVVMLTRDSSSSNRNQLSVKESNKLTSTDDSKQS
+                     MPCEEANHTNSPSSTNTEDSVLSRETRPLSSDELIGELAQASLQSRAESNLLMGDEYN
+                     QTVLSMVEMGYPREQVERAMAASYNNPERAVEYLINGIPAEEGTFYNRLNESTNPSLI
+                     PSGPQPASATSAERSTESNSDPFEFLRSQPQFLQMRSLIYQNPHLLHAVLQQIGQTNP
+                     ALLQLISENQDAFLNMLNQPIDRESESGATVPPVSNARIPSTLDNVDLFSPDLEVATS
+                     AQRSAAGTSAAHQSGSAADNEDLEQPLGVSTIRLNRQDKDAIERLKALGFPEALVLQA
+                     YFACEKNEEQAANFLLSSSFED"
+ORIGIN      
+        1 gtcacactga tgacaaatcg tttttatcaa gcgatattgg gaactaactt tcgagtttgc
+       61 atatgtgtat gcatatgtat atttaattaa gttttggttt tgtctgatac acaagatgat
+      121 tattacaatt aaaaatcttc aacagcaaac ttttactatt gagtttgccc cggaaaaaac
+      181 ggtatgtgta taaataggca aatactagta tattcacatg tatggtatat acaattattg
+      241 caaatgcata tgtgtgctta tacaggtatt tcttacaatt aatttgtgat accataataa
+      301 gcagggattc tgattacaaa aggttttgga actgaagaag aaaatattcg aggagcgcgg
+      361 tccagagtac gtcgccgaaa aacaaaaact gatctacgct ggcgtcatat tgacggatga
+      421 ccgcaccgtt ggttcataca acgttgatga aaaaaagttc attgtggtaa tgttgacacg
+      481 cgattcgtct agttcaaatc gtaatcaact tagtgtaaaa gaaagtaata aattgactag
+      541 caccgacgat tcaaagcaat ctatgccttg cgaagaagcc aaccatacca attcgcctag
+      601 ttccacaaat acagaagatt cagttttatc acgtgaaacc agacctttat ctagtgacga
+      661 attgattggc gagttggccc aggcttcctt acaatcgcgc gctgaatcta atttgcttat
+      721 gggtgacgaa tacaaccaaa cagtcctatc aatggtggaa atgggttacc caagagagca
+      781 ggttgaacgt gcgatggctg ctagttataa caacccggaa agagccgttg aatatctcat
+      841 taatggcata cctgcagagg aaggtacttt ttacaatagg ctgaatgaat caacgaatcc
+      901 tagtctaatc ccctccggac cgcaacctgc gtcggcaacc tctgccgagc gttcaacaga
+      961 atcaaattca ggtaacttga tgggatttca atcagcagtc aatttatgta ttcttgtatg
+     1021 aaacgaaaat atataatttc tacgcagaag tactaaattt gcacacttca aaacatagtg
+     1081 aaattaataa acccgatttg cgtctcgctc tttaatgaaa ttatacggcc ttaacataat
+     1141 tgcgttagtt ttcctggtca agaaatattg ttgatcaaaa cttatgttgc acattcgtta
+     1201 ataaataata aaagagttct cttagtactg gaaatatatg cagctgttaa agattcacta
+     1261 aaatgtttgt gagctcgttg tcccgcagta tcatttacat atatatgtca acagacacta
+     1321 aaggagcgat aattcacgaa tttttgtcac tattctcttc aaggacaggg catcactata
+     1381 tgtttttagt taatttaatt attatttaat tatttatatt tacgtttcag acccctttga
+     1441 atttttacgt agccagccac agtttcttca aatgcgatct ttaatttatc aaaaccctca
+     1501 tcttttgcat gcagtattgc agcaggtaag tacacttata ataataatta catgacacgt
+     1561 aaatgataat tttttttacg tatagattgg tcagacaaac ccagcccttt tacaacttat
+     1621 ttcggagaac caagatgcgt ttctcaatat gcttaatcaa ccgattgacc gcgaatcgga
+     1681 gtcaggcgcc accgttcctc ccgtttcgaa tgcgcggatt ccttcaactt tggacaatgt
+     1741 tgacctcttt tctccagatt tagaagtagc tacttcagca caaagatcag ccgcgggtac
+     1801 aagtgcagca catcaaagcg gtagcgcagc ggataacgaa gacttggaac aacctttagg
+     1861 agtatcaacc attcgtttaa atcgccaaga taaggacgca atagaacggg tatataggag
+     1921 tgaataatta tatatggact gtcgagttac ttaatatatt cttcttctag ctaaaagctc
+     1981 ttggattccc agaggccctt gtactgcaag cgtacttcgc ttgtgaaaag aacgaggaac
+     2041 aagcagctaa ttttttgcta tcgtctagct tcgaagatta ggatgacaaa atgtaagaag
+     2101 ttatgcaaat aacaccggaa gcgttacatt taaagttaga tgttcttaaa ttaaatgtaa
+     2161 aatgtcgatc ataaaaattc ttttatattc ttttaatacc gtcggcgtat tgtacttgtt
+     2221 atttgttaaa aattgcagcc atgggtaaaa tagagttacg atgtcatttt tactaaatat
+     2281 ttcaccacga cattgtattc agcataagac tgcaaatgtc tacaaattta tctgtgccaa
+     2341 tccatggtag ggaggccttg gattaggcct tcacctaatg gatggcaaag tatatttcta
+     2401 gtgtgtgtat ttctagtgta tatgcaatac acacattaat tattttaagg tcgtattaag
+     2461 ctaaagaagt cttatgattt attctttcct tatcttggtt gatttataaa atattttttt
+     2521 gactagtggg agtccacaat taagtcactt aacacataaa gtactttttg tcgtcctgga
+     2581 tgttggacat atgactaaaa tatattaatc attgtattac ataaatttcg tgttttttta
+     2641 ttgtaaataa tgtccgcaat tatgccctaa taagcgtggc gctctttggt gatcctt
+//
+
