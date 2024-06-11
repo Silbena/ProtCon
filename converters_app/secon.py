@@ -73,7 +73,7 @@ def convert_single_file(in_filepath : str, output_dir: str, format: str, verbose
     converters = conv.registry.initRegistry()
     converter_class = converters.get(converter_key)
     if converter_class is None:
-        log_error(f'Failed to find converter for key for {in_filepath} -> {out_filepath}')
+        log_error(f'Failed to find converter key for {in_filepath} -> {out_filepath}')
         return
     
     converter_obj = converter_class()
@@ -145,7 +145,8 @@ def main():
     parser.run()
 
     if not path.exists(parser.input):
-        log_error(f'The input: {parser.input} does not exist or there is no permission to execute os.stat().')
+        log_error(f'The input {parser.input} does not exist.')
+        return
     
     if path.isdir(parser.input):
         convert_directory(parser.input, parser.output, parser.format, parser.exclude, parser.verbose)

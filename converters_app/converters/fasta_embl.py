@@ -155,10 +155,10 @@ class FastaToEmbl:
                 ctx.log_error("Sequence length is zero.")
                 return
 
-            sequence_stats = self.calculate_sequence_stats(sequence)
-            formatted_sequence = self.format_sequence(sequence)
+            sequence_stats = self.calculate_sequence_stats(sequence, ctx)
+            formatted_sequence = self.format_sequence(sequence, ctx)
 
-            Description, Accession, SV, organism_name, gene_name = self.extract_header_info(header)
+            Description, Accession, SV, organism_name, gene_name = self.extract_header_info(header, ctx)
             
             if not Accession:
                 ctx.log_warning("Accession not found.")
@@ -172,11 +172,11 @@ class FastaToEmbl:
             ctx.write(f"ID   {Accession}; {SV}; ; DNA; ; UNC; {length} BP.\nXX\n")
             ctx.write(f"AC   {Accession};\nXX\n")
 
-            for de_line in self.split_long_lines("DE  ", Description):
+            for de_line in self.split_long_lines("DE  ", Description, ctx):
                 ctx.write(f"{de_line}\n")
 
             ctx.write("XX\n")
-            for os_line in self.split_long_lines("OS  ", organism_name):
+            for os_line in self.split_long_lines("OS  ", organism_name, ctx):
                 ctx.write(f"{os_line}\n")
 
             ctx.write("OC   .\nXX\n")
@@ -217,7 +217,7 @@ class FastaToEmbl:
         
         return header, sequence
 
-    def calculate_sequence_stats(self, sequence):
+    def calculate_sequence_stats(self, sequence, ctx: ConverterContext):
         """
         Calculate statistics for the sequence (A, C, G, T, other counts).
         """
@@ -232,7 +232,7 @@ class FastaToEmbl:
             ctx.log_error(f"Error calculating sequence stats: {e}")
             return 0, 0, 0, 0, 0
 
-    def format_sequence(self, sequence):
+    def format_sequence(self, sequence, ctx: ConverterContext):
         """
         Format the sequence into EMBL format with appropriate line breaks and grouping.
         """
@@ -253,7 +253,7 @@ class FastaToEmbl:
             ctx.log_error(f"Error formatting sequence: {e}")
             return ""
 
-    def split_long_lines(self, prefix, text):
+    def split_long_lines(self, prefix, text, ctx: ConverterContext):
         """
         Split long lines to ensure they do not exceed 80 characters.
         """
@@ -273,7 +273,7 @@ class FastaToEmbl:
             ctx.log_error(f"Error splitting long lines: {e}")
             return []
 
-    def extract_header_info(self, header):
+    def extract_header_info(self, header, ctx: ConverterContext):
         """
         Extract and parse information from the FASTA header.
         """
