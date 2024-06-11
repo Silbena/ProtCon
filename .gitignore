@@ -10,5 +10,6 @@
 !converters_app/converters/*.py
 !converters_app/secon.py
 !converters_app/requirements.txt
+!secon_prez.pdf
 
 !*/
