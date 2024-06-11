@@ -7,7 +7,7 @@ class Parser:
 
         self.format = None
 
-        self.exclude = False
+        self.exclude = ''
         self.verbose = False
 
     def run(self):
@@ -27,6 +27,7 @@ class Parser:
                             type = str,
                             help = 'path to output folder')
         parser.add_argument('-e', '--exclude',
+                            default = '',
                             type = str,
                             help = 'pattern to be excluded from conversion (only for folders)')
         parser.add_argument('-v', '--verbose',
